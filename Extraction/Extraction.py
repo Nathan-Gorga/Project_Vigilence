@@ -8,7 +8,9 @@ def extractChannelsFromXdf(filepath:str, selected_channels:list[int]) -> list[li
     
     extracted_data = []
 
+    size = len(stream)
     for ch in selected_channels:
+        if ch < 0 or ch >= size : raise IndexError(f"stream only has {size} channels, index was {ch}")
         extracted_data.append(stream[:,ch])
     
     return extracted_data

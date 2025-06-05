@@ -12,8 +12,7 @@ from Extraction.Extraction import extractChannelsFromXdf
 
 if __name__ == "__main__":
     filepath :str = r'data\one_blink_nathan.xdf'
-    selected_channels: list[int] = [1,2]
+    selected_channels: list[int] = [1,3]
     
     channels: list[list[float]] = extractChannelsFromXdf(filepath,selected_channels)
     
-    print(channels[0])
