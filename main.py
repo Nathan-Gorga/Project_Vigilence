@@ -6,6 +6,7 @@
 #  4. use type annotation          #
 #  5. plan before coding    	   #
 #  6. unit tests for all functions #
+#  7. Simple Scales, Fancy Fails   #
 ####################################
 
 from extraction.Extraction import extractChannelsFromXdf
@@ -20,10 +21,7 @@ if __name__ == "__main__":
     [ channels, sfreq ] = extractChannelsFromXdf(filepath,selected_channels, extract_sfreq=True)
     
     chosen_channels = arange(0,len(selected_channels))
-    
-    
-    print(channels)
-    
+        
     eog_events = detectChannelsEOGEvents(channels,sfreq)
     
     printData(channels, chosen_channels, viewType="detected_eogs",eog_events=eog_events)
