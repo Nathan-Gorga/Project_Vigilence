@@ -16,7 +16,9 @@ if __name__ == "__main__":
     filepath :str = r'data\one_blink_nathan.xdf'
     selected_channels: list[int] = [1,3]
     
-    channels: list[list[float]] = extractChannelsFromXdf(filepath,selected_channels)
+    [ channels, sfreq ] = extractChannelsFromXdf(filepath,selected_channels)
+    
+    print(sfreq)
     
     chosen_channels = arange(0,len(selected_channels))
     
