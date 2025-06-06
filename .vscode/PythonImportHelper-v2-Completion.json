@@ -33,11 +33,36 @@
         "documentation": {}
     },
     {
+        "label": "matplotlib.pyplot",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "matplotlib.pyplot",
+        "description": "matplotlib.pyplot",
+        "detail": "matplotlib.pyplot",
+        "documentation": {}
+    },
+    {
         "label": "extractChannelsFromXdf",
         "importPath": "extraction.Extraction",
         "description": "extraction.Extraction",
         "isExtraImport": true,
         "detail": "extraction.Extraction",
+        "documentation": {}
+    },
+    {
+        "label": "printData",
+        "importPath": "visualize.Visualize",
+        "description": "visualize.Visualize",
+        "isExtraImport": true,
+        "detail": "visualize.Visualize",
+        "documentation": {}
+    },
+    {
+        "label": "arange",
+        "importPath": "numpy",
+        "description": "numpy",
+        "isExtraImport": true,
+        "detail": "numpy",
         "documentation": {}
     },
     {
@@ -119,6 +144,24 @@
         "description": "extraction.tExtraction",
         "peekOfCode": "mock_time_series = [\n    [0.1, 0.2, 0.3],\n    [0.4, 0.5, 0.6],\n    [0.7, 0.8, 0.9],\n]  # 3 samples, 3 channels\n# ---- Fixtures and Helpers ----\n@pytest.fixture\ndef mock_xdf(monkeypatch):\n    fake_load_xdf = MagicMock(return_value=([\n        {'time_series': mock_time_series}",
         "detail": "extraction.tExtraction",
+        "documentation": {}
+    },
+    {
+        "label": "printChannels",
+        "kind": 2,
+        "importPath": "visualize.Visualize",
+        "description": "visualize.Visualize",
+        "peekOfCode": "def printChannels(channels :list[list[float]]):\n    color = [\"blue\", \"green\", \"red\", \"purple\", \"orange\", \"brown\", \"pink\", \"gray\"]\n    num_channels = len(channels)\n    _, axs = plt.subplots(num_channels, 1, figsize=(10, 3 * num_channels), sharex=True)\n    # If only 1 channel, axs is not a list\n    if num_channels == 1:\n        axs = [axs]\n    for i, data in enumerate(channels):\n        axs[i].plot(range(len(data)), data, color=color[i % len(color)])\n        axs[i].set_ylabel(f\"Channel {i+1}\")",
+        "detail": "visualize.Visualize",
+        "documentation": {}
+    },
+    {
+        "label": "printData",
+        "kind": 2,
+        "importPath": "visualize.Visualize",
+        "description": "visualize.Visualize",
+        "peekOfCode": "def printData(\n    channels :list[list[float]], \n    select_channels, \n    viewType :str=\"channelOnly\", \n    thresh=None\n    ):\n    send_channels = []\n    for i in select_channels:\n        send_channels.append(channels[i])\n    match viewType:",
+        "detail": "visualize.Visualize",
         "documentation": {}
     }
 ]
