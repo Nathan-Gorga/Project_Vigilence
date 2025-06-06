@@ -1,5 +1,5 @@
 import pytest
-from Detection import detectEOGEvent
+from Detection import detectEOGEvents
 
 @pytest.fixture
 def dummy_signal():
@@ -17,7 +17,7 @@ def dummy_signal():
 
 def test_detect_eog_event_runs(dummy_signal):
     signal, sfreq = dummy_signal
-    result = detectEOGEvent(signal, sfreq)
+    result = detectEOGEvents(signal, sfreq)
     
     # Test que la fonction retourne une liste
     assert isinstance(result, list)

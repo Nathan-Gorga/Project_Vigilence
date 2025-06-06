@@ -24,15 +24,16 @@ def printChannels(channels :list[list[float]]):
 
 def printDetectedEOGs(channels : list[list[float]], eog_events):
     
+    assert len(channels) == len(eog_events)
+    
     axs = printChannels(channels)
 
     sizeChannels = len(channels)
-    sizeEvents = len(eog_events)
     sizeColor = len(color)
-
     for i in range(sizeChannels):
+        sizeEvents = len(eog_events[i])
         for j in range(sizeEvents):
-            axs[i].axvline(x=eog_events[j], color=color[((i+1)%sizeColor)] , linestyle='--', linewidth=2)
+            axs[i].axvline(x=eog_events[i][j], color=color[((i+1)%sizeColor)] , linestyle='--', linewidth=2)
     return axs
         
 
