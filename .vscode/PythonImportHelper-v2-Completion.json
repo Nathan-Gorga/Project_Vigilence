@@ -66,15 +66,24 @@
         "documentation": {}
     },
     {
-        "label": "MagicMock",
-        "importPath": "unittest.mock",
-        "description": "unittest.mock",
+        "label": "matplotlib.pyplot",
+        "kind": 6,
         "isExtraImport": true,
-        "detail": "unittest.mock",
+        "importPath": "matplotlib.pyplot",
+        "description": "matplotlib.pyplot",
+        "detail": "matplotlib.pyplot",
         "documentation": {}
     },
     {
         "label": "printChannels",
+        "importPath": "Visualize",
+        "description": "Visualize",
+        "isExtraImport": true,
+        "detail": "Visualize",
+        "documentation": {}
+    },
+    {
+        "label": "printDetectedEOGs",
         "importPath": "Visualize",
         "description": "Visualize",
         "isExtraImport": true,
@@ -87,15 +96,6 @@
         "description": "Visualize",
         "isExtraImport": true,
         "detail": "Visualize",
-        "documentation": {}
-    },
-    {
-        "label": "matplotlib.pyplot",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "matplotlib.pyplot",
-        "description": "matplotlib.pyplot",
-        "detail": "matplotlib.pyplot",
         "documentation": {}
     },
     {
@@ -222,47 +222,65 @@
         "documentation": {}
     },
     {
-        "label": "sample_channels",
+        "label": "dummy_channels",
         "kind": 2,
         "importPath": "visualize.tVisualize",
         "description": "visualize.tVisualize",
-        "peekOfCode": "def sample_channels(n_channels=3, length=10):\n    return [[float(i + j) for j in range(length)] for i in range(n_channels)]\ndef test_print_channels_single_channel(monkeypatch):\n    channels = sample_channels(1)\n    with patch(\"matplotlib.pyplot.subplots\") as mock_subplots:\n        fig = MagicMock()\n        ax = MagicMock()\n        mock_subplots.return_value = (fig, ax)\n        printChannels(channels)\n        mock_subplots.assert_called_once_with(1, 1, figsize=(10, 3), sharex=True)",
+        "peekOfCode": "def dummy_channels():\n    return [\n        [0.1 * i for i in range(10)], \n        [0.2 * i for i in range(10)]\n    ]\n@pytest.fixture\ndef dummy_eog_events():\n    return [2, 5, 8]\n# Test printChannels runs without error\ndef test_print_channels_runs(dummy_channels):",
         "detail": "visualize.tVisualize",
         "documentation": {}
     },
     {
-        "label": "test_print_channels_single_channel",
+        "label": "dummy_eog_events",
         "kind": 2,
         "importPath": "visualize.tVisualize",
         "description": "visualize.tVisualize",
-        "peekOfCode": "def test_print_channels_single_channel(monkeypatch):\n    channels = sample_channels(1)\n    with patch(\"matplotlib.pyplot.subplots\") as mock_subplots:\n        fig = MagicMock()\n        ax = MagicMock()\n        mock_subplots.return_value = (fig, ax)\n        printChannels(channels)\n        mock_subplots.assert_called_once_with(1, 1, figsize=(10, 3), sharex=True)\n        assert ax.plot.called\n        assert ax.scatter.called",
+        "peekOfCode": "def dummy_eog_events():\n    return [2, 5, 8]\n# Test printChannels runs without error\ndef test_print_channels_runs(dummy_channels):\n    axs = printChannels(dummy_channels)\n    assert len(axs) == 2  # We expect 2 subplots for 2 channels\n# Test printDetectedEOGs adds lines\ndef test_print_detected_eogs_runs(dummy_channels, dummy_eog_events):\n    axs = printDetectedEOGs(dummy_channels, dummy_eog_events)\n    assert len(axs) == 2  # Again, 2 channels means 2 subplots",
         "detail": "visualize.tVisualize",
         "documentation": {}
     },
     {
-        "label": "test_print_channels_multiple",
+        "label": "test_print_channels_runs",
         "kind": 2,
         "importPath": "visualize.tVisualize",
         "description": "visualize.tVisualize",
-        "peekOfCode": "def test_print_channels_multiple(monkeypatch):\n    channels = sample_channels(4)\n    with patch(\"matplotlib.pyplot.subplots\") as mock_subplots:\n        fig = MagicMock()\n        axs = [MagicMock() for _ in range(4)]\n        mock_subplots.return_value = (fig, axs)\n        printChannels(channels)\n        assert mock_subplots.call_count == 1\n        for ax in axs:\n            assert ax.plot.called",
+        "peekOfCode": "def test_print_channels_runs(dummy_channels):\n    axs = printChannels(dummy_channels)\n    assert len(axs) == 2  # We expect 2 subplots for 2 channels\n# Test printDetectedEOGs adds lines\ndef test_print_detected_eogs_runs(dummy_channels, dummy_eog_events):\n    axs = printDetectedEOGs(dummy_channels, dummy_eog_events)\n    assert len(axs) == 2  # Again, 2 channels means 2 subplots\n# Test printData in channelOnly mode\ndef test_print_data_channel_only(dummy_channels):\n    with patch(\"matplotlib.pyplot.show\"):",
         "detail": "visualize.tVisualize",
         "documentation": {}
     },
     {
-        "label": "test_print_data_channelOnly",
+        "label": "test_print_detected_eogs_runs",
         "kind": 2,
         "importPath": "visualize.tVisualize",
         "description": "visualize.tVisualize",
-        "peekOfCode": "def test_print_data_channelOnly(monkeypatch):\n    channels = sample_channels(3)\n    with patch(\"matplotlib.pyplot.subplots\") as mock_subplots, \\\n         patch(\"matplotlib.pyplot.tight_layout\") as mock_layout, \\\n         patch(\"matplotlib.pyplot.show\") as mock_show:\n        fig = MagicMock()\n        axs = [MagicMock() for _ in range(2)]\n        mock_subplots.return_value = (fig, axs)\n        printData(channels, [0, 2], viewType=\"channelOnly\")\n        mock_layout.assert_called_once()",
+        "peekOfCode": "def test_print_detected_eogs_runs(dummy_channels, dummy_eog_events):\n    axs = printDetectedEOGs(dummy_channels, dummy_eog_events)\n    assert len(axs) == 2  # Again, 2 channels means 2 subplots\n# Test printData in channelOnly mode\ndef test_print_data_channel_only(dummy_channels):\n    with patch(\"matplotlib.pyplot.show\"):\n        printData(dummy_channels, select_channels=[0, 1], viewType=\"channel_only\")\n# Test printData in detected_eogs mode\ndef test_print_data_detected_eogs(dummy_channels, dummy_eog_events):\n    with patch(\"matplotlib.pyplot.show\"):",
         "detail": "visualize.tVisualize",
         "documentation": {}
     },
     {
-        "label": "test_print_data_invalid_index",
+        "label": "test_print_data_channel_only",
         "kind": 2,
         "importPath": "visualize.tVisualize",
         "description": "visualize.tVisualize",
-        "peekOfCode": "def test_print_data_invalid_index():\n    channels = sample_channels(2)\n    with pytest.raises(IndexError):\n        printData(channels, [5], viewType=\"channelOnly\")",
+        "peekOfCode": "def test_print_data_channel_only(dummy_channels):\n    with patch(\"matplotlib.pyplot.show\"):\n        printData(dummy_channels, select_channels=[0, 1], viewType=\"channel_only\")\n# Test printData in detected_eogs mode\ndef test_print_data_detected_eogs(dummy_channels, dummy_eog_events):\n    with patch(\"matplotlib.pyplot.show\"):\n        printData(\n            dummy_channels,\n            select_channels=[0, 1],\n            viewType=\"detected_eogs\",",
+        "detail": "visualize.tVisualize",
+        "documentation": {}
+    },
+    {
+        "label": "test_print_data_detected_eogs",
+        "kind": 2,
+        "importPath": "visualize.tVisualize",
+        "description": "visualize.tVisualize",
+        "peekOfCode": "def test_print_data_detected_eogs(dummy_channels, dummy_eog_events):\n    with patch(\"matplotlib.pyplot.show\"):\n        printData(\n            dummy_channels,\n            select_channels=[0, 1],\n            viewType=\"detected_eogs\",\n            eog_events=dummy_eog_events\n        )\n# Test printData with invalid viewType\ndef test_print_data_invalid_viewtype(dummy_channels):",
+        "detail": "visualize.tVisualize",
+        "documentation": {}
+    },
+    {
+        "label": "test_print_data_invalid_viewtype",
+        "kind": 2,
+        "importPath": "visualize.tVisualize",
+        "description": "visualize.tVisualize",
+        "peekOfCode": "def test_print_data_invalid_viewtype(dummy_channels):\n    with patch(\"matplotlib.pyplot.show\"):\n        with pytest.raises(ValueError):\n            printData(dummy_channels, select_channels=[0], viewType=\"invalid\")",
         "detail": "visualize.tVisualize",
         "documentation": {}
     },
@@ -289,7 +307,7 @@
         "kind": 2,
         "importPath": "visualize.Visualize",
         "description": "visualize.Visualize",
-        "peekOfCode": "def printData(\n    channels :list[list[float]], \n    select_channels, \n    viewType :str=\"channelOnly\", \n    thresh=None,\n    eog_events=None\n    ):\n    send_channels = []\n    for i in select_channels:\n        send_channels.append(channels[i])",
+        "peekOfCode": "def printData(\n    channels :list[list[float]], \n    select_channels, \n    viewType :str=\"channel_only\", \n    thresh=None,\n    eog_events=None\n    ):\n    viewTypes = [\"channel_only\", \"detected_eogs\"]    \n    if viewType not in viewTypes:\n        raise ValueError(f\"ViewType : {viewType} does not exist, please choose one from the list : {viewTypes}\")",
         "detail": "visualize.Visualize",
         "documentation": {}
     },

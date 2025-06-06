@@ -40,12 +40,18 @@ def printDetectedEOGs(channels : list[list[float]], eog_events):
 def printData(
     channels :list[list[float]], 
     select_channels, 
-    viewType :str="channelOnly", 
+    viewType :str="channel_only", 
     thresh=None,
     eog_events=None
     ):
-    send_channels = []
     
+    viewTypes = ["channel_only", "detected_eogs"]    
+    
+    if viewType not in viewTypes:
+        raise ValueError(f"ViewType : {viewType} does not exist, please choose one from the list : {viewTypes}")
+    
+    send_channels = []
+
     for i in select_channels:
         send_channels.append(channels[i])
         

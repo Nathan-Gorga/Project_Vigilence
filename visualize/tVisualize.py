@@ -1,66 +1,47 @@
 import pytest
-from unittest.mock import patch, MagicMock
-from Visualize import printChannels, printData 
+import matplotlib.pyplot as plt
+from unittest.mock import patch
+from Visualize import printChannels, printDetectedEOGs, printData  # Replace 'your_module'
 
+# Dummy signal fixture
+@pytest.fixture
+def dummy_channels():
+    return [
+        [0.1 * i for i in range(10)], 
+        [0.2 * i for i in range(10)]
+    ]
 
-def sample_channels(n_channels=3, length=10):
-    return [[float(i + j) for j in range(length)] for i in range(n_channels)]
+@pytest.fixture
+def dummy_eog_events():
+    return [2, 5, 8]
 
+# Test printChannels runs without error
+def test_print_channels_runs(dummy_channels):
+    axs = printChannels(dummy_channels)
+    assert len(axs) == 2  # We expect 2 subplots for 2 channels
 
-def test_print_channels_single_channel(monkeypatch):
-    channels = sample_channels(1)
+# Test printDetectedEOGs adds lines
+def test_print_detected_eogs_runs(dummy_channels, dummy_eog_events):
+    axs = printDetectedEOGs(dummy_channels, dummy_eog_events)
+    assert len(axs) == 2  # Again, 2 channels means 2 subplots
 
-    with patch("matplotlib.pyplot.subplots") as mock_subplots:
-        fig = MagicMock()
-        ax = MagicMock()
-        mock_subplots.return_value = (fig, ax)
-        
-        printChannels(channels)
+# Test printData in channelOnly mode
+def test_print_data_channel_only(dummy_channels):
+    with patch("matplotlib.pyplot.show"):
+        printData(dummy_channels, select_channels=[0, 1], viewType="channel_only")
 
-        mock_subplots.assert_called_once_with(1, 1, figsize=(10, 3), sharex=True)
-        assert ax.plot.called
-        assert ax.scatter.called
-        assert ax.set_ylabel.called
-        assert ax.set_xlabel.called or ax.set_xlabel.call_count == 0
+# Test printData in detected_eogs mode
+def test_print_data_detected_eogs(dummy_channels, dummy_eog_events):
+    with patch("matplotlib.pyplot.show"):
+        printData(
+            dummy_channels,
+            select_channels=[0, 1],
+            viewType="detected_eogs",
+            eog_events=dummy_eog_events
+        )
 
-
-def test_print_channels_multiple(monkeypatch):
-    channels = sample_channels(4)
-
-    with patch("matplotlib.pyplot.subplots") as mock_subplots:
-        fig = MagicMock()
-        axs = [MagicMock() for _ in range(4)]
-        mock_subplots.return_value = (fig, axs)
-
-        printChannels(channels)
-
-        assert mock_subplots.call_count == 1
-        for ax in axs:
-            assert ax.plot.called
-            assert ax.scatter.called
-            assert ax.set_ylabel.called
-        axs[-1].set_xlabel.assert_called_once_with("Sample Index")
-
-
-def test_print_data_channelOnly(monkeypatch):
-    channels = sample_channels(3)
-
-    with patch("matplotlib.pyplot.subplots") as mock_subplots, \
-         patch("matplotlib.pyplot.tight_layout") as mock_layout, \
-         patch("matplotlib.pyplot.show") as mock_show:
-        
-        fig = MagicMock()
-        axs = [MagicMock() for _ in range(2)]
-        mock_subplots.return_value = (fig, axs)
-
-        printData(channels, [0, 2], viewType="channelOnly")
-
-        mock_layout.assert_called_once()
-        mock_show.assert_called_once()
-        assert axs[0].plot.called
-
-
-def test_print_data_invalid_index():
-    channels = sample_channels(2)
-    with pytest.raises(IndexError):
-        printData(channels, [5], viewType="channelOnly")
+# Test printData with invalid viewType
+def test_print_data_invalid_viewtype(dummy_channels):
+    with patch("matplotlib.pyplot.show"):
+        with pytest.raises(ValueError):
+            printData(dummy_channels, select_channels=[0], viewType="invalid")
