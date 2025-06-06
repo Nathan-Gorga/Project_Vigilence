@@ -1,12 +1,11 @@
 {
     "filepath": "C:/Users/gorga/CodeProjects/Arduino/Blink/projet_blink/data/one_blink_nathan.xdf",
     "expected": {
-      "outcome": "TRUE_POSITIVE",
-      "blinks": 1
+        "outcome": "TRUE_POSITIVE",
+        "blinks": 1
     },
     "outcome": {
-      "blinks_found": "None",
-      "result": "None"
+        "blinks_found": 2,
+        "result": "FAIL"
     }
-  }
-  
+}

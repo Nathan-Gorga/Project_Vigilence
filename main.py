@@ -16,7 +16,7 @@ from detection.Detection import detectChannelsEOGEvents, removeFalsePositives
 from evaluation.Evaluation import batchTest
 
 if __name__ == "__main__":
-    filepath :str = r'C:\Users\gorga\CodeProjects\Arduino\Blink\projet_blink\data\one_blink_nathan.xdf'
+    filepath :str = r'C:/Users/gorga/CodeProjects/Arduino/Blink/projet_blink/data/one_blink_nathan.xdf'
     selected_channels: list[int] = [1,3]
     
     [ channels, sfreq ] = extractChannelsFromXdf(filepath,selected_channels, extract_sfreq=True)
