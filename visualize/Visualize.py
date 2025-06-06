@@ -12,6 +12,7 @@ def printChannels(channels :list[list[float]]):
 
     for i, data in enumerate(channels):
         axs[i].plot(range(len(data)), data, color=color[i % len(color)])
+        axs[i].scatter(range(len(data)), data, color=color[i % len(color)])
         axs[i].set_ylabel(f"Channel {i+1}")
         axs[i].grid(True)
 

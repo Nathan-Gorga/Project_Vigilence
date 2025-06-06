@@ -151,7 +151,7 @@
         "kind": 2,
         "importPath": "visualize.Visualize",
         "description": "visualize.Visualize",
-        "peekOfCode": "def printChannels(channels :list[list[float]]):\n    color = [\"blue\", \"green\", \"red\", \"purple\", \"orange\", \"brown\", \"pink\", \"gray\"]\n    num_channels = len(channels)\n    _, axs = plt.subplots(num_channels, 1, figsize=(10, 3 * num_channels), sharex=True)\n    # If only 1 channel, axs is not a list\n    if num_channels == 1:\n        axs = [axs]\n    for i, data in enumerate(channels):\n        axs[i].plot(range(len(data)), data, color=color[i % len(color)])\n        axs[i].set_ylabel(f\"Channel {i+1}\")",
+        "peekOfCode": "def printChannels(channels :list[list[float]]):\n    color = [\"blue\", \"green\", \"red\", \"purple\", \"orange\", \"brown\", \"pink\", \"gray\"]\n    num_channels = len(channels)\n    _, axs = plt.subplots(num_channels, 1, figsize=(10, 3 * num_channels), sharex=True)\n    # If only 1 channel, axs is not a list\n    if num_channels == 1:\n        axs = [axs]\n    for i, data in enumerate(channels):\n        axs[i].plot(range(len(data)), data, color=color[i % len(color)])\n        axs[i].scatter(range(len(data)), data, color=color[i % len(color)])",
         "detail": "visualize.Visualize",
         "documentation": {}
     },
