@@ -3,7 +3,7 @@ from mne.preprocessing.eog import _find_eog_events
 
 def detectEOGEvent(channel_data,sfreq): 
     
-    filter_length = f"{len(channel_data)/2}s" 
+    filter_length = f"{len(channel_data)*3}s" 
     
     eog_events = _find_eog_events(
         eog=channel_data,
@@ -18,4 +18,4 @@ def detectEOGEvent(channel_data,sfreq):
         thresh=None,
         verbose=False
     )
-    return [row[0] for row in eog_events]
+    return [int(row[0]) for row in eog_events]
