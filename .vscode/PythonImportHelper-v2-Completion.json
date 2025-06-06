@@ -1,10 +1,35 @@
 [
     {
+        "label": "_find_eog_events",
+        "importPath": "mne.preprocessing.eog",
+        "description": "mne.preprocessing.eog",
+        "isExtraImport": true,
+        "detail": "mne.preprocessing.eog",
+        "documentation": {}
+    },
+    {
         "label": "load_xdf",
         "importPath": "pyxdf",
         "description": "pyxdf",
         "isExtraImport": true,
         "detail": "pyxdf",
+        "documentation": {}
+    },
+    {
+        "label": "numpy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "numpy",
+        "description": "numpy",
+        "detail": "numpy",
+        "documentation": {}
+    },
+    {
+        "label": "arange",
+        "importPath": "numpy",
+        "description": "numpy",
+        "isExtraImport": true,
+        "detail": "numpy",
         "documentation": {}
     },
     {
@@ -82,11 +107,20 @@
         "documentation": {}
     },
     {
-        "label": "arange",
-        "importPath": "numpy",
-        "description": "numpy",
+        "label": "detectEOGEvent",
+        "importPath": "detection.Detection",
+        "description": "detection.Detection",
         "isExtraImport": true,
-        "detail": "numpy",
+        "detail": "detection.Detection",
+        "documentation": {}
+    },
+    {
+        "label": "detectEOGEvent",
+        "kind": 2,
+        "importPath": "detection.Detection",
+        "description": "detection.Detection",
+        "peekOfCode": "def detectEOGEvent(channel_data,sfreq): \n    filter_length = f\"{len(channel_data)/2}s\" \n    eog_events = _find_eog_events(\n        eog=channel_data,\n        ch_names=None,\n        event_id=998,\n        l_freq=1,\n        h_freq=10,\n        sampling_rate=sfreq,\n        first_samp=0,",
+        "detail": "detection.Detection",
         "documentation": {}
     },
     {

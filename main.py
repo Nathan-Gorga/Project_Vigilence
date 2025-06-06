@@ -11,6 +11,7 @@
 from extraction.Extraction import extractChannelsFromXdf
 from visualize.Visualize import printData
 from numpy import arange
+from detection.Detection import detectEOGEvent
 
 if __name__ == "__main__":
     filepath :str = r'data\one_blink_nathan.xdf'
@@ -20,7 +21,5 @@ if __name__ == "__main__":
     
     chosen_channels = arange(0,len(selected_channels))
     
-    print(sfreq)
     
-    #visualize
-    printData(channels,chosen_channels)
+    print(detectEOGEvent(channels,sfreq))

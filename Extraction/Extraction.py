@@ -1,5 +1,5 @@
 from pyxdf import load_xdf
-
+import numpy as np
 
 def extractChannelsFromXdf(filepath:str, selected_channels:list[int], extract_sfreq=False):
 
@@ -19,7 +19,8 @@ def extractChannelsFromXdf(filepath:str, selected_channels:list[int], extract_sf
     for ch in selected_channels:
         
         if ch < 0 or ch >= size : raise IndexError(f"stream only has {size} channels, index was {ch}")
-        extracted_data.append([row[ch] for row in stream])
+        data = np.array([row[ch] for row in stream], dtype=np.float64)
+        extracted_data.append(data)
     
     if extract_sfreq : return [extracted_data, sfreq]
     return extracted_data
