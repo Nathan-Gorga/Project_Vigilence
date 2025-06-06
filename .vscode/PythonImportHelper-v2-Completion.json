@@ -271,7 +271,16 @@
         "kind": 2,
         "importPath": "visualize.Visualize",
         "description": "visualize.Visualize",
-        "peekOfCode": "def printChannels(channels :list[list[float]]):\n    color = [\"blue\", \"green\", \"red\", \"purple\", \"orange\", \"brown\", \"pink\", \"gray\"]\n    num_channels = len(channels)\n    _, axs = plt.subplots(num_channels, 1, figsize=(10, 3 * num_channels), sharex=True)\n    # If only 1 channel, axs is not a list\n    if num_channels == 1:\n        axs = [axs]\n    for i, data in enumerate(channels):\n        axs[i].plot(range(len(data)), data, color=color[i % len(color)])\n        axs[i].scatter(range(len(data)), data, color=color[i % len(color)])",
+        "peekOfCode": "def printChannels(channels :list[list[float]]):\n    num_channels = len(channels)\n    _, axs = plt.subplots(num_channels, 1, figsize=(10, 3 * num_channels), sharex=True)\n    # If only 1 channel, axs is not a list\n    if num_channels == 1:\n        axs = [axs]\n    for i, data in enumerate(channels):\n        axs[i].plot(range(len(data)), data, color=color[i % len(color)])\n        axs[i].scatter(range(len(data)), data, color=color[i % len(color)],s=10)\n        axs[i].set_ylabel(f\"Channel {i+1}\")",
+        "detail": "visualize.Visualize",
+        "documentation": {}
+    },
+    {
+        "label": "printDetectedEOGs",
+        "kind": 2,
+        "importPath": "visualize.Visualize",
+        "description": "visualize.Visualize",
+        "peekOfCode": "def printDetectedEOGs(channels : list[list[float]], eog_events):\n    axs = printChannels(channels)\n    sizeChannels = len(channels)\n    sizeEvents = len(eog_events)\n    sizeColor = len(color)\n    for i in range(sizeChannels):\n        for j in range(sizeEvents):\n            axs[i].axvline(x=eog_events[j], color=color[((i+1)%sizeColor)] , linestyle='--', linewidth=2)\n    return axs\ndef printData(",
         "detail": "visualize.Visualize",
         "documentation": {}
     },
@@ -280,7 +289,16 @@
         "kind": 2,
         "importPath": "visualize.Visualize",
         "description": "visualize.Visualize",
-        "peekOfCode": "def printData(\n    channels :list[list[float]], \n    select_channels, \n    viewType :str=\"channelOnly\", \n    thresh=None\n    ):\n    send_channels = []\n    for i in select_channels:\n        send_channels.append(channels[i])\n    match viewType:",
+        "peekOfCode": "def printData(\n    channels :list[list[float]], \n    select_channels, \n    viewType :str=\"channelOnly\", \n    thresh=None,\n    eog_events=None\n    ):\n    send_channels = []\n    for i in select_channels:\n        send_channels.append(channels[i])",
+        "detail": "visualize.Visualize",
+        "documentation": {}
+    },
+    {
+        "label": "color",
+        "kind": 5,
+        "importPath": "visualize.Visualize",
+        "description": "visualize.Visualize",
+        "peekOfCode": "color = [\"blue\", \"green\", \"red\", \"purple\", \"orange\", \"brown\", \"pink\", \"gray\"]\ndef printChannels(channels :list[list[float]]):\n    num_channels = len(channels)\n    _, axs = plt.subplots(num_channels, 1, figsize=(10, 3 * num_channels), sharex=True)\n    # If only 1 channel, axs is not a list\n    if num_channels == 1:\n        axs = [axs]\n    for i, data in enumerate(channels):\n        axs[i].plot(range(len(data)), data, color=color[i % len(color)])\n        axs[i].scatter(range(len(data)), data, color=color[i % len(color)],s=10)",
         "detail": "visualize.Visualize",
         "documentation": {}
     }

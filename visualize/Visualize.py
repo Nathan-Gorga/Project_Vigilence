@@ -1,7 +1,9 @@
 import matplotlib.pyplot as plt
 
+color = ["blue", "green", "red", "purple", "orange", "brown", "pink", "gray"]
+
+
 def printChannels(channels :list[list[float]]):
-    color = ["blue", "green", "red", "purple", "orange", "brown", "pink", "gray"]
     num_channels = len(channels)
 
     _, axs = plt.subplots(num_channels, 1, figsize=(10, 3 * num_channels), sharex=True)
@@ -12,19 +14,35 @@ def printChannels(channels :list[list[float]]):
 
     for i, data in enumerate(channels):
         axs[i].plot(range(len(data)), data, color=color[i % len(color)])
-        axs[i].scatter(range(len(data)), data, color=color[i % len(color)])
+        axs[i].scatter(range(len(data)), data, color=color[i % len(color)],s=10)
         axs[i].set_ylabel(f"Channel {i+1}")
         axs[i].grid(True)
 
     axs[-1].set_xlabel("Sample Index")
+    return axs
 
+
+def printDetectedEOGs(channels : list[list[float]], eog_events):
+    
+    axs = printChannels(channels)
+
+    sizeChannels = len(channels)
+    sizeEvents = len(eog_events)
+    sizeColor = len(color)
+
+    for i in range(sizeChannels):
+        for j in range(sizeEvents):
+            axs[i].axvline(x=eog_events[j], color=color[((i+1)%sizeColor)] , linestyle='--', linewidth=2)
+    return axs
+        
 
 
 def printData(
     channels :list[list[float]], 
     select_channels, 
     viewType :str="channelOnly", 
-    thresh=None
+    thresh=None,
+    eog_events=None
     ):
     send_channels = []
     
@@ -33,8 +51,9 @@ def printData(
         
     match viewType:
         case "channelOnly":
-            printChannels(send_channels)
-    
+            _ = printChannels(send_channels)
+        case "detected_eogs":
+            _ = printDetectedEOGs(send_channels,eog_events)
     
     plt.tight_layout()
     plt.show()
