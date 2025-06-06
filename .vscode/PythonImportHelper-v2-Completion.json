@@ -8,6 +8,14 @@
         "documentation": {}
     },
     {
+        "label": "BLINK_TIME",
+        "importPath": "include",
+        "description": "include",
+        "isExtraImport": true,
+        "detail": "include",
+        "documentation": {}
+    },
+    {
         "label": "pytest",
         "kind": 6,
         "isExtraImport": true,
@@ -123,10 +131,37 @@
         "documentation": {}
     },
     {
-        "label": "detectEOGEvents",
+        "label": "removeFalsePositives",
         "importPath": "detection.Detection",
         "description": "detection.Detection",
         "isExtraImport": true,
+        "detail": "detection.Detection",
+        "documentation": {}
+    },
+    {
+        "label": "isSamePeak",
+        "kind": 2,
+        "importPath": "detection.Detection",
+        "description": "detection.Detection",
+        "peekOfCode": "def isSamePeak(x1,x2):\n    return (x1 - BLINK_TIME) <= x2 <= (x1 + BLINK_TIME)\ndef eventInChannel(eventA :int, channelB: list[int]):\n    for eventB in channelB:\n        if isSamePeak(eventA,eventB):        \n            return True\n    return False\n# handles 2 data channels right now, can maybe add a third to make a majority \"vote\" on the events\ndef removeFalsePositives(eog_events): \n    chA = eog_events[0]",
+        "detail": "detection.Detection",
+        "documentation": {}
+    },
+    {
+        "label": "eventInChannel",
+        "kind": 2,
+        "importPath": "detection.Detection",
+        "description": "detection.Detection",
+        "peekOfCode": "def eventInChannel(eventA :int, channelB: list[int]):\n    for eventB in channelB:\n        if isSamePeak(eventA,eventB):        \n            return True\n    return False\n# handles 2 data channels right now, can maybe add a third to make a majority \"vote\" on the events\ndef removeFalsePositives(eog_events): \n    chA = eog_events[0]\n    chB = eog_events[1]\n    finA = chA",
+        "detail": "detection.Detection",
+        "documentation": {}
+    },
+    {
+        "label": "removeFalsePositives",
+        "kind": 2,
+        "importPath": "detection.Detection",
+        "description": "detection.Detection",
+        "peekOfCode": "def removeFalsePositives(eog_events): \n    chA = eog_events[0]\n    chB = eog_events[1]\n    finA = chA\n    finB = chB\n    for event in chA:\n        if not eventInChannel(event, chB):\n            finA.remove(event)\n    for event in chB:\n        if not eventInChannel(event, chA):",
         "detail": "detection.Detection",
         "documentation": {}
     },
@@ -135,7 +170,7 @@
         "kind": 2,
         "importPath": "detection.Detection",
         "description": "detection.Detection",
-        "peekOfCode": "def detectEOGEvents(channel_data,sfreq): \n    filter_length = f\"{len(channel_data)}s\" \n    temp = channel_data\n    eog_events = _find_eog_events(\n        eog=temp,\n        ch_names=None,\n        event_id=998,\n        l_freq=1,\n        h_freq=10,\n        sampling_rate=sfreq,",
+        "peekOfCode": "def detectEOGEvents(channel_data,sfreq): \n    filter_length = f\"{len(channel_data)}s\" \n    eog_events = _find_eog_events(\n        eog=channel_data,\n        ch_names=None,\n        event_id=998,\n        l_freq=1,\n        h_freq=10,\n        sampling_rate=sfreq,\n        first_samp=0,",
         "detail": "detection.Detection",
         "documentation": {}
     },
@@ -144,7 +179,7 @@
         "kind": 2,
         "importPath": "detection.Detection",
         "description": "detection.Detection",
-        "peekOfCode": "def detectChannelsEOGEvents(channels,sfreq):\n    ret = []\n    for channel_data in channels:\n        ret.append(detectEOGEvents([channel_data],sfreq))\n    return ret",
+        "peekOfCode": "def detectChannelsEOGEvents(channels,sfreq):\n    ret = []\n    for channel_data in channels:\n        ret.append(detectEOGEvents([channel_data],sfreq))\n    return removeFalsePositives(ret)",
         "detail": "detection.Detection",
         "documentation": {}
     },

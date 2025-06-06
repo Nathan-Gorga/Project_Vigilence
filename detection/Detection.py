@@ -1,13 +1,52 @@
 from mne.preprocessing.eog import _find_eog_events
+from include import BLINK_TIME
 
+
+
+def isSamePeak(x1,x2):
+    return (x1 - BLINK_TIME) <= x2 <= (x1 + BLINK_TIME)
+
+
+def eventInChannel(eventA :int, channelB: list[int]):
+
+    for eventB in channelB:
+
+        if isSamePeak(eventA,eventB):        
+
+            return True
+
+    return False
+
+
+# handles 2 data channels right now, can maybe add a third to make a majority "vote" on the events
+def removeFalsePositives(eog_events): 
+    
+    chA = eog_events[0]
+    chB = eog_events[1]
+
+    finA = chA
+    finB = chB
+    
+    for event in chA:
+        if not eventInChannel(event, chB):
+            finA.remove(event)
+    
+    
+    for event in chB:
+        if not eventInChannel(event, chA):
+            finB.remove(event)
+    
+    return [chA,chB]
+    
+    
 
 def detectEOGEvents(channel_data,sfreq): 
     
     filter_length = f"{len(channel_data)}s" 
     
-    temp = channel_data
+    
     eog_events = _find_eog_events(
-        eog=temp,
+        eog=channel_data,
         ch_names=None,
         event_id=998,
         l_freq=1,
@@ -29,4 +68,4 @@ def detectChannelsEOGEvents(channels,sfreq):
         
         ret.append(detectEOGEvents([channel_data],sfreq))
         
-    return ret
+    return removeFalsePositives(ret)

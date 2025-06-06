@@ -12,7 +12,7 @@
 from extraction.Extraction import extractChannelsFromXdf
 from visualize.Visualize import printData
 from numpy import arange
-from detection.Detection import detectChannelsEOGEvents, detectEOGEvents
+from detection.Detection import detectChannelsEOGEvents, removeFalsePositives
 
 if __name__ == "__main__":
     filepath :str = r'data\sub-nathan_ses-S001_task-clean_blink_calibration_run-001_eeg.xdf'
