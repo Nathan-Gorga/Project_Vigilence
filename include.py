@@ -1,1 +1,1 @@
-BLINK_TIME: int = int(150 /2)
+BLINK_TIME :int = int(150 /2)

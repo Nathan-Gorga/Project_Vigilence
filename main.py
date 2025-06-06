@@ -24,4 +24,6 @@ if __name__ == "__main__":
         
     eog_events = detectChannelsEOGEvents(channels,sfreq)
     
+    # TODO : unit test removeFalsePositives
+    
     printData(channels, chosen_channels, viewType="detected_eogs",eog_events=eog_events)
