@@ -1,5 +1,5 @@
 from mne.preprocessing.eog import _find_eog_events
-from ..include import BLINK_TIME
+from include import BLINK_TIME
 
 
 
@@ -24,12 +24,9 @@ def removeFalsePositives(eog_events):
     chA = eog_events[0]
     chB = eog_events[1]
     
-    print(chA)
-    print(chB)
-    
     
     for event in chA.copy():
-        print(event)
+        
         if not eventInChannel(event, chB):
             chA.remove(event)
     
@@ -71,4 +68,4 @@ def detectChannelsEOGEvents(channels,sfreq):
         
         ret.append(detectEOGEvents([channel_data],sfreq))
         
-    return ret
+    return removeFalsePositives(ret)

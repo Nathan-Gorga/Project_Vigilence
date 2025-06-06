@@ -8,6 +8,14 @@
         "documentation": {}
     },
     {
+        "label": "BLINK_TIME",
+        "importPath": "include",
+        "description": "include",
+        "isExtraImport": true,
+        "detail": "include",
+        "documentation": {}
+    },
+    {
         "label": "pytest",
         "kind": 6,
         "isExtraImport": true,
@@ -144,7 +152,7 @@
         "kind": 2,
         "importPath": "detection.Detection",
         "description": "detection.Detection",
-        "peekOfCode": "def eventInChannel(eventA :int, channelB: list[int]):\n    for eventB in channelB:\n        if isSamePeak(eventA,eventB):        \n            return True\n    return False\n# handles 2 data channels right now, can maybe add a third to make a majority \"vote\" on the events\ndef removeFalsePositives(eog_events): \n    chA = eog_events[0]\n    chB = eog_events[1]\n    print(chA)",
+        "peekOfCode": "def eventInChannel(eventA :int, channelB: list[int]):\n    for eventB in channelB:\n        if isSamePeak(eventA,eventB):        \n            return True\n    return False\n# handles 2 data channels right now, can maybe add a third to make a majority \"vote\" on the events\ndef removeFalsePositives(eog_events): \n    chA = eog_events[0]\n    chB = eog_events[1]\n    for event in chA.copy():",
         "detail": "detection.Detection",
         "documentation": {}
     },
@@ -153,7 +161,7 @@
         "kind": 2,
         "importPath": "detection.Detection",
         "description": "detection.Detection",
-        "peekOfCode": "def removeFalsePositives(eog_events): \n    chA = eog_events[0]\n    chB = eog_events[1]\n    print(chA)\n    print(chB)\n    for event in chA.copy():\n        print(event)\n        if not eventInChannel(event, chB):\n            chA.remove(event)\n    for event in chB.copy():",
+        "peekOfCode": "def removeFalsePositives(eog_events): \n    chA = eog_events[0]\n    chB = eog_events[1]\n    for event in chA.copy():\n        if not eventInChannel(event, chB):\n            chA.remove(event)\n    for event in chB.copy():\n        if not eventInChannel(event, chA):\n            chB.remove(event)\n    return [chA,chB]",
         "detail": "detection.Detection",
         "documentation": {}
     },
@@ -171,7 +179,7 @@
         "kind": 2,
         "importPath": "detection.Detection",
         "description": "detection.Detection",
-        "peekOfCode": "def detectChannelsEOGEvents(channels,sfreq):\n    ret = []\n    for channel_data in channels:\n        ret.append(detectEOGEvents([channel_data],sfreq))\n    return ret",
+        "peekOfCode": "def detectChannelsEOGEvents(channels,sfreq):\n    ret = []\n    for channel_data in channels:\n        ret.append(detectEOGEvents([channel_data],sfreq))\n    return removeFalsePositives(ret)",
         "detail": "detection.Detection",
         "documentation": {}
     },
