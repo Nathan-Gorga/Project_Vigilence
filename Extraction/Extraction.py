@@ -1,18 +1,17 @@
 from pyxdf import load_xdf
 
 
-def extractChannelsFromXdf(filepath:str, selected_channels:list[int]):
+def extractChannelsFromXdf(filepath:str, selected_channels:list[int], extract_sfreq=False):
 
     try :
         dictStreams,_  = load_xdf(filepath)
     except Exception:
         raise FileNotFoundError(f"file : {filepath} does not exist")
     
-    
     stream = dictStreams[0]['time_series']
     
-    
-    sfreq = int(dictStreams[0]['info']['nominal_srate'][0])
+    if extract_sfreq:
+        sfreq = int(dictStreams[0]['info']['nominal_srate'][0])
     
     extracted_data = []
 
@@ -22,4 +21,5 @@ def extractChannelsFromXdf(filepath:str, selected_channels:list[int]):
         if ch < 0 or ch >= size : raise IndexError(f"stream only has {size} channels, index was {ch}")
         extracted_data.append([row[ch] for row in stream])
     
-    return [extracted_data, sfreq]
+    if extract_sfreq : return [extracted_data, sfreq]
+    return extracted_data

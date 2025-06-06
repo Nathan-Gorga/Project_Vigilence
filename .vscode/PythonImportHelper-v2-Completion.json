@@ -102,7 +102,7 @@
         "kind": 2,
         "importPath": "extraction.Extraction",
         "description": "extraction.Extraction",
-        "peekOfCode": "def extractChannelsFromXdf(filepath:str, selected_channels:list[int]):\n    try :\n        dictStreams,_  = load_xdf(filepath)\n    except Exception:\n        raise FileNotFoundError(f\"file : {filepath} does not exist\")\n    stream = dictStreams[0]['time_series']\n    sfreq = int(dictStreams[0]['info']['nominal_srate'][0])\n    extracted_data = []\n    size = len(stream)\n    for ch in selected_channels:",
+        "peekOfCode": "def extractChannelsFromXdf(filepath:str, selected_channels:list[int], extract_sfreq=False):\n    try :\n        dictStreams,_  = load_xdf(filepath)\n    except Exception:\n        raise FileNotFoundError(f\"file : {filepath} does not exist\")\n    stream = dictStreams[0]['time_series']\n    if extract_sfreq:\n        sfreq = int(dictStreams[0]['info']['nominal_srate'][0])\n    extracted_data = []\n    size = len(stream)",
         "detail": "extraction.Extraction",
         "documentation": {}
     },
