@@ -46,7 +46,7 @@ def detectEOGEvents(channel_data,sfreq):
     TOO_SHORT = 2048
     method = "fir"
     
-    signal_length = len(channel_data) #np.array(channel_data).shape[-1] 
+    signal_length = len(channel_data) 
     if signal_length < TOO_SHORT:
         method = "iir"
     

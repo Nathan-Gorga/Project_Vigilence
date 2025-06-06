@@ -51,7 +51,7 @@ def oneTest(json_path: str) -> bool:
     elif expected_outcome == "TRUE_NEGATIVE":
         test_passed =  0 == num_events
     else:
-        raise ValueError(f"Valeur de vérité inconnue: {expected_outcome}")
+        raise ValueError(f"Truth value unknown: {expected_outcome}")
 
 
     test_data["outcome"] = {
@@ -63,18 +63,16 @@ def oneTest(json_path: str) -> bool:
         json.dump(test_data, f, indent=4)
 
     if not test_passed:
-        print(f"❌ Test échoué pour {filepath}")
-        print(f"   Attendu : {expected_blinks} blinks, Détecté : {num_events}")
+        print(f"❌ Test failed for {filepath}")
+        print(f"   Expected : {expected_blinks} blinks, Detected : {num_events}")
     else:
-        print(f"✅ Test réussi pour {filepath}")
+        print(f"✅ Test passed for {filepath}")
 
     return test_passed
 
 
 def batchTest(json_folder: str):
-    """
-    Lance tous les tests dans le dossier json_folder
-    """
+    
     folder = Path(json_folder)
     json_files = list(folder.glob("*.json"))
 
@@ -87,6 +85,6 @@ def batchTest(json_folder: str):
         else:
             failures += 1
 
-    print(f"\nRésultat global : {successes} succès, {failures} échecs sur {len(json_files)} tests")
+    print(f"\nSuccess rate : {successes*100/(successes + failures)} % | {successes} successes, {failures} failures for {len(json_files)} tests")
 
 
