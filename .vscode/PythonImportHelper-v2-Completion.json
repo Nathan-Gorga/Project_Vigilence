@@ -8,6 +8,23 @@
         "documentation": {}
     },
     {
+        "label": "pytest",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pytest",
+        "description": "pytest",
+        "detail": "pytest",
+        "documentation": {}
+    },
+    {
+        "label": "detectEOGEvent",
+        "importPath": "Detection",
+        "description": "Detection",
+        "isExtraImport": true,
+        "detail": "Detection",
+        "documentation": {}
+    },
+    {
         "label": "load_xdf",
         "importPath": "pyxdf",
         "description": "pyxdf",
@@ -30,15 +47,6 @@
         "description": "numpy",
         "isExtraImport": true,
         "detail": "numpy",
-        "documentation": {}
-    },
-    {
-        "label": "pytest",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "pytest",
-        "description": "pytest",
-        "detail": "pytest",
         "documentation": {}
     },
     {
@@ -119,8 +127,26 @@
         "kind": 2,
         "importPath": "detection.Detection",
         "description": "detection.Detection",
-        "peekOfCode": "def detectEOGEvent(channel_data,sfreq): \n    filter_length = f\"{len(channel_data)/2}s\" \n    eog_events = _find_eog_events(\n        eog=channel_data,\n        ch_names=None,\n        event_id=998,\n        l_freq=1,\n        h_freq=10,\n        sampling_rate=sfreq,\n        first_samp=0,",
+        "peekOfCode": "def detectEOGEvent(channel_data,sfreq): \n    filter_length = f\"{len(channel_data)*3}s\" \n    eog_events = _find_eog_events(\n        eog=channel_data,\n        ch_names=None,\n        event_id=998,\n        l_freq=1,\n        h_freq=10,\n        sampling_rate=sfreq,\n        first_samp=0,",
         "detail": "detection.Detection",
+        "documentation": {}
+    },
+    {
+        "label": "dummy_signal",
+        "kind": 2,
+        "importPath": "detection.tDetection",
+        "description": "detection.tDetection",
+        "peekOfCode": "def dummy_signal():\n    # Un signal factice avec des \"blinks\" visibles\n    sfreq = 250  # Hz\n    import numpy as np\n    duration = 5  # 2 sec\n    n_samples = sfreq * duration\n    signal = [0.0] * n_samples\n    # Ajout de 3 blinks simulés\n    signal[100] = 5.0\n    signal[500] = 6.0",
+        "detail": "detection.tDetection",
+        "documentation": {}
+    },
+    {
+        "label": "test_detect_eog_event_runs",
+        "kind": 2,
+        "importPath": "detection.tDetection",
+        "description": "detection.tDetection",
+        "peekOfCode": "def test_detect_eog_event_runs(dummy_signal):\n    signal, sfreq = dummy_signal\n    result = detectEOGEvent(signal, sfreq)\n    # Test que la fonction retourne une liste\n    assert isinstance(result, list)\n    # Test que tous les éléments sont des entiers\n    assert all(isinstance(x, int) for x in result)",
+        "detail": "detection.tDetection",
         "documentation": {}
     },
     {

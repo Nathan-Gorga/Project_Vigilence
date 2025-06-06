@@ -14,7 +14,7 @@ from numpy import arange
 from detection.Detection import detectEOGEvent
 
 if __name__ == "__main__":
-    filepath :str = r'data\one_blink_nathan.xdf'
+    filepath :str = r'data\sub-nathan_ses-S001_task-clean_blink_calibration_run-001_eeg.xdf'
     selected_channels: list[int] = [1,3]
     
     [ channels, sfreq ] = extractChannelsFromXdf(filepath,selected_channels, extract_sfreq=True)
