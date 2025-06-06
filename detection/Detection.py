@@ -1,10 +1,10 @@
 from mne.preprocessing.eog import _find_eog_events
-from include import BLINK_TIME
+from include import TOLERANCE
 
 
 
 def isSamePeak(x1,x2):
-    return (x1 - BLINK_TIME) <= x2 <= (x1 + BLINK_TIME)
+    return (x1 - TOLERANCE) <= x2 <= (x1 + TOLERANCE)
 
 
 def eventInChannel(eventA :int, channelB: list[int]):
@@ -24,7 +24,6 @@ def removeFalsePositives(eog_events):
     chA = eog_events[0]
     chB = eog_events[1]
     
-    
     for event in chA.copy():
         
         if not eventInChannel(event, chB):
@@ -35,6 +34,8 @@ def removeFalsePositives(eog_events):
         
         if not eventInChannel(event, chA):
             chB.remove(event)
+    
+    # assert len(chA) == len(chB)
     
     return [chA,chB]
     

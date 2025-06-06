@@ -1,0 +1,11 @@
+{
+  "filepath": "C:/Users/gorga/CodeProjects/Arduino/Blink/projet_blink/data/fast_three_blinks_nathan.xdf",
+  "expected": {
+    "outcome": "TRUE_POSITIVE",
+    "blinks": 3
+  },
+  "outcome": {
+    "blinks_found": "None",
+    "result": "None"
+  }
+}

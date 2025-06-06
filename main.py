@@ -13,9 +13,10 @@ from extraction.Extraction import extractChannelsFromXdf
 from visualize.Visualize import printData
 from numpy import arange
 from detection.Detection import detectChannelsEOGEvents, removeFalsePositives
+from evaluation.Evaluation import batchTest
 
 if __name__ == "__main__":
-    filepath :str = r'data\sub-nathan_ses-S001_task-clean_blink_calibration_run-001_eeg.xdf'
+    filepath :str = r'C:\Users\gorga\CodeProjects\Arduino\Blink\projet_blink\data\one_blink_nathan.xdf'
     selected_channels: list[int] = [1,3]
     
     [ channels, sfreq ] = extractChannelsFromXdf(filepath,selected_channels, extract_sfreq=True)
@@ -23,5 +24,8 @@ if __name__ == "__main__":
     chosen_channels = arange(0,len(selected_channels))
         
     eog_events = detectChannelsEOGEvents(channels,sfreq)
-        
+    
     printData(channels, chosen_channels, viewType="detected_eogs",eog_events=eog_events)
+    
+    # folder_path = r'evaluation\json_folder'
+    # batchTest(folder_path)
