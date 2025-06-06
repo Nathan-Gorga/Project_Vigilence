@@ -102,7 +102,7 @@
         "kind": 2,
         "importPath": "extraction.Extraction",
         "description": "extraction.Extraction",
-        "peekOfCode": "def extractChannelsFromXdf(filepath:str, selected_channels:list[int]) -> list[list[float]]:\n    try :\n        dictStreams,_  = load_xdf(filepath)\n    except Exception:\n        raise FileNotFoundError(f\"file : {filepath} does not exist\")\n    stream = dictStreams[0]['time_series']\n    extracted_data = []\n    size = len(stream)\n    for ch in selected_channels:\n        if ch < 0 or ch >= size : raise IndexError(f\"stream only has {size} channels, index was {ch}\")",
+        "peekOfCode": "def extractChannelsFromXdf(filepath:str, selected_channels:list[int]) -> list[list[float]]:\n    try :\n        dictStreams,_  = load_xdf(filepath)\n    except Exception:\n        raise FileNotFoundError(f\"file : {filepath} does not exist\")\n    print(dictStreams)\n    stream = dictStreams[0]['time_series']\n    extracted_data = []\n    size = len(stream)\n    for ch in selected_channels:",
         "detail": "extraction.Extraction",
         "documentation": {}
     },

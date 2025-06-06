@@ -7,6 +7,8 @@ def extractChannelsFromXdf(filepath:str, selected_channels:list[int]) -> list[li
     except Exception:
         raise FileNotFoundError(f"file : {filepath} does not exist")
     
+    print(dictStreams)
+    
     stream = dictStreams[0]['time_series']
     
     extracted_data = []
