@@ -1,6 +1,6 @@
 from mne.preprocessing.eog import _find_eog_events
 from include import TOLERANCE
-
+import numpy as np
 
 
 def isSamePeak(x1,x2):
@@ -41,10 +41,14 @@ def removeFalsePositives(eog_events):
     
     
 
-def detectEOGEvents(channel_data,sfreq): 
+def detectEOGEvents(channel_data,sfreq):     
     
-    filter_length = f"{len(channel_data)}s" 
+    TOO_SHORT = 2048
+    method = "fir"
     
+    signal_length = len(channel_data) #np.array(channel_data).shape[-1] 
+    if signal_length < TOO_SHORT:
+        method = "iir"
     
     eog_events = _find_eog_events(
         eog=channel_data,
@@ -54,10 +58,11 @@ def detectEOGEvents(channel_data,sfreq):
         h_freq=10,
         sampling_rate=sfreq,
         first_samp=0,
-        filter_length="10s",
+        filter_length="auto",
         tstart=0,
         thresh=None,
-        verbose=False
+        verbose=False,
+        filetering_method=method
     )
     return [int(row[0]) for row in eog_events]
 

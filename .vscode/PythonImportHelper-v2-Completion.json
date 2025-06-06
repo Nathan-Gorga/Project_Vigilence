@@ -16,6 +16,31 @@
         "documentation": {}
     },
     {
+        "label": "numpy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "numpy",
+        "description": "numpy",
+        "detail": "numpy",
+        "documentation": {}
+    },
+    {
+        "label": "arange",
+        "importPath": "numpy",
+        "description": "numpy",
+        "isExtraImport": true,
+        "detail": "numpy",
+        "documentation": {}
+    },
+    {
+        "label": "arange",
+        "importPath": "numpy",
+        "description": "numpy",
+        "isExtraImport": true,
+        "detail": "numpy",
+        "documentation": {}
+    },
+    {
         "label": "pytest",
         "kind": 6,
         "isExtraImport": true,
@@ -47,31 +72,6 @@
         "description": "pathlib",
         "isExtraImport": true,
         "detail": "pathlib",
-        "documentation": {}
-    },
-    {
-        "label": "numpy",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "numpy",
-        "description": "numpy",
-        "detail": "numpy",
-        "documentation": {}
-    },
-    {
-        "label": "arange",
-        "importPath": "numpy",
-        "description": "numpy",
-        "isExtraImport": true,
-        "detail": "numpy",
-        "documentation": {}
-    },
-    {
-        "label": "arange",
-        "importPath": "numpy",
-        "description": "numpy",
-        "isExtraImport": true,
-        "detail": "numpy",
         "documentation": {}
     },
     {
@@ -219,7 +219,7 @@
         "kind": 2,
         "importPath": "detection.Detection",
         "description": "detection.Detection",
-        "peekOfCode": "def detectEOGEvents(channel_data,sfreq): \n    filter_length = f\"{len(channel_data)}s\" \n    eog_events = _find_eog_events(\n        eog=channel_data,\n        ch_names=None,\n        event_id=998,\n        l_freq=1,\n        h_freq=10,\n        sampling_rate=sfreq,\n        first_samp=0,",
+        "peekOfCode": "def detectEOGEvents(channel_data,sfreq):     \n    TOO_SHORT = 2048\n    method = \"fir\"\n    signal_length = len(channel_data) #np.array(channel_data).shape[-1] \n    if signal_length < TOO_SHORT:\n        method = \"iir\"\n    eog_events = _find_eog_events(\n        eog=channel_data,\n        ch_names=None,\n        event_id=998,",
         "detail": "detection.Detection",
         "documentation": {}
     },
