@@ -11,7 +11,7 @@ def extractChannelsFromXdf(filepath:str, selected_channels:list[int], extract_sf
     stream = dictStreams[0]['time_series']
     
     if extract_sfreq:
-        sfreq = int(dictStreams[0]['info']['nominal_srate'][0])
+        sfreq = float(dictStreams[0]['info']['nominal_srate'][0])
     
     extracted_data = []
 
