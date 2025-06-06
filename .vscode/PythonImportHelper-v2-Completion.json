@@ -33,6 +33,38 @@
         "documentation": {}
     },
     {
+        "label": "patch",
+        "importPath": "unittest.mock",
+        "description": "unittest.mock",
+        "isExtraImport": true,
+        "detail": "unittest.mock",
+        "documentation": {}
+    },
+    {
+        "label": "MagicMock",
+        "importPath": "unittest.mock",
+        "description": "unittest.mock",
+        "isExtraImport": true,
+        "detail": "unittest.mock",
+        "documentation": {}
+    },
+    {
+        "label": "printChannels",
+        "importPath": "Visualize",
+        "description": "Visualize",
+        "isExtraImport": true,
+        "detail": "Visualize",
+        "documentation": {}
+    },
+    {
+        "label": "printData",
+        "importPath": "Visualize",
+        "description": "Visualize",
+        "isExtraImport": true,
+        "detail": "Visualize",
+        "documentation": {}
+    },
+    {
         "label": "matplotlib.pyplot",
         "kind": 6,
         "isExtraImport": true,
@@ -144,6 +176,51 @@
         "description": "extraction.tExtraction",
         "peekOfCode": "mock_time_series = [\n    [0.1, 0.2, 0.3],\n    [0.4, 0.5, 0.6],\n    [0.7, 0.8, 0.9],\n]  # 3 samples, 3 channels\n# ---- Fixtures and Helpers ----\n@pytest.fixture\ndef mock_xdf(monkeypatch):\n    fake_load_xdf = MagicMock(return_value=([\n        {'time_series': mock_time_series}",
         "detail": "extraction.tExtraction",
+        "documentation": {}
+    },
+    {
+        "label": "sample_channels",
+        "kind": 2,
+        "importPath": "visualize.tVisualize",
+        "description": "visualize.tVisualize",
+        "peekOfCode": "def sample_channels(n_channels=3, length=10):\n    return [[float(i + j) for j in range(length)] for i in range(n_channels)]\ndef test_print_channels_single_channel(monkeypatch):\n    channels = sample_channels(1)\n    with patch(\"matplotlib.pyplot.subplots\") as mock_subplots:\n        fig = MagicMock()\n        ax = MagicMock()\n        mock_subplots.return_value = (fig, ax)\n        printChannels(channels)\n        mock_subplots.assert_called_once_with(1, 1, figsize=(10, 3), sharex=True)",
+        "detail": "visualize.tVisualize",
+        "documentation": {}
+    },
+    {
+        "label": "test_print_channels_single_channel",
+        "kind": 2,
+        "importPath": "visualize.tVisualize",
+        "description": "visualize.tVisualize",
+        "peekOfCode": "def test_print_channels_single_channel(monkeypatch):\n    channels = sample_channels(1)\n    with patch(\"matplotlib.pyplot.subplots\") as mock_subplots:\n        fig = MagicMock()\n        ax = MagicMock()\n        mock_subplots.return_value = (fig, ax)\n        printChannels(channels)\n        mock_subplots.assert_called_once_with(1, 1, figsize=(10, 3), sharex=True)\n        assert ax.plot.called\n        assert ax.scatter.called",
+        "detail": "visualize.tVisualize",
+        "documentation": {}
+    },
+    {
+        "label": "test_print_channels_multiple",
+        "kind": 2,
+        "importPath": "visualize.tVisualize",
+        "description": "visualize.tVisualize",
+        "peekOfCode": "def test_print_channels_multiple(monkeypatch):\n    channels = sample_channels(4)\n    with patch(\"matplotlib.pyplot.subplots\") as mock_subplots:\n        fig = MagicMock()\n        axs = [MagicMock() for _ in range(4)]\n        mock_subplots.return_value = (fig, axs)\n        printChannels(channels)\n        assert mock_subplots.call_count == 1\n        for ax in axs:\n            assert ax.plot.called",
+        "detail": "visualize.tVisualize",
+        "documentation": {}
+    },
+    {
+        "label": "test_print_data_channelOnly",
+        "kind": 2,
+        "importPath": "visualize.tVisualize",
+        "description": "visualize.tVisualize",
+        "peekOfCode": "def test_print_data_channelOnly(monkeypatch):\n    channels = sample_channels(3)\n    with patch(\"matplotlib.pyplot.subplots\") as mock_subplots, \\\n         patch(\"matplotlib.pyplot.tight_layout\") as mock_layout, \\\n         patch(\"matplotlib.pyplot.show\") as mock_show:\n        fig = MagicMock()\n        axs = [MagicMock() for _ in range(2)]\n        mock_subplots.return_value = (fig, axs)\n        printData(channels, [0, 2], viewType=\"channelOnly\")\n        mock_layout.assert_called_once()",
+        "detail": "visualize.tVisualize",
+        "documentation": {}
+    },
+    {
+        "label": "test_print_data_invalid_index",
+        "kind": 2,
+        "importPath": "visualize.tVisualize",
+        "description": "visualize.tVisualize",
+        "peekOfCode": "def test_print_data_invalid_index():\n    channels = sample_channels(2)\n    with pytest.raises(IndexError):\n        printData(channels, [5], viewType=\"channelOnly\")",
+        "detail": "visualize.tVisualize",
         "documentation": {}
     },
     {
