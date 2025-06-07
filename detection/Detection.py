@@ -3,56 +3,19 @@ from include import TOLERANCE
 import numpy as np
 
 
-def isSameEvent(x1 :int,x2 :int):
+def isSamePeak(x1,x2):
     return (x1 - TOLERANCE) <= x2 <= (x1 + TOLERANCE)
 
 
-def mergeEvents(event1 :int, event2 :int, channel :list[int]):
-    #create new event
-    newEvent = int(np.mean(event1,event2))
-
-    #store old event index
-    leastEvent = event1 if event1 < event2 else event2
-    
-    oldIndex = channel.index(leastEvent)
-    
-    #remove old events
-    
-    channel.remove(event1)
-    channel.remove(event2)
-    
-    #store new event at old event index
-    channel.insert(oldIndex,newEvent)
-    
-    return channel
-    
-    
-
 def eventInChannel(eventA :int, channelB: list[int]):
 
-    if len(channelB) == 0: return False
-    
-    flag = False
-    
-    previous = channelB[0]
-    
-    # condition if channelB only has 1 event
-    if len(channelB) == 1 and isSameEvent(eventA,previous): return True
-    
-    for eventB in channelB[1:].copy():
+    for eventB in channelB:
 
-        if isSameEvent(eventA,eventB):        
-        
-            if isSameEvent(eventA, previous):
-        
-                channelB = mergeEvents(previous,eventB,channelB)
-        
-            flag = True
-        
-        previous = eventB
-        
-        
-    return flag
+        if isSamePeak(eventA,eventB):        
+
+            return True
+
+    return False
 
 
 # handles 2 data channels right now, can maybe add a third to make a majority "vote" on the events
@@ -60,8 +23,6 @@ def removeFalsePositives(eog_events):
     
     chA = eog_events[0]
     chB = eog_events[1]
-    print(chA)
-    print(chB)
     
     for event in chA.copy():
         
@@ -74,10 +35,7 @@ def removeFalsePositives(eog_events):
         if not eventInChannel(event, chA):
             chB.remove(event)
     
-    assert len(chA) == len(chB)
-    
-    print(chA)
-    print(chB)
+    # assert len(chA) == len(chB)
     
     return [chA,chB]
     
