@@ -25,6 +25,14 @@
         "documentation": {}
     },
     {
+        "label": "max",
+        "importPath": "numpy",
+        "description": "numpy",
+        "isExtraImport": true,
+        "detail": "numpy",
+        "documentation": {}
+    },
+    {
         "label": "arange",
         "importPath": "numpy",
         "description": "numpy",
@@ -33,7 +41,31 @@
         "documentation": {}
     },
     {
+        "label": "TOLERANCE",
+        "importPath": "include",
+        "description": "include",
+        "isExtraImport": true,
+        "detail": "include",
+        "documentation": {}
+    },
+    {
+        "label": "TOLERANCE",
+        "importPath": "include",
+        "description": "include",
+        "isExtraImport": true,
+        "detail": "include",
+        "documentation": {}
+    },
+    {
         "label": "isSameEvent",
+        "importPath": "utils.Utils",
+        "description": "utils.Utils",
+        "isExtraImport": true,
+        "detail": "utils.Utils",
+        "documentation": {}
+    },
+    {
+        "label": "localMaximumIndex",
         "importPath": "utils.Utils",
         "description": "utils.Utils",
         "isExtraImport": true,
@@ -139,14 +171,6 @@
         "documentation": {}
     },
     {
-        "label": "TOLERANCE",
-        "importPath": "include",
-        "description": "include",
-        "isExtraImport": true,
-        "detail": "include",
-        "documentation": {}
-    },
-    {
         "label": "matplotlib.pyplot",
         "kind": 6,
         "isExtraImport": true,
@@ -227,7 +251,7 @@
         "kind": 2,
         "importPath": "detection.Detection",
         "description": "detection.Detection",
-        "peekOfCode": "def detectEOGEvents(channel_data,sfreq):     \n    TOO_SHORT = 2048\n    method = \"fir\"\n    signal_length = len(channel_data) \n    if signal_length < TOO_SHORT:\n        method = \"iir\"\n    eog_events = _find_eog_events(\n        eog=channel_data,\n        ch_names=None,\n        event_id=998,",
+        "peekOfCode": "def detectEOGEvents(channel_data,sfreq):     \n    FILTER_LENGTH = 2048\n    method = \"fir\"\n    signal_length = len(channel_data) \n    if signal_length < FILTER_LENGTH:\n        method = \"iir\"\n    eog_events = _find_eog_events(\n        eog=[channel_data.copy()],\n        ch_names=None,\n        event_id=998,",
         "detail": "detection.Detection",
         "documentation": {}
     },
@@ -236,7 +260,7 @@
         "kind": 2,
         "importPath": "detection.Detection",
         "description": "detection.Detection",
-        "peekOfCode": "def detectChannelsEOGEvents(channels,sfreq):\n    ret = []\n    for channel_data in channels:\n        ret.append(detectEOGEvents([channel_data],sfreq))\n    return removeFalsePositives(ret)",
+        "peekOfCode": "def detectChannelsEOGEvents(channels,sfreq):\n    ret = []\n    for channel_data in channels:\n        ret.append(detectEOGEvents(channel_data,sfreq))\n    return removeFalsePositives(ret)",
         "detail": "detection.Detection",
         "documentation": {}
     },
@@ -452,7 +476,7 @@
         "kind": 2,
         "importPath": "utils.Utils",
         "description": "utils.Utils",
-        "peekOfCode": "def isSameEvent(x1 :int,x2 :int):\n    return (x1 - TOLERANCE) <= x2 <= (x1 + TOLERANCE)\ndef findLocalMaximum(buffer :list[int]):\n    return max(buffer)",
+        "peekOfCode": "def isSameEvent(x1 :int,x2 :int):\n    return (x1 - TOLERANCE) <= x2 <= (x1 + TOLERANCE)\ndef findLocalMaximum(buffer :list[int]):\n    if buffer == []: raise ValueError(\"Provided buffer is empty\")\n    return max(buffer)\ndef localMaximumIndex(buffer :list[int], offset : int = 0):\n    return offset + buffer.index(findLocalMaximum(buffer))",
         "detail": "utils.Utils",
         "documentation": {}
     },
@@ -461,7 +485,16 @@
         "kind": 2,
         "importPath": "utils.Utils",
         "description": "utils.Utils",
-        "peekOfCode": "def findLocalMaximum(buffer :list[int]):\n    return max(buffer)",
+        "peekOfCode": "def findLocalMaximum(buffer :list[int]):\n    if buffer == []: raise ValueError(\"Provided buffer is empty\")\n    return max(buffer)\ndef localMaximumIndex(buffer :list[int], offset : int = 0):\n    return offset + buffer.index(findLocalMaximum(buffer))",
+        "detail": "utils.Utils",
+        "documentation": {}
+    },
+    {
+        "label": "localMaximumIndex",
+        "kind": 2,
+        "importPath": "utils.Utils",
+        "description": "utils.Utils",
+        "peekOfCode": "def localMaximumIndex(buffer :list[int], offset : int = 0):\n    return offset + buffer.index(findLocalMaximum(buffer))",
         "detail": "utils.Utils",
         "documentation": {}
     },

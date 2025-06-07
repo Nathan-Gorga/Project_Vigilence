@@ -1,9 +1,8 @@
 from mne.preprocessing.eog import _find_eog_events
 import numpy as np
 
-
-from utils.Utils import isSameEvent
-
+from include import TOLERANCE
+from utils.Utils import  isSameEvent, localMaximumIndex
 
 
 
@@ -80,15 +79,19 @@ def removeFalsePositives(eog_events):
 
 def detectEOGEvents(channel_data,sfreq):     
     
-    TOO_SHORT = 2048
+    
+    
+    FILTER_LENGTH = 2048
     method = "fir"
     
     signal_length = len(channel_data) 
-    if signal_length < TOO_SHORT:
+    
+    
+    if signal_length < FILTER_LENGTH:
         method = "iir"
     
     eog_events = _find_eog_events(
-        eog=channel_data,
+        eog=[channel_data.copy()],
         ch_names=None,
         event_id=998,
         l_freq=1,
@@ -100,8 +103,24 @@ def detectEOGEvents(channel_data,sfreq):
         thresh=None,
         verbose=False,
         filetering_method=method
-    )
-    return [int(row[0]) for row in eog_events]
+    )    
+
+    
+    finals = []
+    
+    for row in eog_events:
+    
+        bMin = max(row[0] - TOLERANCE, 0)
+        bMax = min(row[0] + TOLERANCE, signal_length - 1)
+
+        buffer = list(channel_data[bMin : bMax])
+
+        
+        index = localMaximumIndex(buffer,bMin)
+        
+        finals.append(index)
+
+    return finals
 
 
 def detectChannelsEOGEvents(channels,sfreq):
@@ -109,6 +128,6 @@ def detectChannelsEOGEvents(channels,sfreq):
     
     for channel_data in channels:
         
-        ret.append(detectEOGEvents([channel_data],sfreq))
+        ret.append(detectEOGEvents(channel_data,sfreq))
         
     return removeFalsePositives(ret)
