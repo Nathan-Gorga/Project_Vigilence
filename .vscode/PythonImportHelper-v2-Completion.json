@@ -452,7 +452,16 @@
         "kind": 2,
         "importPath": "utils.Utils",
         "description": "utils.Utils",
-        "peekOfCode": "def isSameEvent(x1 :int,x2 :int):\n    return (x1 - TOLERANCE) <= x2 <= (x1 + TOLERANCE)",
+        "peekOfCode": "def isSameEvent(x1 :int,x2 :int):\n    return (x1 - TOLERANCE) <= x2 <= (x1 + TOLERANCE)\ndef findLocalMaximum(buffer :list[int]):\n    return max(buffer)",
+        "detail": "utils.Utils",
+        "documentation": {}
+    },
+    {
+        "label": "findLocalMaximum",
+        "kind": 2,
+        "importPath": "utils.Utils",
+        "description": "utils.Utils",
+        "peekOfCode": "def findLocalMaximum(buffer :list[int]):\n    return max(buffer)",
         "detail": "utils.Utils",
         "documentation": {}
     },
