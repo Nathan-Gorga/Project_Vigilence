@@ -81,7 +81,7 @@ def detectEOGEvents(channel_data,sfreq):
     
     
     
-    FILTER_LENGTH = 2048
+    FILTER_LENGTH = 2480
     method = "fir"
     
     signal_length = len(channel_data) 
@@ -105,7 +105,7 @@ def detectEOGEvents(channel_data,sfreq):
         filetering_method=method
     )    
 
-    
+    # adjust detection to local maximum
     finals = []
     
     for row in eog_events:

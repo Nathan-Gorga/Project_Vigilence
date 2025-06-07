@@ -139,14 +139,6 @@
         "documentation": {}
     },
     {
-        "label": "removeFalsePositives",
-        "importPath": "detection.Detection",
-        "description": "detection.Detection",
-        "isExtraImport": true,
-        "detail": "detection.Detection",
-        "documentation": {}
-    },
-    {
         "label": "load_xdf",
         "importPath": "pyxdf",
         "description": "pyxdf",
@@ -251,7 +243,7 @@
         "kind": 2,
         "importPath": "detection.Detection",
         "description": "detection.Detection",
-        "peekOfCode": "def detectEOGEvents(channel_data,sfreq):     \n    FILTER_LENGTH = 2048\n    method = \"fir\"\n    signal_length = len(channel_data) \n    if signal_length < FILTER_LENGTH:\n        method = \"iir\"\n    eog_events = _find_eog_events(\n        eog=[channel_data.copy()],\n        ch_names=None,\n        event_id=998,",
+        "peekOfCode": "def detectEOGEvents(channel_data,sfreq):     \n    FILTER_LENGTH = 2480\n    method = \"fir\"\n    signal_length = len(channel_data) \n    if signal_length < FILTER_LENGTH:\n        method = \"iir\"\n    eog_events = _find_eog_events(\n        eog=[channel_data.copy()],\n        ch_names=None,\n        event_id=998,",
         "detail": "detection.Detection",
         "documentation": {}
     },
