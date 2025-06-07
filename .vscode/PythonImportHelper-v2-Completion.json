@@ -210,7 +210,7 @@
         "kind": 2,
         "importPath": "detection.Detection",
         "description": "detection.Detection",
-        "peekOfCode": "def eventInChannel(eventA :int, channelB: list[int]):\n    if len(channelB) == 0: return False\n    flag = False\n    previous = -1 # should not be called the very first time so not a problem\n    # condition if channelB only has 1 event\n    if len(channelB) == 1 and isSameEvent(eventA,previous): return True\n    for eventB in channelB.copy():\n        if isSameEvent(eventA,eventB):        \n            if isSameEvent(eventA, previous):\n                channelB = mergeEvents(previous,eventB,channelB)",
+        "peekOfCode": "def eventInChannel(eventA :int, channelB: list[int]):\n    if len(channelB) == 0: return False\n    flag = False\n    previous = -1000 # should not be called the very first time so not a problem\n    # condition if channelB only has 1 event\n    if len(channelB) == 1 and isSameEvent(eventA,previous): return True\n    for eventB in channelB.copy():\n        if isSameEvent(eventA,eventB):        \n            if isSameEvent(eventA, previous):\n                channelB = mergeEvents(previous,eventB,channelB)",
         "detail": "detection.Detection",
         "documentation": {}
     },

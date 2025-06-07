@@ -34,7 +34,7 @@ def eventInChannel(eventA :int, channelB: list[int]):
     
     flag = False
     
-    previous = -1 # should not be called the very first time so not a problem
+    previous = -1000 # should not be called the very first time so not a problem
     
     # condition if channelB only has 1 event
     if len(channelB) == 1 and isSameEvent(eventA,previous): return True
