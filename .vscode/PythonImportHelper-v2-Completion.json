@@ -188,11 +188,20 @@
         "documentation": {}
     },
     {
-        "label": "isSamePeak",
+        "label": "isSameEvent",
         "kind": 2,
         "importPath": "detection.Detection",
         "description": "detection.Detection",
-        "peekOfCode": "def isSamePeak(x1,x2):\n    return (x1 - TOLERANCE) <= x2 <= (x1 + TOLERANCE)\ndef eventInChannel(eventA :int, channelB: list[int]):\n    for eventB in channelB:\n        if isSamePeak(eventA,eventB):        \n            return True\n    return False\n# handles 2 data channels right now, can maybe add a third to make a majority \"vote\" on the events\ndef removeFalsePositives(eog_events): \n    chA = eog_events[0]",
+        "peekOfCode": "def isSameEvent(x1 :int,x2 :int):\n    return (x1 - TOLERANCE) <= x2 <= (x1 + TOLERANCE)\ndef mergeEvents(event1 :int, event2 :int, channel :list[int]):\n    #create new event\n    newEvent = int(np.mean([event1,event2]))\n    #store old event index\n    leastEvent = event1 if event1 < event2 else event2\n    oldIndex = channel.index(leastEvent)\n    #remove old events\n    channel.remove(event1)",
+        "detail": "detection.Detection",
+        "documentation": {}
+    },
+    {
+        "label": "mergeEvents",
+        "kind": 2,
+        "importPath": "detection.Detection",
+        "description": "detection.Detection",
+        "peekOfCode": "def mergeEvents(event1 :int, event2 :int, channel :list[int]):\n    #create new event\n    newEvent = int(np.mean([event1,event2]))\n    #store old event index\n    leastEvent = event1 if event1 < event2 else event2\n    oldIndex = channel.index(leastEvent)\n    #remove old events\n    channel.remove(event1)\n    channel.remove(event2)\n    #store new event at old event index",
         "detail": "detection.Detection",
         "documentation": {}
     },
@@ -201,7 +210,7 @@
         "kind": 2,
         "importPath": "detection.Detection",
         "description": "detection.Detection",
-        "peekOfCode": "def eventInChannel(eventA :int, channelB: list[int]):\n    for eventB in channelB:\n        if isSamePeak(eventA,eventB):        \n            return True\n    return False\n# handles 2 data channels right now, can maybe add a third to make a majority \"vote\" on the events\ndef removeFalsePositives(eog_events): \n    chA = eog_events[0]\n    chB = eog_events[1]\n    for event in chA.copy():",
+        "peekOfCode": "def eventInChannel(eventA :int, channelB: list[int]):\n    if len(channelB) == 0: return False\n    flag = False\n    previous = -1 # should not be called the very first time so not a problem\n    # condition if channelB only has 1 event\n    if len(channelB) == 1 and isSameEvent(eventA,previous): return True\n    for eventB in channelB.copy():\n        if isSameEvent(eventA,eventB):        \n            if isSameEvent(eventA, previous):\n                channelB = mergeEvents(previous,eventB,channelB)",
         "detail": "detection.Detection",
         "documentation": {}
     },
@@ -210,7 +219,7 @@
         "kind": 2,
         "importPath": "detection.Detection",
         "description": "detection.Detection",
-        "peekOfCode": "def removeFalsePositives(eog_events): \n    chA = eog_events[0]\n    chB = eog_events[1]\n    for event in chA.copy():\n        if not eventInChannel(event, chB):\n            chA.remove(event)\n    for event in chB.copy():\n        if not eventInChannel(event, chA):\n            chB.remove(event)\n    # assert len(chA) == len(chB)",
+        "peekOfCode": "def removeFalsePositives(eog_events): \n    chA = eog_events[0]\n    chB = eog_events[1]\n    for event in chA.copy():\n        if not eventInChannel(event, chB):\n            chA.remove(event)\n    for event in chB.copy():\n        if not eventInChannel(event, chA):\n            chB.remove(event)\n    assert len(chA) == len(chB)",
         "detail": "detection.Detection",
         "documentation": {}
     },
