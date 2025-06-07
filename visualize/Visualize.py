@@ -57,7 +57,7 @@ def printData(
         send_channels.append(channels[i])
         
     match viewType:
-        case "channelOnly":
+        case "channel_only":
             _ = printChannels(send_channels)
         case "detected_eogs":
             _ = printDetectedEOGs(send_channels,eog_events)

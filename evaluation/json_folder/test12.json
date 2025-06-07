@@ -1,0 +1,11 @@
+{
+  "filepath": "C:/Users/gorga/CodeProjects/Arduino/Blink/projet_blink/data/up_down_continuous_fast_saccades_nathan.xdf",
+  "expected": {
+    "outcome": "TRUE_NEGATIVE",
+    "blinks": 0
+  },
+  "outcome": {
+    "blinks_found": "None",
+    "result": "None"
+  }
+}
