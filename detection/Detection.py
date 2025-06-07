@@ -1,10 +1,10 @@
 from mne.preprocessing.eog import _find_eog_events
-TOLERANCE = int(150/6)# from include import TOLERANCE
 import numpy as np
 
 
-def isSameEvent(x1 :int,x2 :int):
-    return (x1 - TOLERANCE) <= x2 <= (x1 + TOLERANCE)
+from utils.Utils import isSameEvent
+
+
 
 
 def mergeEvents(event1 :int, event2 :int, channel :list[int]):
@@ -74,7 +74,6 @@ def removeFalsePositives(eog_events):
     
     assert len(chA) == len(chB)
     
- 
     return [chA,chB]
     
     
