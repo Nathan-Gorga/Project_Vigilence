@@ -1,5 +1,5 @@
 from mne.preprocessing.eog import _find_eog_events
-from include import TOLERANCE
+TOLERANCE = int(150/6)# from include import TOLERANCE
 import numpy as np
 
 
