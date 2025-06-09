@@ -19,6 +19,23 @@ from extraction.Extraction import extractChannelsFromXdf
 from detection.Detection import detectChannelsEOGEvents
 
 
+def getDataFromJSON(filepath : str):
+    with open(filepath, 'r') as f:
+        return json.load(f)
+
+
+
+
+def getTestResults(json_folder : str):
+    folder = Path(json_folder)
+    json_files = list(folder.glob("*.json"))
+
+
+    ret = []
+    for file in json_files:
+        ret.append(getDataFromJSON(str(file)))
+    return ret
+
 
 def runTest(filepath :str):
     
@@ -32,8 +49,7 @@ def runTest(filepath :str):
 
 def oneTest(json_path: str) -> bool:
     
-    with open(json_path, "r") as f:
-        test_data = json.load(f)
+    test_data = getDataFromJSON(json_path)
 
     filepath = test_data["filepath"]
     expected_outcome = test_data["expected"]["outcome"]  # "TRUE_POSITIVE" ou "TRUE_NEGATIVE"
@@ -56,7 +72,8 @@ def oneTest(json_path: str) -> bool:
 
     test_data["outcome"] = {
         "blinks_found": num_events,
-        "result": "PASS" if test_passed else "FAIL"
+        "result": "PASS" if test_passed else "FAIL",
+        "detected" : events
     }
 
     with open(json_path, "w") as f:
@@ -88,7 +105,7 @@ def batchTest(json_folder: str):
     succesSize = len(successes)
     failureSize = len(failures)
     print(f"\nSuccess rate : {succesSize*100/(succesSize + failureSize)} % | {succesSize} successes, {failureSize} failures for {len(json_files)} tests")
-
+ 
 
     return successes,failures
 

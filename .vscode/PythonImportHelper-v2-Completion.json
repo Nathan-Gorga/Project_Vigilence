@@ -212,6 +212,14 @@
         "documentation": {}
     },
     {
+        "label": "getTestResults",
+        "importPath": "evaluation.Evaluation",
+        "description": "evaluation.Evaluation",
+        "isExtraImport": true,
+        "detail": "evaluation.Evaluation",
+        "documentation": {}
+    },
+    {
         "label": "mergeEvents",
         "kind": 2,
         "importPath": "detection.Detection",
@@ -365,11 +373,29 @@
         "documentation": {}
     },
     {
+        "label": "getDataFromJSON",
+        "kind": 2,
+        "importPath": "evaluation.Evaluation",
+        "description": "evaluation.Evaluation",
+        "peekOfCode": "def getDataFromJSON(filepath : str):\n    with open(filepath, 'r') as f:\n        return json.load(f)\ndef getTestResults(json_folder : str):\n    folder = Path(json_folder)\n    json_files = list(folder.glob(\"*.json\"))\n    ret = []\n    for file in json_files:\n        ret.append(getDataFromJSON(str(file)))\n    return ret",
+        "detail": "evaluation.Evaluation",
+        "documentation": {}
+    },
+    {
+        "label": "getTestResults",
+        "kind": 2,
+        "importPath": "evaluation.Evaluation",
+        "description": "evaluation.Evaluation",
+        "peekOfCode": "def getTestResults(json_folder : str):\n    folder = Path(json_folder)\n    json_files = list(folder.glob(\"*.json\"))\n    ret = []\n    for file in json_files:\n        ret.append(getDataFromJSON(str(file)))\n    return ret\ndef runTest(filepath :str):\n    selected_channels: list[int] = [1,3]\n    [ channels, sfreq ] = extractChannelsFromXdf(filepath,selected_channels, extract_sfreq=True)",
+        "detail": "evaluation.Evaluation",
+        "documentation": {}
+    },
+    {
         "label": "runTest",
         "kind": 2,
         "importPath": "evaluation.Evaluation",
         "description": "evaluation.Evaluation",
-        "peekOfCode": "def runTest(filepath :str):\n    selected_channels: list[int] = [1,3]\n    [ channels, sfreq ] = extractChannelsFromXdf(filepath,selected_channels, extract_sfreq=True)\n    return detectChannelsEOGEvents(channels,sfreq)\ndef oneTest(json_path: str) -> bool:\n    with open(json_path, \"r\") as f:\n        test_data = json.load(f)\n    filepath = test_data[\"filepath\"]\n    expected_outcome = test_data[\"expected\"][\"outcome\"]  # \"TRUE_POSITIVE\" ou \"TRUE_NEGATIVE\"\n    expected_blinks = test_data[\"expected\"][\"blinks\"]",
+        "peekOfCode": "def runTest(filepath :str):\n    selected_channels: list[int] = [1,3]\n    [ channels, sfreq ] = extractChannelsFromXdf(filepath,selected_channels, extract_sfreq=True)\n    return detectChannelsEOGEvents(channels,sfreq)\ndef oneTest(json_path: str) -> bool:\n    test_data = getDataFromJSON(json_path)\n    filepath = test_data[\"filepath\"]\n    expected_outcome = test_data[\"expected\"][\"outcome\"]  # \"TRUE_POSITIVE\" ou \"TRUE_NEGATIVE\"\n    expected_blinks = test_data[\"expected\"][\"blinks\"]\n    # Exécution de l'algorithme",
         "detail": "evaluation.Evaluation",
         "documentation": {}
     },
@@ -378,7 +404,7 @@
         "kind": 2,
         "importPath": "evaluation.Evaluation",
         "description": "evaluation.Evaluation",
-        "peekOfCode": "def oneTest(json_path: str) -> bool:\n    with open(json_path, \"r\") as f:\n        test_data = json.load(f)\n    filepath = test_data[\"filepath\"]\n    expected_outcome = test_data[\"expected\"][\"outcome\"]  # \"TRUE_POSITIVE\" ou \"TRUE_NEGATIVE\"\n    expected_blinks = test_data[\"expected\"][\"blinks\"]\n    # Exécution de l'algorithme\n    events = runTest(filepath)\n    num_events = len(events[0])\n    # Comparaison avec la vérité terrain",
+        "peekOfCode": "def oneTest(json_path: str) -> bool:\n    test_data = getDataFromJSON(json_path)\n    filepath = test_data[\"filepath\"]\n    expected_outcome = test_data[\"expected\"][\"outcome\"]  # \"TRUE_POSITIVE\" ou \"TRUE_NEGATIVE\"\n    expected_blinks = test_data[\"expected\"][\"blinks\"]\n    # Exécution de l'algorithme\n    events = runTest(filepath)\n    num_events = len(events[0])\n    # Comparaison avec la vérité terrain\n    if expected_outcome == \"TRUE_POSITIVE\":",
         "detail": "evaluation.Evaluation",
         "documentation": {}
     },
