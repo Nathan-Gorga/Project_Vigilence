@@ -41,6 +41,22 @@
         "documentation": {}
     },
     {
+        "label": "BLINK_DURATION",
+        "importPath": "include",
+        "description": "include",
+        "isExtraImport": true,
+        "detail": "include",
+        "documentation": {}
+    },
+    {
+        "label": "TOLERANCE",
+        "importPath": "include",
+        "description": "include",
+        "isExtraImport": true,
+        "detail": "include",
+        "documentation": {}
+    },
+    {
         "label": "TOLERANCE",
         "importPath": "include",
         "description": "include",
@@ -115,6 +131,22 @@
         "documentation": {}
     },
     {
+        "label": "extractChannelsFromXdf",
+        "importPath": "extraction.Extraction",
+        "description": "extraction.Extraction",
+        "isExtraImport": true,
+        "detail": "extraction.Extraction",
+        "documentation": {}
+    },
+    {
+        "label": "detectChannelsEOGEvents",
+        "importPath": "detection.Detection",
+        "description": "detection.Detection",
+        "isExtraImport": true,
+        "detail": "detection.Detection",
+        "documentation": {}
+    },
+    {
         "label": "detectChannelsEOGEvents",
         "importPath": "detection.Detection",
         "description": "detection.Detection",
@@ -155,6 +187,22 @@
         "documentation": {}
     },
     {
+        "label": "printData",
+        "importPath": "visualize.Visualize",
+        "description": "visualize.Visualize",
+        "isExtraImport": true,
+        "detail": "visualize.Visualize",
+        "documentation": {}
+    },
+    {
+        "label": "printData",
+        "importPath": "visualize.Visualize",
+        "description": "visualize.Visualize",
+        "isExtraImport": true,
+        "detail": "visualize.Visualize",
+        "documentation": {}
+    },
+    {
         "label": "matplotlib.pyplot",
         "kind": 6,
         "isExtraImport": true,
@@ -188,14 +236,6 @@
         "documentation": {}
     },
     {
-        "label": "printData",
-        "importPath": "visualize.Visualize",
-        "description": "visualize.Visualize",
-        "isExtraImport": true,
-        "detail": "visualize.Visualize",
-        "documentation": {}
-    },
-    {
         "label": "batchTest",
         "importPath": "evaluation.Evaluation",
         "description": "evaluation.Evaluation",
@@ -209,6 +249,14 @@
         "description": "evaluation.Evaluation",
         "isExtraImport": true,
         "detail": "evaluation.Evaluation",
+        "documentation": {}
+    },
+    {
+        "label": "createPattern",
+        "importPath": "pattern.Pattern",
+        "description": "pattern.Pattern",
+        "isExtraImport": true,
+        "detail": "pattern.Pattern",
         "documentation": {}
     },
     {
@@ -470,6 +518,24 @@
         "description": "extraction.tExtractDataFromXdf",
         "peekOfCode": "mock_xdf_data = (\n    [{\n        'time_series': [\n            [1.0, 2.0, 3.0],\n            [1.1, 2.1, 3.1],\n            [1.2, 2.2, 3.2],\n        ],\n        'info': {\n            'nominal_srate': ['250.0']\n        }",
         "detail": "extraction.tExtractDataFromXdf",
+        "documentation": {}
+    },
+    {
+        "label": "avgEvents",
+        "kind": 2,
+        "importPath": "pattern.Pattern",
+        "description": "pattern.Pattern",
+        "peekOfCode": "def avgEvents(events : list[float]) -> list[float]:\n    if events == []: return []\n    sizeEventList = len(events)\n    if sizeEventList == 1: return events\n    template = np.array(events[0])\n    for event in events[1:]:\n        template += np.array(event)\n    template /= sizeEventList\n    return list(template)\ndef createPattern(type=\"blink\"):",
+        "detail": "pattern.Pattern",
+        "documentation": {}
+    },
+    {
+        "label": "createPattern",
+        "kind": 2,
+        "importPath": "pattern.Pattern",
+        "description": "pattern.Pattern",
+        "peekOfCode": "def createPattern(type=\"blink\"):\n    blink_file = r'data\\sub-nathan_ses-S001_task-clean_blink_calibration_run-001_eeg.xdf'\n    selected_channels = [1,3]\n    match(type):\n        case \"blink\":\n            data, sfreq = extractChannelsFromXdf(blink_file,selected_channels,extract_sfreq=True)\n    # chosen_channels = np.arange(0,len(selected_channels))\n    eog_events = detectChannelsEOGEvents(data,sfreq)\n    events = []\n    sizeChannel = len(eog_events)",
+        "detail": "pattern.Pattern",
         "documentation": {}
     },
     {
