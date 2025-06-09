@@ -558,7 +558,7 @@
         "kind": 2,
         "importPath": "visualize.Visualize",
         "description": "visualize.Visualize",
-        "peekOfCode": "def printChannels(channels :list[list[float]]):\n    num_channels = len(channels)\n    _, axs = plt.subplots(num_channels, 1, figsize=(10, 3 * num_channels), sharex=True)\n    # If only 1 channel, axs is not a list\n    if num_channels == 1:\n        axs = [axs]\n    for i, data in enumerate(channels):\n        axs[i].plot(range(len(data)), data, color=color[i % len(color)])\n        axs[i].scatter(range(len(data)), data, color=color[i % len(color)],s=10)\n        axs[i].set_ylabel(f\"Channel {i+1}\")",
+        "peekOfCode": "def printChannels(channels :list[list[float]]):\n    num_channels = len(channels)\n    col = (2 // num_channels)\n    _, axs = plt.subplots(num_channels, col, figsize=(10, 3 * num_channels), sharex=True)\n    # If only 1 channel, axs is not a list\n    if num_channels == 1:\n        axs = [axs]\n    if col == 1:\n        for i, data in enumerate(channels):\n            axs[i].plot(range(len(data)), data, color=color[i % len(color)])",
         "detail": "visualize.Visualize",
         "documentation": {}
     },
@@ -567,7 +567,16 @@
         "kind": 2,
         "importPath": "visualize.Visualize",
         "description": "visualize.Visualize",
-        "peekOfCode": "def printDetectedEOGs(channels : list[list[float]], eog_events):\n    assert len(channels) == len(eog_events)\n    axs = printChannels(channels)\n    sizeChannels = len(channels)\n    sizeColor = len(color)\n    for i in range(sizeChannels):\n        sizeEvents = len(eog_events[i])\n        for j in range(sizeEvents):\n            axs[i].axvline(x=eog_events[i][j], color=color[((i+1)%sizeColor)] , linestyle='--', linewidth=2)\n    return axs",
+        "peekOfCode": "def printDetectedEOGs(channels : list[list[float]], eog_events):\n    assert len(channels) == len(eog_events)\n    axs, row , col = printChannels(channels)\n    sizeChannels = row\n    sizeColor = len(color)\n    for c in range(col):\n        for i in range(sizeChannels):\n            sizeEvents = len(eog_events[i])\n            for j in range(sizeEvents):\n                if col == 1:",
+        "detail": "visualize.Visualize",
+        "documentation": {}
+    },
+    {
+        "label": "printTest",
+        "kind": 2,
+        "importPath": "visualize.Visualize",
+        "description": "visualize.Visualize",
+        "peekOfCode": "def printTest(test_data : list[list[float]], test_succeed=False):\n    print(\"TODO\")\ndef printData(\n    channels :list[list[float]], \n    select_channels, \n    viewType :str=\"channel_only\", \n    thresh=None,\n    eog_events=None\n    ):\n    viewTypes = [\"channel_only\", \"detected_eogs\"]    ",
         "detail": "visualize.Visualize",
         "documentation": {}
     },
@@ -585,7 +594,7 @@
         "kind": 5,
         "importPath": "visualize.Visualize",
         "description": "visualize.Visualize",
-        "peekOfCode": "color = [\"blue\", \"green\", \"red\", \"purple\", \"orange\", \"brown\", \"pink\", \"gray\"]\ndef printChannels(channels :list[list[float]]):\n    num_channels = len(channels)\n    _, axs = plt.subplots(num_channels, 1, figsize=(10, 3 * num_channels), sharex=True)\n    # If only 1 channel, axs is not a list\n    if num_channels == 1:\n        axs = [axs]\n    for i, data in enumerate(channels):\n        axs[i].plot(range(len(data)), data, color=color[i % len(color)])\n        axs[i].scatter(range(len(data)), data, color=color[i % len(color)],s=10)",
+        "peekOfCode": "color = [\"blue\", \"green\", \"red\", \"purple\", \"orange\", \"brown\", \"pink\", \"gray\"]\ndef printChannels(channels :list[list[float]]):\n    num_channels = len(channels)\n    col = (2 // num_channels)\n    _, axs = plt.subplots(num_channels, col, figsize=(10, 3 * num_channels), sharex=True)\n    # If only 1 channel, axs is not a list\n    if num_channels == 1:\n        axs = [axs]\n    if col == 1:\n        for i, data in enumerate(channels):",
         "detail": "visualize.Visualize",
         "documentation": {}
     }
