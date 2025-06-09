@@ -13,28 +13,11 @@
 # }
 import json
 from pathlib import Path
-from numpy import arange
+import numpy as np
 
 from extraction.Extraction import extractChannelsFromXdf
 from detection.Detection import detectChannelsEOGEvents
 
-
-def getDataFromJSON(filepath : str):
-    with open(filepath, 'r') as f:
-        return json.load(f)
-
-
-
-
-def getTestResults(json_folder : str):
-    folder = Path(json_folder)
-    json_files = list(folder.glob("*.json"))
-
-
-    ret = []
-    for file in json_files:
-        ret.append(getDataFromJSON(str(file)))
-    return ret
 
 
 def runTest(filepath :str):
@@ -49,7 +32,8 @@ def runTest(filepath :str):
 
 def oneTest(json_path: str) -> bool:
     
-    test_data = getDataFromJSON(json_path)
+    with open(json_path, "r") as f:
+        test_data = json.load(f)
 
     filepath = test_data["filepath"]
     expected_outcome = test_data["expected"]["outcome"]  # "TRUE_POSITIVE" ou "TRUE_NEGATIVE"
@@ -70,10 +54,15 @@ def oneTest(json_path: str) -> bool:
         raise ValueError(f"Truth value unknown: {expected_outcome}")
 
 
+    clean_event = [
+        [int(i) for i in events[0]],
+        [int(i) for i in events[1]] 
+    ]
+
     test_data["outcome"] = {
         "blinks_found": num_events,
         "result": "PASS" if test_passed else "FAIL",
-        "detected" : events
+        "detected" : clean_event
     }
 
     with open(json_path, "w") as f:
@@ -93,20 +82,15 @@ def batchTest(json_folder: str):
     folder = Path(json_folder)
     json_files = list(folder.glob("*.json"))
 
-    successes = []
-    failures = []
+    successes = 0
+    failures = 0
 
     for json_file in json_files:
         if oneTest(str(json_file)):
-            successes.append(json_file)
+            successes += 1
         else:
-            failures.append(json_file)
-            
-    succesSize = len(successes)
-    failureSize = len(failures)
-    print(f"\nSuccess rate : {succesSize*100/(succesSize + failureSize)} % | {succesSize} successes, {failureSize} failures for {len(json_files)} tests")
- 
+            failures += 1
 
-    return successes,failures
+    print(f"\nSuccess rate : {successes*100/(successes + failures)} % | {successes} successes, {failures} failures for {len(json_files)} tests")
 
 

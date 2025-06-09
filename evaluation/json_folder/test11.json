@@ -6,6 +6,18 @@
     },
     "outcome": {
         "blinks_found": 3,
-        "result": "FAIL"
+        "result": "FAIL",
+        "detected": [
+            [
+                135,
+                248,
+                398
+            ],
+            [
+                132,
+                227,
+                396
+            ]
+        ]
     }
 }

@@ -6,6 +6,14 @@
     },
     "outcome": {
         "blinks_found": 1,
-        "result": "PASS"
+        "result": "PASS",
+        "detected": [
+            [
+                109
+            ],
+            [
+                104
+            ]
+        ]
     }
 }
