@@ -576,7 +576,7 @@
         "kind": 2,
         "importPath": "visualize.Visualize",
         "description": "visualize.Visualize",
-        "peekOfCode": "def printTest(test_data : list[list[float]], test_succeed=False):\n    print(\"TODO\")\ndef printData(\n    channels :list[list[float]], \n    select_channels, \n    viewType :str=\"channel_only\", \n    thresh=None,\n    eog_events=None\n    ):\n    viewTypes = [\"channel_only\", \"detected_eogs\"]    ",
+        "peekOfCode": "def printTest(test_data : list[list[float]],test_eog_events, test_succeed=False):\n    #print the channels, \n    axs, row, col = printChannels(test_data)\n    # print the detected, \n    sizeChannels = row\n    sizeColor = len(color)\n    for c in range(col):\n        for i in range(sizeChannels):\n            sizeEvents = len(test_eog_events[i])\n            for j in range(sizeEvents):",
         "detail": "visualize.Visualize",
         "documentation": {}
     },

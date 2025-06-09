@@ -49,11 +49,31 @@ def printDetectedEOGs(channels : list[list[float]], eog_events):
                 
                 else:
                     axs[i][c].axvline(x=eog_events[i][j], color=color[((i+1)%sizeColor)] , linestyle='--', linewidth=2)
+                    
+                    
     return axs, row, col
         
 
-def printTest(test_data : list[list[float]], test_succeed=False):
-    print("TODO")
+def printTest(test_data : list[list[float]],test_eog_events, test_succeed=False):
+    #print the channels, 
+    axs, row, col = printChannels(test_data)
+    
+    # print the detected, 
+    
+    sizeChannels = row
+    sizeColor = len(color)
+    for c in range(col):
+        for i in range(sizeChannels):
+            sizeEvents = len(test_eog_events[i])
+            for j in range(sizeEvents):
+                if col == 1:
+                    axs[i].axvline(x=test_eog_events[i][j], color=color[((i+1)%sizeColor)] , linestyle='--', linewidth=2)
+                
+                else:
+                    axs[i][c].axvline(x=test_eog_events[i][j], color=color[((i+1)%sizeColor)] , linestyle='--', linewidth=2)
+                   
+    return axs, row, col 
+    
 
 
 def printData(
@@ -79,10 +99,11 @@ def printData(
             _,_,_ = printChannels(send_channels)
         case "detected_eogs":
             _,_,_ = printDetectedEOGs(send_channels,eog_events)
-        # case "test_success":
-        #     # _ = printTest()
-        # case "test_fail":
-        #     # _ = printTest()
+        case "test_success":
+            _,_,_ = printTest(channels,eog_events,test_succeed=True)
+        case "test_fail":
+            _,_,_ = printTest(channels,eog_events,test_succeed=False)
+            
     
     plt.tight_layout()
     plt.show()
