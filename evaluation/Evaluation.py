@@ -76,15 +76,20 @@ def batchTest(json_folder: str):
     folder = Path(json_folder)
     json_files = list(folder.glob("*.json"))
 
-    successes = 0
-    failures = 0
+    successes = []
+    failures = []
 
     for json_file in json_files:
         if oneTest(str(json_file)):
-            successes += 1
+            successes.append(json_file)
         else:
-            failures += 1
+            failures.append(json_file)
+            
+    succesSize = len(successes)
+    failureSize = len(failures)
+    print(f"\nSuccess rate : {succesSize*100/(succesSize + failureSize)} % | {succesSize} successes, {failureSize} failures for {len(json_files)} tests")
 
-    print(f"\nSuccess rate : {successes*100/(successes + failures)} % | {successes} successes, {failures} failures for {len(json_files)} tests")
+
+    return successes,failures
 
 

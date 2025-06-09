@@ -387,7 +387,7 @@
         "kind": 2,
         "importPath": "evaluation.Evaluation",
         "description": "evaluation.Evaluation",
-        "peekOfCode": "def batchTest(json_folder: str):\n    folder = Path(json_folder)\n    json_files = list(folder.glob(\"*.json\"))\n    successes = 0\n    failures = 0\n    for json_file in json_files:\n        if oneTest(str(json_file)):\n            successes += 1\n        else:\n            failures += 1",
+        "peekOfCode": "def batchTest(json_folder: str):\n    folder = Path(json_folder)\n    json_files = list(folder.glob(\"*.json\"))\n    successes = []\n    failures = []\n    for json_file in json_files:\n        if oneTest(str(json_file)):\n            successes.append(json_file)\n        else:\n            failures.append(json_file)",
         "detail": "evaluation.Evaluation",
         "documentation": {}
     },
