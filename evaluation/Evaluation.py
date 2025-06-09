@@ -18,7 +18,18 @@ import numpy as np
 from extraction.Extraction import extractChannelsFromXdf
 from detection.Detection import detectChannelsEOGEvents
 
+def getTestData(json_folder : str):
+    folder = Path(json_folder)
+    json_files = list(folder.glob("*.json"))    
 
+    ret = []
+    for file in json_files:
+        with open(str(file)) as f:
+            data = json.load(f)
+        ret.append(data)
+        
+    return ret
+        
 
 def runTest(filepath :str):
     

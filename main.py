@@ -13,7 +13,7 @@ from extraction.Extraction import extractChannelsFromXdf
 from visualize.Visualize import printData
 from numpy import arange
 from detection.Detection import detectChannelsEOGEvents
-from evaluation.Evaluation import batchTest
+from evaluation.Evaluation import batchTest, getTestData
 
 if __name__ == "__main__":
     # filepath :str = r'C:/Users/gorga/CodeProjects/Arduino/Blink/projet_blink/data/saccade_right_nathan.xdf'
@@ -32,14 +32,13 @@ if __name__ == "__main__":
     
     folder_path = r'evaluation\json_folder'
 
-
-
-
     batchTest(folder_path)
 
 
-    # tests = getTestResults(folder_path)
+    tests = getTestData(folder_path)
     
+    
+    print(tests)
     # successes = []
     # failures = []
     

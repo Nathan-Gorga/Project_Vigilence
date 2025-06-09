@@ -204,6 +204,14 @@
         "documentation": {}
     },
     {
+        "label": "getTestData",
+        "importPath": "evaluation.Evaluation",
+        "description": "evaluation.Evaluation",
+        "isExtraImport": true,
+        "detail": "evaluation.Evaluation",
+        "documentation": {}
+    },
+    {
         "label": "mergeEvents",
         "kind": 2,
         "importPath": "detection.Detection",
@@ -354,6 +362,15 @@
         "description": "detection.tRemoveFalsePositives",
         "peekOfCode": "TOLERANCE = 150 / 6\ndef test_basic_match():\n    eog_events = [\n        [100, 300],\n        [102, 299]\n    ]\n    result = removeFalsePositives([eog_events[0][:], eog_events[1][:]])\n    assert result == [[100, 300], [102, 299]]\ndef test_no_match():\n    eog_events = [",
         "detail": "detection.tRemoveFalsePositives",
+        "documentation": {}
+    },
+    {
+        "label": "getTestData",
+        "kind": 2,
+        "importPath": "evaluation.Evaluation",
+        "description": "evaluation.Evaluation",
+        "peekOfCode": "def getTestData(json_folder : str):\n    folder = Path(json_folder)\n    json_files = list(folder.glob(\"*.json\"))    \n    ret = []\n    for file in json_files:\n        with open(str(file)) as f:\n            data = json.load(f)\n        ret.append(data)\n    return ret\ndef runTest(filepath :str):",
+        "detail": "evaluation.Evaluation",
         "documentation": {}
     },
     {
