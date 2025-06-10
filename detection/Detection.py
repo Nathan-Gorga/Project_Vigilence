@@ -1,7 +1,7 @@
 from mne.preprocessing.eog import _find_eog_events
 import numpy as np
 
-from include import TOLERANCE
+from include import BASICALLY_ZERO, TOLERANCE
 from utils.Utils import isBaseline, isSameEvent, localMaximumIndex
 from visualize.Visualize import printData
 
@@ -151,6 +151,6 @@ def detectWithPattern(pattern :list[float], data : list[float]):
         
         if isBaseline(buffer):
             print(f"Found blink at {i}")  
-            printData([list(np.array(data)- (([0] * i) + pattern +( [0] * (repeat - i)))),data],[0,1])
+            printData([list(np.array(data)- (([0] * i) + pattern +( [0] * (repeat - i)))),data],[0,1], viewType="threshold", thresh=[BASICALLY_ZERO,-BASICALLY_ZERO])
         
              

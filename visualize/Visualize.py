@@ -81,11 +81,11 @@ def printTreshold(channels :list[list[float]], thresholds : list[list[float]]):
     axs, row , col = printChannels(channels)
     for c in range(col):
         for r in range(row):
-            thresh = thresholds[r]
+            
             if col == 1:
-                axs[r].avxline(y = thresh, linestyle="--")
+                axs[r].hlines(y = thresholds,xmin=0, xmax=len(channels[0]), linestyle="--")
             else:
-                axs[r][c].avxline(y = thresh, linestyle="--")
+                axs[r][c].hlines(y = thresholds,xmin=0, xmax=len(channels[0]), linestyle="--")
             
     return axs, row, col
     
@@ -118,7 +118,7 @@ def printData(
             _,_,_ = printTest(channels,eog_events,test_succeed=True)
         case "test_fail":
             _,_,_ = printTest(channels,eog_events,test_succeed=False)
-        case "treshold":
+        case "threshold":
             _,_,_ = printTreshold(channels,thresh)
                 
         

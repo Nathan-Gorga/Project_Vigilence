@@ -41,6 +41,14 @@
         "documentation": {}
     },
     {
+        "label": "BASICALLY_ZERO",
+        "importPath": "include",
+        "description": "include",
+        "isExtraImport": true,
+        "detail": "include",
+        "documentation": {}
+    },
+    {
         "label": "TOLERANCE",
         "importPath": "include",
         "description": "include",
@@ -726,7 +734,7 @@
         "kind": 2,
         "importPath": "visualize.Visualize",
         "description": "visualize.Visualize",
-        "peekOfCode": "def printTreshold(channels :list[list[float]], thresholds : list[list[float]]):\n    axs, row , col = printChannels(channels)\n    for c in range(col):\n        for r in range(row):\n            thresh = thresholds[r]\n            if col == 1:\n                axs[r].avxline(y = thresh, linestyle=\"--\")\n            else:\n                axs[r][c].avxline(y = thresh, linestyle=\"--\")\n    return axs, row, col",
+        "peekOfCode": "def printTreshold(channels :list[list[float]], thresholds : list[list[float]]):\n    axs, row , col = printChannels(channels)\n    for c in range(col):\n        for r in range(row):\n            if col == 1:\n                axs[r].hlines(y = thresholds,xmin=0, xmax=len(channels[0]), linestyle=\"--\")\n            else:\n                axs[r][c].hlines(y = thresholds,xmin=0, xmax=len(channels[0]), linestyle=\"--\")\n    return axs, row, col\ndef printData(",
         "detail": "visualize.Visualize",
         "documentation": {}
     },
@@ -753,7 +761,7 @@
         "kind": 5,
         "importPath": "include",
         "description": "include",
-        "peekOfCode": "BASICALLY_ZERO = 10",
+        "peekOfCode": "BASICALLY_ZERO = 15",
         "detail": "include",
         "documentation": {}
     }
