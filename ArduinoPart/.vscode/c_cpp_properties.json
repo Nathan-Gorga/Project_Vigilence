@@ -10,9 +10,10 @@
             "includePath": [
                 "C:/Users/gorga/CodeProjects/Arduino/Blink/projet_blink/ArduinoPart/include",
                 "C:/Users/gorga/CodeProjects/Arduino/Blink/projet_blink/ArduinoPart/src",
+                "C:/Users/gorga/CodeProjects/Arduino/Blink/projet_blink/ArduinoPart/lib/protothreads-arduino",
                 "C:/Users/gorga/.platformio/packages/framework-arduino-avr/cores/arduino",
                 "C:/Users/gorga/.platformio/packages/framework-arduino-avr/variants/standard",
-                "C:/Users/gorga/CodeProjects/Arduino/Blink/projet_blink/ArduinoPart/lib/protothreads-arduino",
+                "C:/Users/gorga/CodeProjects/Arduino/Blink/projet_blink/ArduinoPart/lib/sanity_check",
                 "C:/Users/gorga/.platformio/packages/framework-arduino-avr/libraries/EEPROM/src",
                 "C:/Users/gorga/.platformio/packages/framework-arduino-avr/libraries/HID/src",
                 "C:/Users/gorga/.platformio/packages/framework-arduino-avr/libraries/SPI/src",
@@ -25,9 +26,10 @@
                 "path": [
                     "C:/Users/gorga/CodeProjects/Arduino/Blink/projet_blink/ArduinoPart/include",
                     "C:/Users/gorga/CodeProjects/Arduino/Blink/projet_blink/ArduinoPart/src",
+                    "C:/Users/gorga/CodeProjects/Arduino/Blink/projet_blink/ArduinoPart/lib/protothreads-arduino",
                     "C:/Users/gorga/.platformio/packages/framework-arduino-avr/cores/arduino",
                     "C:/Users/gorga/.platformio/packages/framework-arduino-avr/variants/standard",
-                    "C:/Users/gorga/CodeProjects/Arduino/Blink/projet_blink/ArduinoPart/lib/protothreads-arduino",
+                    "C:/Users/gorga/CodeProjects/Arduino/Blink/projet_blink/ArduinoPart/lib/sanity_check",
                     "C:/Users/gorga/.platformio/packages/framework-arduino-avr/libraries/EEPROM/src",
                     "C:/Users/gorga/.platformio/packages/framework-arduino-avr/libraries/HID/src",
                     "C:/Users/gorga/.platformio/packages/framework-arduino-avr/libraries/SPI/src",

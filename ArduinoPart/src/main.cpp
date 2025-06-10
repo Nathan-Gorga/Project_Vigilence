@@ -1,13 +1,13 @@
 #include "includes.h"
 
-void setup() {
-  Serial.begin(9600);
+float ring_buffer[BUFFER_SIZE];
 
-  const enum EVENT_TYPE test = NUM_EVENTS;
-  Serial.print(test);
+
+void setup() { 
+  Serial.begin(9600); 
+  
 }
 
-void loop() {
- 
-}
+void loop() { 
 
+}
