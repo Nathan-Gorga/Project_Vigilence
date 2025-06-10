@@ -19,16 +19,5 @@
 //     float y_channel2;
 // }data_point;
 
-enum EVENT_TYPE{
-    NORMAL_BLINK,
-    FAST_BLINK,
-    SLOW_BLINK,
-    SACCADE_LEFT,
-    SACCADE_RIGHT,
-    SACCADE_DOWN,
-    SACCADE_UP,
-    NUM_EVENTS,
-    NOT_EVENT
-};
 
 #endif
