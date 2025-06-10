@@ -4,6 +4,10 @@
 #include <Arduino.h>
 #include <pt.h>
 
+#define BLINK_DURATION 160
+
+#define RING_BUFFER_SIZE BLINK_DURATION * 2
+
 
 enum EVENT_TYPE{
     NORMAL_BLINK,
