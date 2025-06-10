@@ -1,1 +1,0 @@
-TOLERANCE :int = int(150 /6)
