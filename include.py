@@ -1,4 +1,0 @@
-TOLERANCE :int = int(150 /6)
-BLINK_DURATION :int = 160
-
-BASICALLY_ZERO = 40
