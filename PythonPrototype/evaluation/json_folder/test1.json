@@ -1,0 +1,29 @@
+{
+    "filepath": "C:/Users/gorga/CodeProjects/Arduino/Blink/projet_blink/data/sub-nathan_ses-S001_task-clean_blink_calibration_run-001_eeg.xdf",
+    "expected": {
+        "outcome": "TRUE_POSITIVE",
+        "blinks": 6
+    },
+    "outcome": {
+        "blinks_found": 6,
+        "result": "PASS",
+        "detected": [
+            [
+                167,
+                674,
+                1143,
+                1639,
+                2124,
+                2612
+            ],
+            [
+                161,
+                667,
+                1136,
+                1633,
+                2116,
+                2604
+            ]
+        ]
+    }
+}

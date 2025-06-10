@@ -8,11 +8,43 @@
         "documentation": {}
     },
     {
+        "label": "_find_eog_events",
+        "importPath": "mne.preprocessing.eog",
+        "description": "mne.preprocessing.eog",
+        "isExtraImport": true,
+        "detail": "mne.preprocessing.eog",
+        "documentation": {}
+    },
+    {
         "label": "numpy",
         "kind": 6,
         "isExtraImport": true,
         "importPath": "numpy",
         "description": "numpy",
+        "detail": "numpy",
+        "documentation": {}
+    },
+    {
+        "label": "max",
+        "importPath": "numpy",
+        "description": "numpy",
+        "isExtraImport": true,
+        "detail": "numpy",
+        "documentation": {}
+    },
+    {
+        "label": "min",
+        "importPath": "numpy",
+        "description": "numpy",
+        "isExtraImport": true,
+        "detail": "numpy",
+        "documentation": {}
+    },
+    {
+        "label": "arange",
+        "importPath": "numpy",
+        "description": "numpy",
+        "isExtraImport": true,
         "detail": "numpy",
         "documentation": {}
     },
@@ -41,11 +73,91 @@
         "documentation": {}
     },
     {
+        "label": "BLINK_DURATION",
+        "importPath": "include",
+        "description": "include",
+        "isExtraImport": true,
+        "detail": "include",
+        "documentation": {}
+    },
+    {
         "label": "TOLERANCE",
         "importPath": "include",
         "description": "include",
         "isExtraImport": true,
         "detail": "include",
+        "documentation": {}
+    },
+    {
+        "label": "BLINK_DURATION",
+        "importPath": "include",
+        "description": "include",
+        "isExtraImport": true,
+        "detail": "include",
+        "documentation": {}
+    },
+    {
+        "label": "TOLERANCE",
+        "importPath": "include",
+        "description": "include",
+        "isExtraImport": true,
+        "detail": "include",
+        "documentation": {}
+    },
+    {
+        "label": "TOLERANCE",
+        "importPath": "include",
+        "description": "include",
+        "isExtraImport": true,
+        "detail": "include",
+        "documentation": {}
+    },
+    {
+        "label": "BASICALLY_ZERO",
+        "importPath": "include",
+        "description": "include",
+        "isExtraImport": true,
+        "detail": "include",
+        "documentation": {}
+    },
+    {
+        "label": "BASICALLY_ZERO",
+        "importPath": "include",
+        "description": "include",
+        "isExtraImport": true,
+        "detail": "include",
+        "documentation": {}
+    },
+    {
+        "label": "TOLERANCE",
+        "importPath": "include",
+        "description": "include",
+        "isExtraImport": true,
+        "detail": "include",
+        "documentation": {}
+    },
+    {
+        "label": "isSameEvent",
+        "importPath": "utils.Utils",
+        "description": "utils.Utils",
+        "isExtraImport": true,
+        "detail": "utils.Utils",
+        "documentation": {}
+    },
+    {
+        "label": "localMaximumIndex",
+        "importPath": "utils.Utils",
+        "description": "utils.Utils",
+        "isExtraImport": true,
+        "detail": "utils.Utils",
+        "documentation": {}
+    },
+    {
+        "label": "isBaseline",
+        "importPath": "utils.Utils",
+        "description": "utils.Utils",
+        "isExtraImport": true,
+        "detail": "utils.Utils",
         "documentation": {}
     },
     {
@@ -82,12 +194,28 @@
         "documentation": {}
     },
     {
+        "label": "detectEOGEvents",
+        "importPath": "Detection",
+        "description": "Detection",
+        "isExtraImport": true,
+        "detail": "Detection",
+        "documentation": {}
+    },
+    {
         "label": "json",
         "kind": 6,
         "isExtraImport": true,
         "importPath": "json",
         "description": "json",
         "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
         "documentation": {}
     },
     {
@@ -115,6 +243,30 @@
         "documentation": {}
     },
     {
+        "label": "extractChannelsFromXdf",
+        "importPath": "extraction.Extraction",
+        "description": "extraction.Extraction",
+        "isExtraImport": true,
+        "detail": "extraction.Extraction",
+        "documentation": {}
+    },
+    {
+        "label": "extractChannelsFromXdf",
+        "importPath": "extraction.Extraction",
+        "description": "extraction.Extraction",
+        "isExtraImport": true,
+        "detail": "extraction.Extraction",
+        "documentation": {}
+    },
+    {
+        "label": "extractChannelsFromXdf",
+        "importPath": "extraction.Extraction",
+        "description": "extraction.Extraction",
+        "isExtraImport": true,
+        "detail": "extraction.Extraction",
+        "documentation": {}
+    },
+    {
         "label": "detectChannelsEOGEvents",
         "importPath": "detection.Detection",
         "description": "detection.Detection",
@@ -128,6 +280,46 @@
         "description": "detection.Detection",
         "isExtraImport": true,
         "detail": "detection.Detection",
+        "documentation": {}
+    },
+    {
+        "label": "detectChannelsEOGEvents",
+        "importPath": "detection.Detection",
+        "description": "detection.Detection",
+        "isExtraImport": true,
+        "detail": "detection.Detection",
+        "documentation": {}
+    },
+    {
+        "label": "detectWithPattern",
+        "importPath": "detection.Detection",
+        "description": "detection.Detection",
+        "isExtraImport": true,
+        "detail": "detection.Detection",
+        "documentation": {}
+    },
+    {
+        "label": "removeDoubles",
+        "importPath": "detection.Detection",
+        "description": "detection.Detection",
+        "isExtraImport": true,
+        "detail": "detection.Detection",
+        "documentation": {}
+    },
+    {
+        "label": "detectChannelsEOGEvents",
+        "importPath": "detection.Detection",
+        "description": "detection.Detection",
+        "isExtraImport": true,
+        "detail": "detection.Detection",
+        "documentation": {}
+    },
+    {
+        "label": "load_xdf",
+        "importPath": "pyxdf",
+        "description": "pyxdf",
+        "isExtraImport": true,
+        "detail": "pyxdf",
         "documentation": {}
     },
     {
@@ -152,6 +344,54 @@
         "description": "unittest.mock",
         "isExtraImport": true,
         "detail": "unittest.mock",
+        "documentation": {}
+    },
+    {
+        "label": "patch",
+        "importPath": "unittest.mock",
+        "description": "unittest.mock",
+        "isExtraImport": true,
+        "detail": "unittest.mock",
+        "documentation": {}
+    },
+    {
+        "label": "patch",
+        "importPath": "unittest.mock",
+        "description": "unittest.mock",
+        "isExtraImport": true,
+        "detail": "unittest.mock",
+        "documentation": {}
+    },
+    {
+        "label": "printData",
+        "importPath": "visualize.Visualize",
+        "description": "visualize.Visualize",
+        "isExtraImport": true,
+        "detail": "visualize.Visualize",
+        "documentation": {}
+    },
+    {
+        "label": "printData",
+        "importPath": "visualize.Visualize",
+        "description": "visualize.Visualize",
+        "isExtraImport": true,
+        "detail": "visualize.Visualize",
+        "documentation": {}
+    },
+    {
+        "label": "printData",
+        "importPath": "visualize.Visualize",
+        "description": "visualize.Visualize",
+        "isExtraImport": true,
+        "detail": "visualize.Visualize",
+        "documentation": {}
+    },
+    {
+        "label": "printData",
+        "importPath": "visualize.Visualize",
+        "description": "visualize.Visualize",
+        "isExtraImport": true,
+        "detail": "visualize.Visualize",
         "documentation": {}
     },
     {
@@ -188,11 +428,27 @@
         "documentation": {}
     },
     {
-        "label": "printData",
-        "importPath": "visualize.Visualize",
-        "description": "visualize.Visualize",
+        "label": "printChannels",
+        "importPath": "Visualize",
+        "description": "Visualize",
         "isExtraImport": true,
-        "detail": "visualize.Visualize",
+        "detail": "Visualize",
+        "documentation": {}
+    },
+    {
+        "label": "printDetectedEOGs",
+        "importPath": "Visualize",
+        "description": "Visualize",
+        "isExtraImport": true,
+        "detail": "Visualize",
+        "documentation": {}
+    },
+    {
+        "label": "printData",
+        "importPath": "Visualize",
+        "description": "Visualize",
+        "isExtraImport": true,
+        "detail": "Visualize",
         "documentation": {}
     },
     {
@@ -209,6 +465,30 @@
         "description": "evaluation.Evaluation",
         "isExtraImport": true,
         "detail": "evaluation.Evaluation",
+        "documentation": {}
+    },
+    {
+        "label": "batchTest",
+        "importPath": "evaluation.Evaluation",
+        "description": "evaluation.Evaluation",
+        "isExtraImport": true,
+        "detail": "evaluation.Evaluation",
+        "documentation": {}
+    },
+    {
+        "label": "getTestData",
+        "importPath": "evaluation.Evaluation",
+        "description": "evaluation.Evaluation",
+        "isExtraImport": true,
+        "detail": "evaluation.Evaluation",
+        "documentation": {}
+    },
+    {
+        "label": "createPattern",
+        "importPath": "pattern.Pattern",
+        "description": "pattern.Pattern",
+        "isExtraImport": true,
+        "detail": "pattern.Pattern",
         "documentation": {}
     },
     {
@@ -403,73 +683,532 @@
     {
         "label": "extractChannelsFromXdf",
         "kind": 2,
-        "importPath": "extraction.Extraction",
-        "description": "extraction.Extraction",
+        "importPath": "Extraction.Extraction",
+        "description": "Extraction.Extraction",
         "peekOfCode": "def extractChannelsFromXdf(filepath:str, selected_channels:list[int], extract_sfreq=False):\n    try :\n        dictStreams,_  = load_xdf(filepath)\n    except Exception:\n        raise FileNotFoundError(f\"file : {filepath} does not exist\")\n    stream = dictStreams[0]['time_series']\n    if extract_sfreq:\n        sfreq = float(dictStreams[0]['info']['nominal_srate'][0])\n    extracted_data = []\n    size = len(stream)",
-        "detail": "extraction.Extraction",
+        "detail": "Extraction.Extraction",
         "documentation": {}
     },
     {
         "label": "test_extract_single_channel",
         "kind": 2,
-        "importPath": "extraction.tExtractDataFromXdf",
-        "description": "extraction.tExtractDataFromXdf",
+        "importPath": "Extraction.tExtractDataFromXdf",
+        "description": "Extraction.tExtractDataFromXdf",
         "peekOfCode": "def test_extract_single_channel(mock_load):\n    from Extraction import extractChannelsFromXdf\n    result = extractChannelsFromXdf(\"dummy.xdf\", [0])\n    assert result == [\n        [1.0, 1.1, 1.2]\n    ]\n@patch(\"pyxdf.load_xdf\", return_value=mock_xdf_data)\ndef test_extract_multiple_channels(mock_load):\n    from Extraction import extractChannelsFromXdf\n    result = extractChannelsFromXdf(\"dummy.xdf\", [0, 2])",
-        "detail": "extraction.tExtractDataFromXdf",
+        "detail": "Extraction.tExtractDataFromXdf",
         "documentation": {}
     },
     {
         "label": "test_extract_multiple_channels",
         "kind": 2,
-        "importPath": "extraction.tExtractDataFromXdf",
-        "description": "extraction.tExtractDataFromXdf",
+        "importPath": "Extraction.tExtractDataFromXdf",
+        "description": "Extraction.tExtractDataFromXdf",
         "peekOfCode": "def test_extract_multiple_channels(mock_load):\n    from Extraction import extractChannelsFromXdf\n    result = extractChannelsFromXdf(\"dummy.xdf\", [0, 2])\n    assert result == [\n        [1.0, 1.1, 1.2],\n        [3.0, 3.1, 3.2]\n    ]\n@patch(\"pyxdf.load_xdf\", return_value=mock_xdf_data)\ndef test_extract_with_sampling_rate(mock_load):\n    from Extraction import extractChannelsFromXdf",
-        "detail": "extraction.tExtractDataFromXdf",
+        "detail": "Extraction.tExtractDataFromXdf",
         "documentation": {}
     },
     {
         "label": "test_extract_with_sampling_rate",
         "kind": 2,
-        "importPath": "extraction.tExtractDataFromXdf",
-        "description": "extraction.tExtractDataFromXdf",
+        "importPath": "Extraction.tExtractDataFromXdf",
+        "description": "Extraction.tExtractDataFromXdf",
         "peekOfCode": "def test_extract_with_sampling_rate(mock_load):\n    from Extraction import extractChannelsFromXdf\n    result = extractChannelsFromXdf(\"dummy.xdf\", [1], extract_sfreq=True)\n    assert result[0] == [[2.0, 2.1, 2.2]]\n    assert result[1] == 250\n@patch(\"pyxdf.load_xdf\", return_value=mock_xdf_data)\ndef test_invalid_channel_index_high(mock_load):\n    from Extraction import extractChannelsFromXdf\n    with pytest.raises(IndexError):\n        extractChannelsFromXdf(\"dummy.xdf\", [5])",
-        "detail": "extraction.tExtractDataFromXdf",
+        "detail": "Extraction.tExtractDataFromXdf",
         "documentation": {}
     },
     {
         "label": "test_invalid_channel_index_high",
         "kind": 2,
-        "importPath": "extraction.tExtractDataFromXdf",
-        "description": "extraction.tExtractDataFromXdf",
+        "importPath": "Extraction.tExtractDataFromXdf",
+        "description": "Extraction.tExtractDataFromXdf",
         "peekOfCode": "def test_invalid_channel_index_high(mock_load):\n    from Extraction import extractChannelsFromXdf\n    with pytest.raises(IndexError):\n        extractChannelsFromXdf(\"dummy.xdf\", [5])\n@patch(\"pyxdf.load_xdf\", return_value=mock_xdf_data)\ndef test_invalid_channel_index_negative(mock_load):\n    from Extraction import extractChannelsFromXdf\n    with pytest.raises(IndexError):\n        extractChannelsFromXdf(\"dummy.xdf\", [-1])\n@patch(\"pyxdf.load_xdf\", return_value=mock_xdf_data)",
-        "detail": "extraction.tExtractDataFromXdf",
+        "detail": "Extraction.tExtractDataFromXdf",
         "documentation": {}
     },
     {
         "label": "test_invalid_channel_index_negative",
         "kind": 2,
-        "importPath": "extraction.tExtractDataFromXdf",
-        "description": "extraction.tExtractDataFromXdf",
+        "importPath": "Extraction.tExtractDataFromXdf",
+        "description": "Extraction.tExtractDataFromXdf",
         "peekOfCode": "def test_invalid_channel_index_negative(mock_load):\n    from Extraction import extractChannelsFromXdf\n    with pytest.raises(IndexError):\n        extractChannelsFromXdf(\"dummy.xdf\", [-1])\n@patch(\"pyxdf.load_xdf\", return_value=mock_xdf_data)\ndef test_empty_channel_list(mock_load):\n    from Extraction import extractChannelsFromXdf\n    result = extractChannelsFromXdf(\"dummy.xdf\", [])\n    assert result == []",
-        "detail": "extraction.tExtractDataFromXdf",
+        "detail": "Extraction.tExtractDataFromXdf",
         "documentation": {}
     },
     {
         "label": "test_empty_channel_list",
         "kind": 2,
-        "importPath": "extraction.tExtractDataFromXdf",
-        "description": "extraction.tExtractDataFromXdf",
+        "importPath": "Extraction.tExtractDataFromXdf",
+        "description": "Extraction.tExtractDataFromXdf",
         "peekOfCode": "def test_empty_channel_list(mock_load):\n    from Extraction import extractChannelsFromXdf\n    result = extractChannelsFromXdf(\"dummy.xdf\", [])\n    assert result == []",
-        "detail": "extraction.tExtractDataFromXdf",
+        "detail": "Extraction.tExtractDataFromXdf",
         "documentation": {}
     },
     {
         "label": "mock_xdf_data",
         "kind": 5,
-        "importPath": "extraction.tExtractDataFromXdf",
-        "description": "extraction.tExtractDataFromXdf",
+        "importPath": "Extraction.tExtractDataFromXdf",
+        "description": "Extraction.tExtractDataFromXdf",
         "peekOfCode": "mock_xdf_data = (\n    [{\n        'time_series': [\n            [1.0, 2.0, 3.0],\n            [1.1, 2.1, 3.1],\n            [1.2, 2.2, 3.2],\n        ],\n        'info': {\n            'nominal_srate': ['250.0']\n        }",
-        "detail": "extraction.tExtractDataFromXdf",
+        "detail": "Extraction.tExtractDataFromXdf",
+        "documentation": {}
+    },
+    {
+        "label": "mergeEvents",
+        "kind": 2,
+        "importPath": "PythonPrototype.detection.Detection",
+        "description": "PythonPrototype.detection.Detection",
+        "peekOfCode": "def mergeEvents(event1 :int, event2 :int, channel :list[int]):\n    #create new event\n    newEvent = int(np.mean([event1,event2]))\n    #store old event index\n    leastEvent = event1 if event1 < event2 else event2\n    print(f\"event1 : {event1} | event2 : {event2} | channel : {channel}\")\n    oldIndex = channel.index(leastEvent)\n    #remove old events\n    channel.remove(event1)\n    channel.remove(event2)",
+        "detail": "PythonPrototype.detection.Detection",
+        "documentation": {}
+    },
+    {
+        "label": "eventInChannel",
+        "kind": 2,
+        "importPath": "PythonPrototype.detection.Detection",
+        "description": "PythonPrototype.detection.Detection",
+        "peekOfCode": "def eventInChannel(eventA :int, channelB: list[int]):\n    if len(channelB) == 0: return False\n    flag = False\n    previous = -1000 # should not be called the very first time so not a problem\n    # condition if channelB only has 1 event\n    if len(channelB) == 1 and isSameEvent(eventA,previous): return True\n    temp = channelB.copy()\n    for eventB in temp:\n        if isSameEvent(eventA,eventB):        \n            if isSameEvent(eventA, previous):",
+        "detail": "PythonPrototype.detection.Detection",
+        "documentation": {}
+    },
+    {
+        "label": "removeFalsePositives",
+        "kind": 2,
+        "importPath": "PythonPrototype.detection.Detection",
+        "description": "PythonPrototype.detection.Detection",
+        "peekOfCode": "def removeFalsePositives(eog_events): \n    chA = eog_events[0]\n    chB = eog_events[1]\n    tempA = chA.copy()\n    tempB = chB.copy()\n    for event in tempA:\n        if not eventInChannel(event, tempB):\n            chA.remove(event)\n    for event in tempB:\n        if not eventInChannel(event, tempA):",
+        "detail": "PythonPrototype.detection.Detection",
+        "documentation": {}
+    },
+    {
+        "label": "detectEOGEvents",
+        "kind": 2,
+        "importPath": "PythonPrototype.detection.Detection",
+        "description": "PythonPrototype.detection.Detection",
+        "peekOfCode": "def detectEOGEvents(channel_data,sfreq):     \n    FILTER_LENGTH = 2480\n    method = \"fir\"\n    signal_length = len(channel_data) \n    if signal_length < FILTER_LENGTH:\n        method = \"iir\"\n    eog_events = _find_eog_events(\n        eog=[channel_data.copy()],\n        ch_names=None,\n        event_id=998,",
+        "detail": "PythonPrototype.detection.Detection",
+        "documentation": {}
+    },
+    {
+        "label": "detectChannelsEOGEvents",
+        "kind": 2,
+        "importPath": "PythonPrototype.detection.Detection",
+        "description": "PythonPrototype.detection.Detection",
+        "peekOfCode": "def detectChannelsEOGEvents(channels,sfreq):\n    ret = []\n    for channel_data in channels:\n        ret.append(detectEOGEvents(channel_data,sfreq))\n    return removeFalsePositives(ret)\ndef detectWithPattern(pattern :list[float], data : list[float]):\n    sizePattern = len(pattern)\n    sizeData = len(data)\n    repeat = sizeData - sizePattern\n    ret = {",
+        "detail": "PythonPrototype.detection.Detection",
+        "documentation": {}
+    },
+    {
+        "label": "detectWithPattern",
+        "kind": 2,
+        "importPath": "PythonPrototype.detection.Detection",
+        "description": "PythonPrototype.detection.Detection",
+        "peekOfCode": "def detectWithPattern(pattern :list[float], data : list[float]):\n    sizePattern = len(pattern)\n    sizeData = len(data)\n    repeat = sizeData - sizePattern\n    ret = {\n        \"normal_blink\" : [],\n        \"fast_blink\" : [],\n        \"slow_blink\" : []        \n    }\n    for i in range(repeat):",
+        "detail": "PythonPrototype.detection.Detection",
+        "documentation": {}
+    },
+    {
+        "label": "removeDoubles",
+        "kind": 2,
+        "importPath": "PythonPrototype.detection.Detection",
+        "description": "PythonPrototype.detection.Detection",
+        "peekOfCode": "def removeDoubles(eog_event): # function could be added to remove false positives\n    fin = []\n    until = -1\n    for event in eog_event:\n        if event > until:\n            fin.append(event)\n            until = event + BLINK_DURATION\n    return fin",
+        "detail": "PythonPrototype.detection.Detection",
+        "documentation": {}
+    },
+    {
+        "label": "dummy_signal",
+        "kind": 2,
+        "importPath": "PythonPrototype.detection.tDetectEOGEvents",
+        "description": "PythonPrototype.detection.tDetectEOGEvents",
+        "peekOfCode": "def dummy_signal():\n    # Un signal factice avec des \"blinks\" visibles\n    sfreq = 250  # Hz\n    import numpy as np\n    duration = 5  # 2 sec\n    n_samples = sfreq * duration\n    signal = [0.0] * n_samples\n    # Ajout de 3 blinks simulés\n    signal[100] = 5.0\n    signal[500] = 6.0",
+        "detail": "PythonPrototype.detection.tDetectEOGEvents",
+        "documentation": {}
+    },
+    {
+        "label": "test_detect_eog_event_runs",
+        "kind": 2,
+        "importPath": "PythonPrototype.detection.tDetectEOGEvents",
+        "description": "PythonPrototype.detection.tDetectEOGEvents",
+        "peekOfCode": "def test_detect_eog_event_runs(dummy_signal):\n    signal, sfreq = dummy_signal\n    result = detectEOGEvents(signal, sfreq)\n    # Test que la fonction retourne une liste\n    assert isinstance(result, list)\n    # Test que tous les éléments sont des entiers\n    assert all(isinstance(x, int) for x in result)",
+        "detail": "PythonPrototype.detection.tDetectEOGEvents",
+        "documentation": {}
+    },
+    {
+        "label": "test_basic_match",
+        "kind": 2,
+        "importPath": "PythonPrototype.detection.tRemoveFalsePositives",
+        "description": "PythonPrototype.detection.tRemoveFalsePositives",
+        "peekOfCode": "def test_basic_match():\n    eog_events = [\n        [100, 300],\n        [102, 299]\n    ]\n    result = removeFalsePositives([eog_events[0][:], eog_events[1][:]])\n    assert result == [[100, 300], [102, 299]]\ndef test_no_match():\n    eog_events = [\n        [100, 300],",
+        "detail": "PythonPrototype.detection.tRemoveFalsePositives",
+        "documentation": {}
+    },
+    {
+        "label": "test_no_match",
+        "kind": 2,
+        "importPath": "PythonPrototype.detection.tRemoveFalsePositives",
+        "description": "PythonPrototype.detection.tRemoveFalsePositives",
+        "peekOfCode": "def test_no_match():\n    eog_events = [\n        [100, 300],\n        [200, 400]\n    ]\n    result = removeFalsePositives([eog_events[0][:], eog_events[1][:]])\n    assert result == [[], []]\ndef test_partial_match():\n    eog_events = [\n        [100, 300, 500],",
+        "detail": "PythonPrototype.detection.tRemoveFalsePositives",
+        "documentation": {}
+    },
+    {
+        "label": "test_partial_match",
+        "kind": 2,
+        "importPath": "PythonPrototype.detection.tRemoveFalsePositives",
+        "description": "PythonPrototype.detection.tRemoveFalsePositives",
+        "peekOfCode": "def test_partial_match():\n    eog_events = [\n        [100, 300, 500],\n        [99, 450]\n    ]\n    result = removeFalsePositives([eog_events[0][:], eog_events[1][:]])\n    assert result == [[100], [99]]\ndef test_all_match_with_tolerance():\n    eog_events = [\n        [100, 200, 300],",
+        "detail": "PythonPrototype.detection.tRemoveFalsePositives",
+        "documentation": {}
+    },
+    {
+        "label": "test_all_match_with_tolerance",
+        "kind": 2,
+        "importPath": "PythonPrototype.detection.tRemoveFalsePositives",
+        "description": "PythonPrototype.detection.tRemoveFalsePositives",
+        "peekOfCode": "def test_all_match_with_tolerance():\n    eog_events = [\n        [100, 200, 300],\n        [120, 180, 299]\n    ]\n    result = removeFalsePositives([eog_events[0][:], eog_events[1][:]])\n    # All within TOLERANCE (25), but some merging may have occurred\n    assert len(result[0]) == len(result[1]) == 3\ndef test_empty_input():\n    eog_events = [",
+        "detail": "PythonPrototype.detection.tRemoveFalsePositives",
+        "documentation": {}
+    },
+    {
+        "label": "test_empty_input",
+        "kind": 2,
+        "importPath": "PythonPrototype.detection.tRemoveFalsePositives",
+        "description": "PythonPrototype.detection.tRemoveFalsePositives",
+        "peekOfCode": "def test_empty_input():\n    eog_events = [\n        [],\n        []\n    ]\n    result = removeFalsePositives([eog_events[0][:], eog_events[1][:]])\n    assert result == [[], []]\ndef test_one_empty():\n    eog_events = [\n        [100, 200],",
+        "detail": "PythonPrototype.detection.tRemoveFalsePositives",
+        "documentation": {}
+    },
+    {
+        "label": "test_one_empty",
+        "kind": 2,
+        "importPath": "PythonPrototype.detection.tRemoveFalsePositives",
+        "description": "PythonPrototype.detection.tRemoveFalsePositives",
+        "peekOfCode": "def test_one_empty():\n    eog_events = [\n        [100, 200],\n        []\n    ]\n    result = removeFalsePositives([eog_events[0][:], eog_events[1][:]])\n    assert result == [[], []]\ndef test_close_but_not_within_tolerance():\n    eog_events = [\n        [100],",
+        "detail": "PythonPrototype.detection.tRemoveFalsePositives",
+        "documentation": {}
+    },
+    {
+        "label": "test_close_but_not_within_tolerance",
+        "kind": 2,
+        "importPath": "PythonPrototype.detection.tRemoveFalsePositives",
+        "description": "PythonPrototype.detection.tRemoveFalsePositives",
+        "peekOfCode": "def test_close_but_not_within_tolerance():\n    eog_events = [\n        [100],\n        [100 + TOLERANCE + 1]  # Just outside tolerance\n    ]\n    result = removeFalsePositives([eog_events[0][:], eog_events[1][:]])\n    assert result == [[], []]\ndef test_merging_two_close_events():\n    eog_events = [\n        [100],",
+        "detail": "PythonPrototype.detection.tRemoveFalsePositives",
+        "documentation": {}
+    },
+    {
+        "label": "test_merging_two_close_events",
+        "kind": 2,
+        "importPath": "PythonPrototype.detection.tRemoveFalsePositives",
+        "description": "PythonPrototype.detection.tRemoveFalsePositives",
+        "peekOfCode": "def test_merging_two_close_events():\n    eog_events = [\n        [100],\n        [90, 110]\n    ]\n    result = removeFalsePositives([eog_events[0][:], eog_events[1][:]])\n    # 90 and 110 should merge to 100, match with 100\n    assert result[0] == [100]\n    assert result[1] == [100]\ndef test_duplicate_events_in_one_channel():",
+        "detail": "PythonPrototype.detection.tRemoveFalsePositives",
+        "documentation": {}
+    },
+    {
+        "label": "test_duplicate_events_in_one_channel",
+        "kind": 2,
+        "importPath": "PythonPrototype.detection.tRemoveFalsePositives",
+        "description": "PythonPrototype.detection.tRemoveFalsePositives",
+        "peekOfCode": "def test_duplicate_events_in_one_channel():\n    eog_events = [\n        [100, 102],\n        [101]\n    ]\n    result = removeFalsePositives([eog_events[0][:], eog_events[1][:]])\n    assert result[0] == [101]\n    assert result[1] == [101]",
+        "detail": "PythonPrototype.detection.tRemoveFalsePositives",
+        "documentation": {}
+    },
+    {
+        "label": "TOLERANCE",
+        "kind": 5,
+        "importPath": "PythonPrototype.detection.tRemoveFalsePositives",
+        "description": "PythonPrototype.detection.tRemoveFalsePositives",
+        "peekOfCode": "TOLERANCE = 150 / 6\ndef test_basic_match():\n    eog_events = [\n        [100, 300],\n        [102, 299]\n    ]\n    result = removeFalsePositives([eog_events[0][:], eog_events[1][:]])\n    assert result == [[100, 300], [102, 299]]\ndef test_no_match():\n    eog_events = [",
+        "detail": "PythonPrototype.detection.tRemoveFalsePositives",
+        "documentation": {}
+    },
+    {
+        "label": "getTestData",
+        "kind": 2,
+        "importPath": "PythonPrototype.evaluation.Evaluation",
+        "description": "PythonPrototype.evaluation.Evaluation",
+        "peekOfCode": "def getTestData(json_folder : str):\n    folder = Path(json_folder)\n    json_files = list(folder.glob(\"*.json\"))    \n    ret = []\n    for file in json_files:\n        with open(str(file)) as f:\n            data = json.load(f)\n        ret.append(data)\n    return ret\ndef runTest(filepath :str):",
+        "detail": "PythonPrototype.evaluation.Evaluation",
+        "documentation": {}
+    },
+    {
+        "label": "runTest",
+        "kind": 2,
+        "importPath": "PythonPrototype.evaluation.Evaluation",
+        "description": "PythonPrototype.evaluation.Evaluation",
+        "peekOfCode": "def runTest(filepath :str):\n    selected_channels: list[int] = [1,3]\n    [ channels, sfreq ] = extractChannelsFromXdf(filepath,selected_channels, extract_sfreq=True)\n    return detectChannelsEOGEvents(channels,sfreq)\ndef oneTest(json_path: str) -> bool:\n    with open(json_path, \"r\") as f:\n        test_data = json.load(f)\n    filepath = test_data[\"filepath\"]\n    expected_outcome = test_data[\"expected\"][\"outcome\"]  # \"TRUE_POSITIVE\" ou \"TRUE_NEGATIVE\"\n    expected_blinks = test_data[\"expected\"][\"blinks\"]",
+        "detail": "PythonPrototype.evaluation.Evaluation",
+        "documentation": {}
+    },
+    {
+        "label": "oneTest",
+        "kind": 2,
+        "importPath": "PythonPrototype.evaluation.Evaluation",
+        "description": "PythonPrototype.evaluation.Evaluation",
+        "peekOfCode": "def oneTest(json_path: str) -> bool:\n    with open(json_path, \"r\") as f:\n        test_data = json.load(f)\n    filepath = test_data[\"filepath\"]\n    expected_outcome = test_data[\"expected\"][\"outcome\"]  # \"TRUE_POSITIVE\" ou \"TRUE_NEGATIVE\"\n    expected_blinks = test_data[\"expected\"][\"blinks\"]\n    # Exécution de l'algorithme\n    events = runTest(filepath)\n    num_events = len(events[0])\n    # Comparaison avec la vérité terrain",
+        "detail": "PythonPrototype.evaluation.Evaluation",
+        "documentation": {}
+    },
+    {
+        "label": "batchTest",
+        "kind": 2,
+        "importPath": "PythonPrototype.evaluation.Evaluation",
+        "description": "PythonPrototype.evaluation.Evaluation",
+        "peekOfCode": "def batchTest(json_folder: str):\n    folder = Path(json_folder)\n    json_files = list(folder.glob(\"*.json\"))\n    successes = 0\n    failures = 0\n    for json_file in json_files:\n        if oneTest(str(json_file)):\n            successes += 1\n        else:\n            failures += 1",
+        "detail": "PythonPrototype.evaluation.Evaluation",
+        "documentation": {}
+    },
+    {
+        "label": "extractChannelsFromXdf",
+        "kind": 2,
+        "importPath": "PythonPrototype.extraction.Extraction",
+        "description": "PythonPrototype.extraction.Extraction",
+        "peekOfCode": "def extractChannelsFromXdf(filepath:str, selected_channels:list[int], extract_sfreq=False):\n    try :\n        dictStreams,_  = load_xdf(filepath)\n    except Exception:\n        raise FileNotFoundError(f\"file : {filepath} does not exist\")\n    stream = dictStreams[0]['time_series']\n    if extract_sfreq:\n        sfreq = float(dictStreams[0]['info']['nominal_srate'][0])\n    extracted_data = []\n    size = len(stream)",
+        "detail": "PythonPrototype.extraction.Extraction",
+        "documentation": {}
+    },
+    {
+        "label": "test_extract_single_channel",
+        "kind": 2,
+        "importPath": "PythonPrototype.extraction.tExtractDataFromXdf",
+        "description": "PythonPrototype.extraction.tExtractDataFromXdf",
+        "peekOfCode": "def test_extract_single_channel(mock_load):\n    from Extraction import extractChannelsFromXdf\n    result = extractChannelsFromXdf(\"dummy.xdf\", [0])\n    assert result == [\n        [1.0, 1.1, 1.2]\n    ]\n@patch(\"pyxdf.load_xdf\", return_value=mock_xdf_data)\ndef test_extract_multiple_channels(mock_load):\n    from Extraction import extractChannelsFromXdf\n    result = extractChannelsFromXdf(\"dummy.xdf\", [0, 2])",
+        "detail": "PythonPrototype.extraction.tExtractDataFromXdf",
+        "documentation": {}
+    },
+    {
+        "label": "test_extract_multiple_channels",
+        "kind": 2,
+        "importPath": "PythonPrototype.extraction.tExtractDataFromXdf",
+        "description": "PythonPrototype.extraction.tExtractDataFromXdf",
+        "peekOfCode": "def test_extract_multiple_channels(mock_load):\n    from Extraction import extractChannelsFromXdf\n    result = extractChannelsFromXdf(\"dummy.xdf\", [0, 2])\n    assert result == [\n        [1.0, 1.1, 1.2],\n        [3.0, 3.1, 3.2]\n    ]\n@patch(\"pyxdf.load_xdf\", return_value=mock_xdf_data)\ndef test_extract_with_sampling_rate(mock_load):\n    from Extraction import extractChannelsFromXdf",
+        "detail": "PythonPrototype.extraction.tExtractDataFromXdf",
+        "documentation": {}
+    },
+    {
+        "label": "test_extract_with_sampling_rate",
+        "kind": 2,
+        "importPath": "PythonPrototype.extraction.tExtractDataFromXdf",
+        "description": "PythonPrototype.extraction.tExtractDataFromXdf",
+        "peekOfCode": "def test_extract_with_sampling_rate(mock_load):\n    from Extraction import extractChannelsFromXdf\n    result = extractChannelsFromXdf(\"dummy.xdf\", [1], extract_sfreq=True)\n    assert result[0] == [[2.0, 2.1, 2.2]]\n    assert result[1] == 250\n@patch(\"pyxdf.load_xdf\", return_value=mock_xdf_data)\ndef test_invalid_channel_index_high(mock_load):\n    from Extraction import extractChannelsFromXdf\n    with pytest.raises(IndexError):\n        extractChannelsFromXdf(\"dummy.xdf\", [5])",
+        "detail": "PythonPrototype.extraction.tExtractDataFromXdf",
+        "documentation": {}
+    },
+    {
+        "label": "test_invalid_channel_index_high",
+        "kind": 2,
+        "importPath": "PythonPrototype.extraction.tExtractDataFromXdf",
+        "description": "PythonPrototype.extraction.tExtractDataFromXdf",
+        "peekOfCode": "def test_invalid_channel_index_high(mock_load):\n    from Extraction import extractChannelsFromXdf\n    with pytest.raises(IndexError):\n        extractChannelsFromXdf(\"dummy.xdf\", [5])\n@patch(\"pyxdf.load_xdf\", return_value=mock_xdf_data)\ndef test_invalid_channel_index_negative(mock_load):\n    from Extraction import extractChannelsFromXdf\n    with pytest.raises(IndexError):\n        extractChannelsFromXdf(\"dummy.xdf\", [-1])\n@patch(\"pyxdf.load_xdf\", return_value=mock_xdf_data)",
+        "detail": "PythonPrototype.extraction.tExtractDataFromXdf",
+        "documentation": {}
+    },
+    {
+        "label": "test_invalid_channel_index_negative",
+        "kind": 2,
+        "importPath": "PythonPrototype.extraction.tExtractDataFromXdf",
+        "description": "PythonPrototype.extraction.tExtractDataFromXdf",
+        "peekOfCode": "def test_invalid_channel_index_negative(mock_load):\n    from Extraction import extractChannelsFromXdf\n    with pytest.raises(IndexError):\n        extractChannelsFromXdf(\"dummy.xdf\", [-1])\n@patch(\"pyxdf.load_xdf\", return_value=mock_xdf_data)\ndef test_empty_channel_list(mock_load):\n    from Extraction import extractChannelsFromXdf\n    result = extractChannelsFromXdf(\"dummy.xdf\", [])\n    assert result == []",
+        "detail": "PythonPrototype.extraction.tExtractDataFromXdf",
+        "documentation": {}
+    },
+    {
+        "label": "test_empty_channel_list",
+        "kind": 2,
+        "importPath": "PythonPrototype.extraction.tExtractDataFromXdf",
+        "description": "PythonPrototype.extraction.tExtractDataFromXdf",
+        "peekOfCode": "def test_empty_channel_list(mock_load):\n    from Extraction import extractChannelsFromXdf\n    result = extractChannelsFromXdf(\"dummy.xdf\", [])\n    assert result == []",
+        "detail": "PythonPrototype.extraction.tExtractDataFromXdf",
+        "documentation": {}
+    },
+    {
+        "label": "mock_xdf_data",
+        "kind": 5,
+        "importPath": "PythonPrototype.extraction.tExtractDataFromXdf",
+        "description": "PythonPrototype.extraction.tExtractDataFromXdf",
+        "peekOfCode": "mock_xdf_data = (\n    [{\n        'time_series': [\n            [1.0, 2.0, 3.0],\n            [1.1, 2.1, 3.1],\n            [1.2, 2.2, 3.2],\n        ],\n        'info': {\n            'nominal_srate': ['250.0']\n        }",
+        "detail": "PythonPrototype.extraction.tExtractDataFromXdf",
+        "documentation": {}
+    },
+    {
+        "label": "avgEvents",
+        "kind": 2,
+        "importPath": "PythonPrototype.pattern.Pattern",
+        "description": "PythonPrototype.pattern.Pattern",
+        "peekOfCode": "def avgEvents(events : list[float]) -> list[float]:\n    if events == []: return []\n    sizeEventList = len(events)\n    if sizeEventList == 1: return events\n    template = np.array(events[0])\n    for event in events[1:]:\n        template += np.array(event)\n    template /= sizeEventList\n    return list(template)\ndef createPattern(type=\"blink\"):",
+        "detail": "PythonPrototype.pattern.Pattern",
+        "documentation": {}
+    },
+    {
+        "label": "createPattern",
+        "kind": 2,
+        "importPath": "PythonPrototype.pattern.Pattern",
+        "description": "PythonPrototype.pattern.Pattern",
+        "peekOfCode": "def createPattern(type=\"blink\"):\n    blink_file = r'data\\sub-nathan_ses-S001_task-clean_blink_calibration_run-001_eeg.xdf'\n    selected_channels = [1,3]\n    match(type):\n        case \"blink\":\n            data, sfreq = extractChannelsFromXdf(blink_file,selected_channels,extract_sfreq=True)\n    # chosen_channels = np.arange(0,len(selected_channels))\n    eog_events = detectChannelsEOGEvents(data,sfreq)\n    events = []\n    sizeChannel = len(eog_events)",
+        "detail": "PythonPrototype.pattern.Pattern",
+        "documentation": {}
+    },
+    {
+        "label": "isSameEvent",
+        "kind": 2,
+        "importPath": "PythonPrototype.utils.Utils",
+        "description": "PythonPrototype.utils.Utils",
+        "peekOfCode": "def isSameEvent(x1 :int,x2 :int):\n    return (x1 - TOLERANCE) <= x2 <= (x1 + TOLERANCE)\ndef findLocalMaximum(buffer :list[int]):\n    if buffer == []: raise ValueError(\"Provided buffer is empty\")\n    return max(buffer)\ndef localMaximumIndex(buffer :list[int], offset : int = 0):\n    return offset + buffer.index(findLocalMaximum(buffer))\ndef isBaseline(buffer):\n    top = BASICALLY_ZERO\n    bottom = -BASICALLY_ZERO",
+        "detail": "PythonPrototype.utils.Utils",
+        "documentation": {}
+    },
+    {
+        "label": "findLocalMaximum",
+        "kind": 2,
+        "importPath": "PythonPrototype.utils.Utils",
+        "description": "PythonPrototype.utils.Utils",
+        "peekOfCode": "def findLocalMaximum(buffer :list[int]):\n    if buffer == []: raise ValueError(\"Provided buffer is empty\")\n    return max(buffer)\ndef localMaximumIndex(buffer :list[int], offset : int = 0):\n    return offset + buffer.index(findLocalMaximum(buffer))\ndef isBaseline(buffer):\n    top = BASICALLY_ZERO\n    bottom = -BASICALLY_ZERO\n    bMax = max(buffer)\n    bMin = min(buffer)",
+        "detail": "PythonPrototype.utils.Utils",
+        "documentation": {}
+    },
+    {
+        "label": "localMaximumIndex",
+        "kind": 2,
+        "importPath": "PythonPrototype.utils.Utils",
+        "description": "PythonPrototype.utils.Utils",
+        "peekOfCode": "def localMaximumIndex(buffer :list[int], offset : int = 0):\n    return offset + buffer.index(findLocalMaximum(buffer))\ndef isBaseline(buffer):\n    top = BASICALLY_ZERO\n    bottom = -BASICALLY_ZERO\n    bMax = max(buffer)\n    bMin = min(buffer)\n    return bMax <= top and bMin >= bottom",
+        "detail": "PythonPrototype.utils.Utils",
+        "documentation": {}
+    },
+    {
+        "label": "isBaseline",
+        "kind": 2,
+        "importPath": "PythonPrototype.utils.Utils",
+        "description": "PythonPrototype.utils.Utils",
+        "peekOfCode": "def isBaseline(buffer):\n    top = BASICALLY_ZERO\n    bottom = -BASICALLY_ZERO\n    bMax = max(buffer)\n    bMin = min(buffer)\n    return bMax <= top and bMin >= bottom",
+        "detail": "PythonPrototype.utils.Utils",
+        "documentation": {}
+    },
+    {
+        "label": "dummy_channels",
+        "kind": 2,
+        "importPath": "PythonPrototype.visualize.tPrintData",
+        "description": "PythonPrototype.visualize.tPrintData",
+        "peekOfCode": "def dummy_channels():\n    return [\n        [0.1 * i for i in range(10)], \n        [0.2 * i for i in range(10)]\n    ]\n@pytest.fixture\ndef dummy_eog_events():\n    return [2, 5, 8]\n# Test printChannels runs without error\ndef test_print_channels_runs(dummy_channels):",
+        "detail": "PythonPrototype.visualize.tPrintData",
+        "documentation": {}
+    },
+    {
+        "label": "dummy_eog_events",
+        "kind": 2,
+        "importPath": "PythonPrototype.visualize.tPrintData",
+        "description": "PythonPrototype.visualize.tPrintData",
+        "peekOfCode": "def dummy_eog_events():\n    return [2, 5, 8]\n# Test printChannels runs without error\ndef test_print_channels_runs(dummy_channels):\n    axs = printChannels(dummy_channels)\n    assert len(axs) == 2  # We expect 2 subplots for 2 channels\n# Test printDetectedEOGs adds lines\ndef test_print_detected_eogs_runs(dummy_channels, dummy_eog_events):\n    axs = printDetectedEOGs(dummy_channels, dummy_eog_events)\n    assert len(axs) == 2  # Again, 2 channels means 2 subplots",
+        "detail": "PythonPrototype.visualize.tPrintData",
+        "documentation": {}
+    },
+    {
+        "label": "test_print_channels_runs",
+        "kind": 2,
+        "importPath": "PythonPrototype.visualize.tPrintData",
+        "description": "PythonPrototype.visualize.tPrintData",
+        "peekOfCode": "def test_print_channels_runs(dummy_channels):\n    axs = printChannels(dummy_channels)\n    assert len(axs) == 2  # We expect 2 subplots for 2 channels\n# Test printDetectedEOGs adds lines\ndef test_print_detected_eogs_runs(dummy_channels, dummy_eog_events):\n    axs = printDetectedEOGs(dummy_channels, dummy_eog_events)\n    assert len(axs) == 2  # Again, 2 channels means 2 subplots\n# Test printData in channelOnly mode\ndef test_print_data_channel_only(dummy_channels):\n    with patch(\"matplotlib.pyplot.show\"):",
+        "detail": "PythonPrototype.visualize.tPrintData",
+        "documentation": {}
+    },
+    {
+        "label": "test_print_detected_eogs_runs",
+        "kind": 2,
+        "importPath": "PythonPrototype.visualize.tPrintData",
+        "description": "PythonPrototype.visualize.tPrintData",
+        "peekOfCode": "def test_print_detected_eogs_runs(dummy_channels, dummy_eog_events):\n    axs = printDetectedEOGs(dummy_channels, dummy_eog_events)\n    assert len(axs) == 2  # Again, 2 channels means 2 subplots\n# Test printData in channelOnly mode\ndef test_print_data_channel_only(dummy_channels):\n    with patch(\"matplotlib.pyplot.show\"):\n        printData(dummy_channels, select_channels=[0, 1], viewType=\"channel_only\")\n# Test printData in detected_eogs mode\ndef test_print_data_detected_eogs(dummy_channels, dummy_eog_events):\n    with patch(\"matplotlib.pyplot.show\"):",
+        "detail": "PythonPrototype.visualize.tPrintData",
+        "documentation": {}
+    },
+    {
+        "label": "test_print_data_channel_only",
+        "kind": 2,
+        "importPath": "PythonPrototype.visualize.tPrintData",
+        "description": "PythonPrototype.visualize.tPrintData",
+        "peekOfCode": "def test_print_data_channel_only(dummy_channels):\n    with patch(\"matplotlib.pyplot.show\"):\n        printData(dummy_channels, select_channels=[0, 1], viewType=\"channel_only\")\n# Test printData in detected_eogs mode\ndef test_print_data_detected_eogs(dummy_channels, dummy_eog_events):\n    with patch(\"matplotlib.pyplot.show\"):\n        printData(\n            dummy_channels,\n            select_channels=[0, 1],\n            viewType=\"detected_eogs\",",
+        "detail": "PythonPrototype.visualize.tPrintData",
+        "documentation": {}
+    },
+    {
+        "label": "test_print_data_detected_eogs",
+        "kind": 2,
+        "importPath": "PythonPrototype.visualize.tPrintData",
+        "description": "PythonPrototype.visualize.tPrintData",
+        "peekOfCode": "def test_print_data_detected_eogs(dummy_channels, dummy_eog_events):\n    with patch(\"matplotlib.pyplot.show\"):\n        printData(\n            dummy_channels,\n            select_channels=[0, 1],\n            viewType=\"detected_eogs\",\n            eog_events=dummy_eog_events\n        )\n# Test printData with invalid viewType\ndef test_print_data_invalid_viewtype(dummy_channels):",
+        "detail": "PythonPrototype.visualize.tPrintData",
+        "documentation": {}
+    },
+    {
+        "label": "test_print_data_invalid_viewtype",
+        "kind": 2,
+        "importPath": "PythonPrototype.visualize.tPrintData",
+        "description": "PythonPrototype.visualize.tPrintData",
+        "peekOfCode": "def test_print_data_invalid_viewtype(dummy_channels):\n    with patch(\"matplotlib.pyplot.show\"):\n        with pytest.raises(ValueError):\n            printData(dummy_channels, select_channels=[0], viewType=\"invalid\")",
+        "detail": "PythonPrototype.visualize.tPrintData",
+        "documentation": {}
+    },
+    {
+        "label": "printChannels",
+        "kind": 2,
+        "importPath": "PythonPrototype.visualize.Visualize",
+        "description": "PythonPrototype.visualize.Visualize",
+        "peekOfCode": "def printChannels(channels :list[list[float]]):\n    num_channels = len(channels)\n    col = (2 // num_channels)\n    _, axs = plt.subplots(num_channels, col, figsize=(10, 3 * num_channels), sharex=True)\n    # If only 1 channel, axs is not a list\n    if num_channels == 1:\n        axs = [axs]\n    if col == 1:\n        for i, data in enumerate(channels):\n            axs[i].plot(range(len(data)), data, color=color[i % len(color)])",
+        "detail": "PythonPrototype.visualize.Visualize",
+        "documentation": {}
+    },
+    {
+        "label": "printDetectedEOGs",
+        "kind": 2,
+        "importPath": "PythonPrototype.visualize.Visualize",
+        "description": "PythonPrototype.visualize.Visualize",
+        "peekOfCode": "def printDetectedEOGs(channels : list[list[float]], eog_events):\n    assert len(channels) == len(eog_events)\n    axs, row , col = printChannels(channels)\n    sizeChannels = row\n    sizeColor = len(color)\n    for c in range(col):\n        for i in range(sizeChannels):\n            sizeEvents = len(eog_events[i])\n            for j in range(sizeEvents):\n                if col == 1:",
+        "detail": "PythonPrototype.visualize.Visualize",
+        "documentation": {}
+    },
+    {
+        "label": "printTest",
+        "kind": 2,
+        "importPath": "PythonPrototype.visualize.Visualize",
+        "description": "PythonPrototype.visualize.Visualize",
+        "peekOfCode": "def printTest(test_data : list[list[float]],test_eog_events, test_succeed=False):\n    #print the channels, \n    axs, row, col = printChannels(test_data)\n    # print the detected, \n    sizeChannels = row\n    sizeColor = len(color)\n    for c in range(col):\n        for i in range(sizeChannels):\n            sizeEvents = len(test_eog_events[i])\n            for j in range(sizeEvents):",
+        "detail": "PythonPrototype.visualize.Visualize",
+        "documentation": {}
+    },
+    {
+        "label": "printTreshold",
+        "kind": 2,
+        "importPath": "PythonPrototype.visualize.Visualize",
+        "description": "PythonPrototype.visualize.Visualize",
+        "peekOfCode": "def printTreshold(channels :list[list[float]], thresholds : list[list[float]]):\n    axs, row , col = printChannels(channels)\n    for c in range(col):\n        for r in range(row):\n            if col == 1:\n                axs[r].hlines(y = thresholds,xmin=0, xmax=len(channels[0]), linestyle=\"--\")\n            else:\n                axs[r][c].hlines(y = thresholds,xmin=0, xmax=len(channels[0]), linestyle=\"--\")\n    return axs, row, col\ndef printData(",
+        "detail": "PythonPrototype.visualize.Visualize",
+        "documentation": {}
+    },
+    {
+        "label": "printData",
+        "kind": 2,
+        "importPath": "PythonPrototype.visualize.Visualize",
+        "description": "PythonPrototype.visualize.Visualize",
+        "peekOfCode": "def printData(\n    channels :list[list[float]], \n    select_channels, \n    viewType :str=\"channel_only\", \n    thresh=[0],\n    eog_events=None\n    ):\n    viewTypes = [\"channel_only\", \"detected_eogs\",\"test_success\",\"test_fail\",\"threshold\"]    \n    if viewType not in viewTypes:\n        raise ValueError(f\"ViewType : {viewType} does not exist, please choose one from the list : {viewTypes}\")",
+        "detail": "PythonPrototype.visualize.Visualize",
+        "documentation": {}
+    },
+    {
+        "label": "color",
+        "kind": 5,
+        "importPath": "PythonPrototype.visualize.Visualize",
+        "description": "PythonPrototype.visualize.Visualize",
+        "peekOfCode": "color = [\"blue\", \"green\", \"red\", \"purple\", \"orange\", \"brown\", \"pink\", \"gray\"]\ndef printChannels(channels :list[list[float]]):\n    num_channels = len(channels)\n    col = (2 // num_channels)\n    _, axs = plt.subplots(num_channels, col, figsize=(10, 3 * num_channels), sharex=True)\n    # If only 1 channel, axs is not a list\n    if num_channels == 1:\n        axs = [axs]\n    if col == 1:\n        for i, data in enumerate(channels):",
+        "detail": "PythonPrototype.visualize.Visualize",
+        "documentation": {}
+    },
+    {
+        "label": "BASICALLY_ZERO",
+        "kind": 5,
+        "importPath": "PythonPrototype.include",
+        "description": "PythonPrototype.include",
+        "peekOfCode": "BASICALLY_ZERO = 40",
+        "detail": "PythonPrototype.include",
         "documentation": {}
     },
     {

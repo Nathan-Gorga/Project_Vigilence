@@ -1,0 +1,25 @@
+{
+    "filepath": "C:/Users/gorga/CodeProjects/Arduino/Blink/projet_blink/data/left_right_continuous_fast_saccades_nathan.xdf",
+    "expected": {
+        "outcome": "TRUE_NEGATIVE",
+        "blinks": 0
+    },
+    "outcome": {
+        "blinks_found": 4,
+        "result": "FAIL",
+        "detected": [
+            [
+                104,
+                200,
+                257,
+                357
+            ],
+            [
+                122,
+                182,
+                270,
+                340
+            ]
+        ]
+    }
+}

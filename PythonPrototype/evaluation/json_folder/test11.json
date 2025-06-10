@@ -1,0 +1,23 @@
+{
+    "filepath": "C:/Users/gorga/CodeProjects/Arduino/Blink/projet_blink/data/slow_blinks_nathan.xdf",
+    "expected": {
+        "outcome": "TRUE_NEGATIVE",
+        "blinks": 0
+    },
+    "outcome": {
+        "blinks_found": 3,
+        "result": "FAIL",
+        "detected": [
+            [
+                135,
+                248,
+                398
+            ],
+            [
+                132,
+                227,
+                396
+            ]
+        ]
+    }
+}

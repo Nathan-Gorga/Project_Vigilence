@@ -1,0 +1,15 @@
+{
+    "filepath": "C:/Users/gorga/CodeProjects/Arduino/Blink/projet_blink/data/down_saccade_nathan.xdf",
+    "expected": {
+        "outcome": "TRUE_NEGATIVE",
+        "blinks": 0
+    },
+    "outcome": {
+        "blinks_found": 0,
+        "result": "PASS",
+        "detected": [
+            [],
+            []
+        ]
+    }
+}
