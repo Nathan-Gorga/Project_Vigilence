@@ -60,4 +60,4 @@ def createPattern(type="blink"):
     secondPattern = avgEvents(events[1])
     
     return firstPattern, secondPattern
-    
+

@@ -219,14 +219,6 @@
         "documentation": {}
     },
     {
-        "label": "detectChannelsEOGEvents",
-        "importPath": "detection.Detection",
-        "description": "detection.Detection",
-        "isExtraImport": true,
-        "detail": "detection.Detection",
-        "documentation": {}
-    },
-    {
         "label": "detectWithPattern",
         "importPath": "detection.Detection",
         "description": "detection.Detection",
@@ -236,14 +228,6 @@
     },
     {
         "label": "removeDoubles",
-        "importPath": "detection.Detection",
-        "description": "detection.Detection",
-        "isExtraImport": true,
-        "detail": "detection.Detection",
-        "documentation": {}
-    },
-    {
-        "label": "removeFalsePositives",
         "importPath": "detection.Detection",
         "description": "detection.Detection",
         "isExtraImport": true,
@@ -786,7 +770,7 @@
         "kind": 5,
         "importPath": "include",
         "description": "include",
-        "peekOfCode": "BASICALLY_ZERO = 20",
+        "peekOfCode": "BASICALLY_ZERO = 40",
         "detail": "include",
         "documentation": {}
     }

@@ -6,6 +6,7 @@ from utils.Utils import isBaseline, isSameEvent, localMaximumIndex
 from visualize.Visualize import printData
 
 
+
 def mergeEvents(event1 :int, event2 :int, channel :list[int]):
     #create new event
     newEvent = int(np.mean([event1,event2]))
@@ -157,9 +158,20 @@ def detectWithPattern(pattern :list[float], data : list[float]):
         start = i
         end = start + sizePattern
         buffer = np.array(data[start:end])
+        if isBaseline(buffer): continue
         
-        buffer -= pattern
+        bMax = max(buffer)
+        bMin = min(buffer)
         
+        pMax = max(pattern)
+        pMin = min(pattern)
+        
+        bFactor = bMax - bMin
+        pFactor = pMax - pMin
+        
+        scaleFactor = bFactor/pFactor
+        
+        buffer -= np.array(pattern) * scaleFactor
         
         if isBaseline(buffer):
             print(f"Found normal blink at {i}") 

@@ -12,8 +12,7 @@
 from extraction.Extraction import extractChannelsFromXdf
 from visualize.Visualize import printData
 from numpy import arange
-from detection.Detection import (detectChannelsEOGEvents, detectWithPattern, removeDoubles,
-    removeFalsePositives)
+from detection.Detection import detectWithPattern, removeDoubles
 from evaluation.Evaluation import batchTest, getTestData
 from pattern.Pattern import createPattern
 from include import BASICALLY_ZERO
