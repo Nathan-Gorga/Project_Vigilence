@@ -12,7 +12,8 @@
 from extraction.Extraction import extractChannelsFromXdf
 from visualize.Visualize import printData
 from numpy import arange
-from detection.Detection import detectChannelsEOGEvents, detectWithPattern
+from detection.Detection import (detectChannelsEOGEvents, detectWithPattern, removeDoubles,
+    removeFalsePositives)
 from evaluation.Evaluation import batchTest, getTestData
 from pattern.Pattern import createPattern
 from include import BASICALLY_ZERO
@@ -26,7 +27,15 @@ if __name__ == "__main__":
     
     patternChannel1, patternChannel2 = createPattern()
     
-    detectWithPattern(patternChannel1,channels[0])
+    ret1 = detectWithPattern(patternChannel1,channels[0])
+    ret2 = detectWithPattern(patternChannel2,channels[1])
+
+    eog1 = removeDoubles(ret1['normal_blink'])
+    eog2 = removeDoubles(ret2['normal_blink'])
+    
+    
+    printData(channels,[0,1], viewType="detected_eogs", eog_events=[eog1,eog2])
+    
     
     # printData(channels,[0,1], viewType="threshold", thresh=[BASICALLY_ZERO,-BASICALLY_ZERO])
     

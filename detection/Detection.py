@@ -1,7 +1,7 @@
 from mne.preprocessing.eog import _find_eog_events
 import numpy as np
 
-from include import BASICALLY_ZERO, TOLERANCE
+from include import BLINK_DURATION, TOLERANCE
 from utils.Utils import isBaseline, isSameEvent, localMaximumIndex
 from visualize.Visualize import printData
 
@@ -12,6 +12,8 @@ def mergeEvents(event1 :int, event2 :int, channel :list[int]):
 
     #store old event index
     leastEvent = event1 if event1 < event2 else event2
+    
+    print(f"event1 : {event1} | event2 : {event2} | channel : {channel}")
     
     oldIndex = channel.index(leastEvent)
     
@@ -38,13 +40,15 @@ def eventInChannel(eventA :int, channelB: list[int]):
     # condition if channelB only has 1 event
     if len(channelB) == 1 and isSameEvent(eventA,previous): return True
     
-    for eventB in channelB.copy():
+    temp = channelB.copy()
+    
+    for eventB in temp:
 
         if isSameEvent(eventA,eventB):        
         
             if isSameEvent(eventA, previous):
         
-                channelB = mergeEvents(previous,eventB,channelB)
+                channelB = mergeEvents(previous,eventB,temp)
         
             flag = True
         
@@ -60,15 +64,18 @@ def removeFalsePositives(eog_events):
     chA = eog_events[0]
     chB = eog_events[1]
     
-    for event in chA.copy():
+    tempA = chA.copy()
+    tempB = chB.copy()
+    
+    for event in tempA:
         
-        if not eventInChannel(event, chB):
+        if not eventInChannel(event, tempB):
             chA.remove(event)
     
     
-    for event in chB.copy():
+    for event in tempB:
         
-        if not eventInChannel(event, chA):
+        if not eventInChannel(event, tempA):
             chB.remove(event)
     
     assert len(chA) == len(chB)
@@ -140,6 +147,11 @@ def detectWithPattern(pattern :list[float], data : list[float]):
     sizeData = len(data)
     
     repeat = sizeData - sizePattern
+    ret = {
+        "normal_blink" : [],
+        "fast_blink" : [],
+        "slow_blink" : []        
+    }
     
     for i in range(repeat):
         start = i
@@ -150,7 +162,17 @@ def detectWithPattern(pattern :list[float], data : list[float]):
         
         
         if isBaseline(buffer):
-            print(f"Found blink at {i}")  
-            printData([list(np.array(data)- (([0] * i) + pattern +( [0] * (repeat - i)))),data],[0,1], viewType="threshold", thresh=[BASICALLY_ZERO,-BASICALLY_ZERO])
+            print(f"Found normal blink at {i}") 
+            ret["normal_blink"].append(i) 
+            # printData([list(np.array(data)- (([0] * i) + pattern +( [0] * (repeat - i)))),data],[0,1], viewType="threshold", thresh=[BASICALLY_ZERO,-BASICALLY_ZERO])
+    return ret
         
-             
+def removeDoubles(eog_event): # function could be added to remove false positives
+    fin = []
+    until = -1
+    for event in eog_event:
+        if event > until:
+            fin.append(event)
+            until = event + BLINK_DURATION
+    return fin
+    

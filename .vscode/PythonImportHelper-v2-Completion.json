@@ -41,7 +41,7 @@
         "documentation": {}
     },
     {
-        "label": "BASICALLY_ZERO",
+        "label": "BLINK_DURATION",
         "importPath": "include",
         "description": "include",
         "isExtraImport": true,
@@ -235,6 +235,22 @@
         "documentation": {}
     },
     {
+        "label": "removeDoubles",
+        "importPath": "detection.Detection",
+        "description": "detection.Detection",
+        "isExtraImport": true,
+        "detail": "detection.Detection",
+        "documentation": {}
+    },
+    {
+        "label": "removeFalsePositives",
+        "importPath": "detection.Detection",
+        "description": "detection.Detection",
+        "isExtraImport": true,
+        "detail": "detection.Detection",
+        "documentation": {}
+    },
+    {
         "label": "load_xdf",
         "importPath": "pyxdf",
         "description": "pyxdf",
@@ -320,7 +336,7 @@
         "kind": 2,
         "importPath": "detection.Detection",
         "description": "detection.Detection",
-        "peekOfCode": "def mergeEvents(event1 :int, event2 :int, channel :list[int]):\n    #create new event\n    newEvent = int(np.mean([event1,event2]))\n    #store old event index\n    leastEvent = event1 if event1 < event2 else event2\n    oldIndex = channel.index(leastEvent)\n    #remove old events\n    channel.remove(event1)\n    channel.remove(event2)\n    #store new event at old event index",
+        "peekOfCode": "def mergeEvents(event1 :int, event2 :int, channel :list[int]):\n    #create new event\n    newEvent = int(np.mean([event1,event2]))\n    #store old event index\n    leastEvent = event1 if event1 < event2 else event2\n    print(f\"event1 : {event1} | event2 : {event2} | channel : {channel}\")\n    oldIndex = channel.index(leastEvent)\n    #remove old events\n    channel.remove(event1)\n    channel.remove(event2)",
         "detail": "detection.Detection",
         "documentation": {}
     },
@@ -329,7 +345,7 @@
         "kind": 2,
         "importPath": "detection.Detection",
         "description": "detection.Detection",
-        "peekOfCode": "def eventInChannel(eventA :int, channelB: list[int]):\n    if len(channelB) == 0: return False\n    flag = False\n    previous = -1000 # should not be called the very first time so not a problem\n    # condition if channelB only has 1 event\n    if len(channelB) == 1 and isSameEvent(eventA,previous): return True\n    for eventB in channelB.copy():\n        if isSameEvent(eventA,eventB):        \n            if isSameEvent(eventA, previous):\n                channelB = mergeEvents(previous,eventB,channelB)",
+        "peekOfCode": "def eventInChannel(eventA :int, channelB: list[int]):\n    if len(channelB) == 0: return False\n    flag = False\n    previous = -1000 # should not be called the very first time so not a problem\n    # condition if channelB only has 1 event\n    if len(channelB) == 1 and isSameEvent(eventA,previous): return True\n    temp = channelB.copy()\n    for eventB in temp:\n        if isSameEvent(eventA,eventB):        \n            if isSameEvent(eventA, previous):",
         "detail": "detection.Detection",
         "documentation": {}
     },
@@ -338,7 +354,7 @@
         "kind": 2,
         "importPath": "detection.Detection",
         "description": "detection.Detection",
-        "peekOfCode": "def removeFalsePositives(eog_events): \n    chA = eog_events[0]\n    chB = eog_events[1]\n    for event in chA.copy():\n        if not eventInChannel(event, chB):\n            chA.remove(event)\n    for event in chB.copy():\n        if not eventInChannel(event, chA):\n            chB.remove(event)\n    assert len(chA) == len(chB)",
+        "peekOfCode": "def removeFalsePositives(eog_events): \n    chA = eog_events[0]\n    chB = eog_events[1]\n    tempA = chA.copy()\n    tempB = chB.copy()\n    for event in tempA:\n        if not eventInChannel(event, tempB):\n            chA.remove(event)\n    for event in tempB:\n        if not eventInChannel(event, tempA):",
         "detail": "detection.Detection",
         "documentation": {}
     },
@@ -356,7 +372,7 @@
         "kind": 2,
         "importPath": "detection.Detection",
         "description": "detection.Detection",
-        "peekOfCode": "def detectChannelsEOGEvents(channels,sfreq):\n    ret = []\n    for channel_data in channels:\n        ret.append(detectEOGEvents(channel_data,sfreq))\n    return removeFalsePositives(ret)\ndef detectWithPattern(pattern :list[float], data : list[float]):\n    sizePattern = len(pattern)\n    sizeData = len(data)\n    repeat = sizeData - sizePattern\n    for i in range(repeat):",
+        "peekOfCode": "def detectChannelsEOGEvents(channels,sfreq):\n    ret = []\n    for channel_data in channels:\n        ret.append(detectEOGEvents(channel_data,sfreq))\n    return removeFalsePositives(ret)\ndef detectWithPattern(pattern :list[float], data : list[float]):\n    sizePattern = len(pattern)\n    sizeData = len(data)\n    repeat = sizeData - sizePattern\n    ret = {",
         "detail": "detection.Detection",
         "documentation": {}
     },
@@ -365,7 +381,16 @@
         "kind": 2,
         "importPath": "detection.Detection",
         "description": "detection.Detection",
-        "peekOfCode": "def detectWithPattern(pattern :list[float], data : list[float]):\n    sizePattern = len(pattern)\n    sizeData = len(data)\n    repeat = sizeData - sizePattern\n    for i in range(repeat):\n        start = i\n        end = start + sizePattern\n        buffer = np.array(data[start:end])\n        buffer -= pattern\n        if isBaseline(buffer):",
+        "peekOfCode": "def detectWithPattern(pattern :list[float], data : list[float]):\n    sizePattern = len(pattern)\n    sizeData = len(data)\n    repeat = sizeData - sizePattern\n    ret = {\n        \"normal_blink\" : [],\n        \"fast_blink\" : [],\n        \"slow_blink\" : []        \n    }\n    for i in range(repeat):",
+        "detail": "detection.Detection",
+        "documentation": {}
+    },
+    {
+        "label": "removeDoubles",
+        "kind": 2,
+        "importPath": "detection.Detection",
+        "description": "detection.Detection",
+        "peekOfCode": "def removeDoubles(eog_event): # function could be added to remove false positives\n    fin = []\n    until = -1\n    for event in eog_event:\n        if event > until:\n            fin.append(event)\n            until = event + BLINK_DURATION\n    return fin",
         "detail": "detection.Detection",
         "documentation": {}
     },
@@ -761,7 +786,7 @@
         "kind": 5,
         "importPath": "include",
         "description": "include",
-        "peekOfCode": "BASICALLY_ZERO = 15",
+        "peekOfCode": "BASICALLY_ZERO = 20",
         "detail": "include",
         "documentation": {}
     }
