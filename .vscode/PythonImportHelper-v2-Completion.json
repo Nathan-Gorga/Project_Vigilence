@@ -25,6 +25,14 @@
         "documentation": {}
     },
     {
+        "label": "min",
+        "importPath": "numpy",
+        "description": "numpy",
+        "isExtraImport": true,
+        "detail": "numpy",
+        "documentation": {}
+    },
+    {
         "label": "arange",
         "importPath": "numpy",
         "description": "numpy",
@@ -65,6 +73,30 @@
         "documentation": {}
     },
     {
+        "label": "BASICALLY_ZERO",
+        "importPath": "include",
+        "description": "include",
+        "isExtraImport": true,
+        "detail": "include",
+        "documentation": {}
+    },
+    {
+        "label": "BASICALLY_ZERO",
+        "importPath": "include",
+        "description": "include",
+        "isExtraImport": true,
+        "detail": "include",
+        "documentation": {}
+    },
+    {
+        "label": "isBaseline",
+        "importPath": "utils.Utils",
+        "description": "utils.Utils",
+        "isExtraImport": true,
+        "detail": "utils.Utils",
+        "documentation": {}
+    },
+    {
         "label": "isSameEvent",
         "importPath": "utils.Utils",
         "description": "utils.Utils",
@@ -78,6 +110,30 @@
         "description": "utils.Utils",
         "isExtraImport": true,
         "detail": "utils.Utils",
+        "documentation": {}
+    },
+    {
+        "label": "printData",
+        "importPath": "visualize.Visualize",
+        "description": "visualize.Visualize",
+        "isExtraImport": true,
+        "detail": "visualize.Visualize",
+        "documentation": {}
+    },
+    {
+        "label": "printData",
+        "importPath": "visualize.Visualize",
+        "description": "visualize.Visualize",
+        "isExtraImport": true,
+        "detail": "visualize.Visualize",
+        "documentation": {}
+    },
+    {
+        "label": "printData",
+        "importPath": "visualize.Visualize",
+        "description": "visualize.Visualize",
+        "isExtraImport": true,
+        "detail": "visualize.Visualize",
         "documentation": {}
     },
     {
@@ -163,6 +219,14 @@
         "documentation": {}
     },
     {
+        "label": "detectWithPattern",
+        "importPath": "detection.Detection",
+        "description": "detection.Detection",
+        "isExtraImport": true,
+        "detail": "detection.Detection",
+        "documentation": {}
+    },
+    {
         "label": "load_xdf",
         "importPath": "pyxdf",
         "description": "pyxdf",
@@ -184,22 +248,6 @@
         "description": "unittest.mock",
         "isExtraImport": true,
         "detail": "unittest.mock",
-        "documentation": {}
-    },
-    {
-        "label": "printData",
-        "importPath": "visualize.Visualize",
-        "description": "visualize.Visualize",
-        "isExtraImport": true,
-        "detail": "visualize.Visualize",
-        "documentation": {}
-    },
-    {
-        "label": "printData",
-        "importPath": "visualize.Visualize",
-        "description": "visualize.Visualize",
-        "isExtraImport": true,
-        "detail": "visualize.Visualize",
         "documentation": {}
     },
     {
@@ -300,7 +348,16 @@
         "kind": 2,
         "importPath": "detection.Detection",
         "description": "detection.Detection",
-        "peekOfCode": "def detectChannelsEOGEvents(channels,sfreq):\n    ret = []\n    for channel_data in channels:\n        ret.append(detectEOGEvents(channel_data,sfreq))\n    return removeFalsePositives(ret)",
+        "peekOfCode": "def detectChannelsEOGEvents(channels,sfreq):\n    ret = []\n    for channel_data in channels:\n        ret.append(detectEOGEvents(channel_data,sfreq))\n    return removeFalsePositives(ret)\ndef detectWithPattern(pattern :list[float], data : list[float]):\n    sizePattern = len(pattern)\n    sizeData = len(data)\n    repeat = sizeData - sizePattern\n    for i in range(repeat):",
+        "detail": "detection.Detection",
+        "documentation": {}
+    },
+    {
+        "label": "detectWithPattern",
+        "kind": 2,
+        "importPath": "detection.Detection",
+        "description": "detection.Detection",
+        "peekOfCode": "def detectWithPattern(pattern :list[float], data : list[float]):\n    sizePattern = len(pattern)\n    sizeData = len(data)\n    repeat = sizeData - sizePattern\n    for i in range(repeat):\n        start = i\n        end = start + sizePattern\n        buffer = np.array(data[start:end])\n        buffer -= pattern\n        if isBaseline(buffer):",
         "detail": "detection.Detection",
         "documentation": {}
     },
@@ -543,7 +600,7 @@
         "kind": 2,
         "importPath": "utils.Utils",
         "description": "utils.Utils",
-        "peekOfCode": "def isSameEvent(x1 :int,x2 :int):\n    return (x1 - TOLERANCE) <= x2 <= (x1 + TOLERANCE)\ndef findLocalMaximum(buffer :list[int]):\n    if buffer == []: raise ValueError(\"Provided buffer is empty\")\n    return max(buffer)\ndef localMaximumIndex(buffer :list[int], offset : int = 0):\n    return offset + buffer.index(findLocalMaximum(buffer))",
+        "peekOfCode": "def isSameEvent(x1 :int,x2 :int):\n    return (x1 - TOLERANCE) <= x2 <= (x1 + TOLERANCE)\ndef findLocalMaximum(buffer :list[int]):\n    if buffer == []: raise ValueError(\"Provided buffer is empty\")\n    return max(buffer)\ndef localMaximumIndex(buffer :list[int], offset : int = 0):\n    return offset + buffer.index(findLocalMaximum(buffer))\ndef isBaseline(buffer):\n    top = BASICALLY_ZERO\n    bottom = -BASICALLY_ZERO",
         "detail": "utils.Utils",
         "documentation": {}
     },
@@ -552,7 +609,7 @@
         "kind": 2,
         "importPath": "utils.Utils",
         "description": "utils.Utils",
-        "peekOfCode": "def findLocalMaximum(buffer :list[int]):\n    if buffer == []: raise ValueError(\"Provided buffer is empty\")\n    return max(buffer)\ndef localMaximumIndex(buffer :list[int], offset : int = 0):\n    return offset + buffer.index(findLocalMaximum(buffer))",
+        "peekOfCode": "def findLocalMaximum(buffer :list[int]):\n    if buffer == []: raise ValueError(\"Provided buffer is empty\")\n    return max(buffer)\ndef localMaximumIndex(buffer :list[int], offset : int = 0):\n    return offset + buffer.index(findLocalMaximum(buffer))\ndef isBaseline(buffer):\n    top = BASICALLY_ZERO\n    bottom = -BASICALLY_ZERO\n    bMax = max(buffer)\n    bMin = min(buffer)",
         "detail": "utils.Utils",
         "documentation": {}
     },
@@ -561,7 +618,16 @@
         "kind": 2,
         "importPath": "utils.Utils",
         "description": "utils.Utils",
-        "peekOfCode": "def localMaximumIndex(buffer :list[int], offset : int = 0):\n    return offset + buffer.index(findLocalMaximum(buffer))",
+        "peekOfCode": "def localMaximumIndex(buffer :list[int], offset : int = 0):\n    return offset + buffer.index(findLocalMaximum(buffer))\ndef isBaseline(buffer):\n    top = BASICALLY_ZERO\n    bottom = -BASICALLY_ZERO\n    bMax = max(buffer)\n    bMin = min(buffer)\n    return bMax <= top and bMin >= bottom",
+        "detail": "utils.Utils",
+        "documentation": {}
+    },
+    {
+        "label": "isBaseline",
+        "kind": 2,
+        "importPath": "utils.Utils",
+        "description": "utils.Utils",
+        "peekOfCode": "def isBaseline(buffer):\n    top = BASICALLY_ZERO\n    bottom = -BASICALLY_ZERO\n    bMax = max(buffer)\n    bMin = min(buffer)\n    return bMax <= top and bMin >= bottom",
         "detail": "utils.Utils",
         "documentation": {}
     },
@@ -656,11 +722,20 @@
         "documentation": {}
     },
     {
+        "label": "printTreshold",
+        "kind": 2,
+        "importPath": "visualize.Visualize",
+        "description": "visualize.Visualize",
+        "peekOfCode": "def printTreshold(channels :list[list[float]], thresholds : list[list[float]]):\n    axs, row , col = printChannels(channels)\n    for c in range(col):\n        for r in range(row):\n            thresh = thresholds[r]\n            if col == 1:\n                axs[r].avxline(y = thresh, linestyle=\"--\")\n            else:\n                axs[r][c].avxline(y = thresh, linestyle=\"--\")\n    return axs, row, col",
+        "detail": "visualize.Visualize",
+        "documentation": {}
+    },
+    {
         "label": "printData",
         "kind": 2,
         "importPath": "visualize.Visualize",
         "description": "visualize.Visualize",
-        "peekOfCode": "def printData(\n    channels :list[list[float]], \n    select_channels, \n    viewType :str=\"channel_only\", \n    thresh=None,\n    eog_events=None\n    ):\n    viewTypes = [\"channel_only\", \"detected_eogs\"]    \n    if viewType not in viewTypes:\n        raise ValueError(f\"ViewType : {viewType} does not exist, please choose one from the list : {viewTypes}\")",
+        "peekOfCode": "def printData(\n    channels :list[list[float]], \n    select_channels, \n    viewType :str=\"channel_only\", \n    thresh=[0],\n    eog_events=None\n    ):\n    viewTypes = [\"channel_only\", \"detected_eogs\",\"test_success\",\"test_fail\",\"threshold\"]    \n    if viewType not in viewTypes:\n        raise ValueError(f\"ViewType : {viewType} does not exist, please choose one from the list : {viewTypes}\")",
         "detail": "visualize.Visualize",
         "documentation": {}
     },
@@ -671,6 +746,15 @@
         "description": "visualize.Visualize",
         "peekOfCode": "color = [\"blue\", \"green\", \"red\", \"purple\", \"orange\", \"brown\", \"pink\", \"gray\"]\ndef printChannels(channels :list[list[float]]):\n    num_channels = len(channels)\n    col = (2 // num_channels)\n    _, axs = plt.subplots(num_channels, col, figsize=(10, 3 * num_channels), sharex=True)\n    # If only 1 channel, axs is not a list\n    if num_channels == 1:\n        axs = [axs]\n    if col == 1:\n        for i, data in enumerate(channels):",
         "detail": "visualize.Visualize",
+        "documentation": {}
+    },
+    {
+        "label": "BASICALLY_ZERO",
+        "kind": 5,
+        "importPath": "include",
+        "description": "include",
+        "peekOfCode": "BASICALLY_ZERO = 10",
+        "detail": "include",
         "documentation": {}
     }
 ]

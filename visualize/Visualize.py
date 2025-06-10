@@ -74,17 +74,32 @@ def printTest(test_data : list[list[float]],test_eog_events, test_succeed=False)
                    
     return axs, row, col 
     
+    
+    
+def printTreshold(channels :list[list[float]], thresholds : list[list[float]]):
+
+    axs, row , col = printChannels(channels)
+    for c in range(col):
+        for r in range(row):
+            thresh = thresholds[r]
+            if col == 1:
+                axs[r].avxline(y = thresh, linestyle="--")
+            else:
+                axs[r][c].avxline(y = thresh, linestyle="--")
+            
+    return axs, row, col
+    
 
 
 def printData(
     channels :list[list[float]], 
     select_channels, 
     viewType :str="channel_only", 
-    thresh=None,
+    thresh=[0],
     eog_events=None
     ):
     
-    viewTypes = ["channel_only", "detected_eogs"]    
+    viewTypes = ["channel_only", "detected_eogs","test_success","test_fail","threshold"]    
     
     if viewType not in viewTypes:
         raise ValueError(f"ViewType : {viewType} does not exist, please choose one from the list : {viewTypes}")
@@ -103,6 +118,10 @@ def printData(
             _,_,_ = printTest(channels,eog_events,test_succeed=True)
         case "test_fail":
             _,_,_ = printTest(channels,eog_events,test_succeed=False)
+        case "treshold":
+            _,_,_ = printTreshold(channels,thresh)
+                
+        
             
     
     plt.tight_layout()

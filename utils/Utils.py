@@ -1,6 +1,6 @@
-from numpy import max
+from numpy import max,min
 
-from include import TOLERANCE
+from include import TOLERANCE, BASICALLY_ZERO
 
 
 def isSameEvent(x1 :int,x2 :int):
@@ -13,3 +13,12 @@ def findLocalMaximum(buffer :list[int]):
 
 def localMaximumIndex(buffer :list[int], offset : int = 0):
     return offset + buffer.index(findLocalMaximum(buffer))
+
+def isBaseline(buffer):
+    top = BASICALLY_ZERO
+    bottom = -BASICALLY_ZERO
+    
+    bMax = max(buffer)
+    bMin = min(buffer)
+    
+    return bMax <= top and bMin >= bottom 

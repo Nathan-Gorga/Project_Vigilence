@@ -12,26 +12,30 @@
 from extraction.Extraction import extractChannelsFromXdf
 from visualize.Visualize import printData
 from numpy import arange
-from detection.Detection import detectChannelsEOGEvents
+from detection.Detection import detectChannelsEOGEvents, detectWithPattern
 from evaluation.Evaluation import batchTest, getTestData
 from pattern.Pattern import createPattern
+from include import BASICALLY_ZERO
 
 if __name__ == "__main__":
-    
-    patternChannel1, patternChannel2 = createPattern()
-    
-    
     
     filepath :str = r'data\sub-nathan_ses-S001_task-clean_blink_calibration_run-001_eeg.xdf'
     selected_channels: list[int] = [1,3]
 
     [ channels, sfreq ] = extractChannelsFromXdf(filepath,selected_channels, extract_sfreq=True)
+    
+    patternChannel1, patternChannel2 = createPattern()
+    
+    detectWithPattern(patternChannel1,channels[0])
+    
+    # printData(channels,[0,1], viewType="threshold", thresh=[BASICALLY_ZERO,-BASICALLY_ZERO])
+    
 
-    chosen_channels = arange(0,len(selected_channels))
+    # chosen_channels = arange(0,len(selected_channels))
         
-    eog_events = detectChannelsEOGEvents(channels,sfreq)
+    # eog_events = detectChannelsEOGEvents(channels,sfreq)
 
-    printData(channels, chosen_channels, viewType="detected_eogs",eog_events=eog_events)
+    # printData(channels, chosen_channels, viewType="detected_eogs",eog_events=eog_events)
     
     
     

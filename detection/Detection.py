@@ -2,8 +2,8 @@ from mne.preprocessing.eog import _find_eog_events
 import numpy as np
 
 from include import TOLERANCE
-from utils.Utils import  isSameEvent, localMaximumIndex
-
+from utils.Utils import isBaseline, isSameEvent, localMaximumIndex
+from visualize.Visualize import printData
 
 
 def mergeEvents(event1 :int, event2 :int, channel :list[int]):
@@ -131,3 +131,26 @@ def detectChannelsEOGEvents(channels,sfreq):
         ret.append(detectEOGEvents(channel_data,sfreq))
         
     return removeFalsePositives(ret)
+
+
+
+
+def detectWithPattern(pattern :list[float], data : list[float]):
+    sizePattern = len(pattern)
+    sizeData = len(data)
+    
+    repeat = sizeData - sizePattern
+    
+    for i in range(repeat):
+        start = i
+        end = start + sizePattern
+        buffer = np.array(data[start:end])
+        
+        buffer -= pattern
+        
+        
+        if isBaseline(buffer):
+            print(f"Found blink at {i}")  
+            printData([list(np.array(data)- (([0] * i) + pattern +( [0] * (repeat - i)))),data],[0,1])
+        
+             
