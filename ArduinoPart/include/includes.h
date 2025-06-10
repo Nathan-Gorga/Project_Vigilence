@@ -3,6 +3,7 @@
 
 #include <Arduino.h>
 #include <pt.h>
+#include <pt-sem.h>
 #include <limits.h>
 
 #define BLINK_DURATION 160
