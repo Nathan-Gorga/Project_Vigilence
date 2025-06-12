@@ -8,6 +8,9 @@
 
 #define BLINK_DURATION 160
 
+#define ALMOST_BASELINE 40
+
+
 #define S_FREQ 200
 
 //let's try 1 second for now
@@ -18,6 +21,13 @@
 //     float y_channel1;
 //     float y_channel2;
 // }data_point;
+
+
+
+float ring_buffer[BUFFER_SIZE];
+uint16_t write = 0;
+uint16_t read = 0;
+
 
 
 #endif

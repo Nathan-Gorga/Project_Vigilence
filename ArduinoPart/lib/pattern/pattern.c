@@ -1,10 +1,5 @@
 #include "pattern.h"
 
-#define MAXIMUM_PATTERN_DURATION 256
-
-float patterns[NUM_EVENTS][MAXIMUM_PATTERN_DURATION];
-uint16_t pattern_durations[NUM_EVENTS];
-
 
 void initPatternDuration(void){
     for(int i = 0; i < NUM_EVENTS; ++i){
@@ -13,7 +8,13 @@ void initPatternDuration(void){
 }
 
 void createPattern(enum EVENT_TYPE type){
-    //extract pattern from file
+    #define NUM_EVENTS 1
+    //extract pattern from buffer
+
+        //identify crudely patterns with baseline triggering
+
+        //average them
+
 
     //add pattern to specified event location
 
