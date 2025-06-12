@@ -1,0 +1,16 @@
+{
+  "folders": [
+	{
+		"path": ".."
+	},
+	{
+		"name": "ArduinoPart",
+		"path": "."
+	}
+],
+  "settings": {
+    "files.associations": {
+      "pattern.h": "c"
+    }
+  }
+}

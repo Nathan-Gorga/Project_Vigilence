@@ -41,18 +41,11 @@
         "documentation": {}
     },
     {
-        "label": "BLINK_DURATION",
+        "label": "include",
+        "kind": 6,
+        "isExtraImport": true,
         "importPath": "include",
         "description": "include",
-        "isExtraImport": true,
-        "detail": "include",
-        "documentation": {}
-    },
-    {
-        "label": "TOLERANCE",
-        "importPath": "include",
-        "description": "include",
-        "isExtraImport": true,
         "detail": "include",
         "documentation": {}
     },
@@ -74,14 +67,6 @@
     },
     {
         "label": "TOLERANCE",
-        "importPath": "include",
-        "description": "include",
-        "isExtraImport": true,
-        "detail": "include",
-        "documentation": {}
-    },
-    {
-        "label": "BASICALLY_ZERO",
         "importPath": "include",
         "description": "include",
         "isExtraImport": true,
@@ -228,6 +213,14 @@
     },
     {
         "label": "removeDoubles",
+        "importPath": "detection.Detection",
+        "description": "detection.Detection",
+        "isExtraImport": true,
+        "detail": "detection.Detection",
+        "documentation": {}
+    },
+    {
+        "label": "detectChannelsEOGEvents",
         "importPath": "detection.Detection",
         "description": "detection.Detection",
         "isExtraImport": true,
@@ -772,6 +765,15 @@
         "description": "PythonPrototype.include",
         "peekOfCode": "BASICALLY_ZERO = 40",
         "detail": "PythonPrototype.include",
+        "documentation": {}
+    },
+    {
+        "label": "BASICALLY_ZERO",
+        "kind": 5,
+        "importPath": "PythonPrototype.main",
+        "description": "PythonPrototype.main",
+        "peekOfCode": "BASICALLY_ZERO = 40\nif __name__ == \"__main__\":\n    filepath :str = r'data\\sub-nathan_ses-S001_task-clean_blink_calibration_run-001_eeg.xdf'\n    selected_channels: list[int] = [1,3]\n    [ channels, sfreq ] = extractChannelsFromXdf(filepath,selected_channels, extract_sfreq=True)\n    # patternChannel1, patternChannel2 = createPattern()\n    # ret1 = detectWithPattern(patternChannel1,channels[0])\n    # ret2 = detectWithPattern(patternChannel2,channels[1])\n    # eog1 = removeDoubles(ret1['normal_blink'])\n    # eog2 = removeDoubles(ret2['normal_blink'])",
+        "detail": "PythonPrototype.main",
         "documentation": {}
     }
 ]

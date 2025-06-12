@@ -1,9 +1,11 @@
 from extraction.Extraction import extractChannelsFromXdf
+
+import include
 import numpy as np
 from visualize.Visualize import printData
 from detection.Detection import detectChannelsEOGEvents
-from include import BLINK_DURATION, TOLERANCE
-
+TOLERANCE :int = int(150 /6)
+BLINK_DURATION :int = 160
 
 def avgEvents(events : list[float]) -> list[float]:
     
