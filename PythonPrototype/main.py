@@ -12,10 +12,12 @@
 from extraction.Extraction import extractChannelsFromXdf
 from visualize.Visualize import printData
 from numpy import arange
-from detection.Detection import detectWithPattern, removeDoubles
+from detection.Detection import detectWithPattern, removeDoubles, detectChannelsEOGEvents
 from evaluation.Evaluation import batchTest, getTestData
 from pattern.Pattern import createPattern
-from include import BASICALLY_ZERO
+
+
+BASICALLY_ZERO = 40
 
 if __name__ == "__main__":
     
@@ -24,26 +26,26 @@ if __name__ == "__main__":
 
     [ channels, sfreq ] = extractChannelsFromXdf(filepath,selected_channels, extract_sfreq=True)
     
-    patternChannel1, patternChannel2 = createPattern()
+    # patternChannel1, patternChannel2 = createPattern()
     
-    ret1 = detectWithPattern(patternChannel1,channels[0])
-    ret2 = detectWithPattern(patternChannel2,channels[1])
+    # ret1 = detectWithPattern(patternChannel1,channels[0])
+    # ret2 = detectWithPattern(patternChannel2,channels[1])
 
-    eog1 = removeDoubles(ret1['normal_blink'])
-    eog2 = removeDoubles(ret2['normal_blink'])
+    # eog1 = removeDoubles(ret1['normal_blink'])
+    # eog2 = removeDoubles(ret2['normal_blink'])
     
     
-    printData(channels,[0,1], viewType="detected_eogs", eog_events=[eog1,eog2])
+    # printData(channels,[0,1], viewType="detected_eogs", eog_events=[eog1,eog2])
     
     
     # printData(channels,[0,1], viewType="threshold", thresh=[BASICALLY_ZERO,-BASICALLY_ZERO])
     
 
-    # chosen_channels = arange(0,len(selected_channels))
+    chosen_channels = arange(0,len(selected_channels))
         
-    # eog_events = detectChannelsEOGEvents(channels,sfreq)
+    eog_events = detectChannelsEOGEvents(channels,sfreq)
 
-    # printData(channels, chosen_channels, viewType="detected_eogs",eog_events=eog_events)
+    printData(channels, chosen_channels, viewType="detected_eogs",eog_events=eog_events)
     
     
     
